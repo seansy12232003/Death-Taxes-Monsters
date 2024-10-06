@@ -1,8 +1,11 @@
 extends CharacterBody2D
 
+var screensize
+const SPEED = 100.0
 
-const SPEED = 150.0
-
+func _ready():
+	screensize = get_viewport_rect().size
+	hide()
 
 func _physics_process(delta):
 	velocity = Vector2.ZERO # The player's movement vector
@@ -22,3 +25,12 @@ func _physics_process(delta):
 		move_and_slide()
 	else:
 		$AnimatedSprite2D.stop()
+	
+	# prevent player from going outside the screen
+	position.x = clamp(position.x, 0, screensize.x)
+	position.y = clamp(position.y, 0, screensize.y)
+
+func set_pos(pos): # function to set position of player
+	position = pos
+	show()
+	$CollisionShape2D.disabled = false

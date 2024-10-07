@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 
 var screensize
-const ORIGINAL_SPEED = 100.0
-var SPEED = 100.0
+const ORIGINAL_SPEED = 75.0
+var SPEED = 75.0
 
 func _ready():
 	screensize = get_viewport_rect().size

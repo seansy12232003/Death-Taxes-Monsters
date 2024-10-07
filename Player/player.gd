@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
+
 var screensize
-const SPEED = 100.0
+const ORIGINAL_SPEED = 75.0
+var SPEED = 75.0
 
 func _ready():
 	screensize = get_viewport_rect().size
@@ -34,3 +36,9 @@ func set_pos(pos): # function to set position of player
 	position = pos
 	show()
 	$CollisionShape2D.disabled = false
+
+func set_speed(new_speed):
+	SPEED = new_speed
+
+func reset_speed():
+	SPEED = ORIGINAL_SPEED

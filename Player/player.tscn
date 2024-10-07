@@ -168,7 +168,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"down",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -200,7 +200,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"left",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -232,7 +232,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"right",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -261,22 +261,23 @@ animations = [{
 }],
 "loop": true,
 "name": &"up",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n7pl6"]
-size = Vector2(36, 55.5)
+size = Vector2(23.5, 39.375)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_j6qsi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.5, 0.494)
+position = Vector2(0, 1.19209e-07)
+scale = Vector2(0.359375, 0.355063)
 sprite_frames = SubResource("SpriteFrames_bktu1")
-animation = &"left"
+animation = &"right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3.125)
+position = Vector2(0, 2)
 scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_n7pl6")
 

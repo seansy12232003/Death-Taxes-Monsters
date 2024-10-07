@@ -6,7 +6,7 @@ const ORIGINAL_SPEED = 75.0
 var SPEED = 75.0
 
 func _ready():
-	screensize = get_viewport_rect().size
+	#screensize = get_viewport_rect().size
 	hide()
 
 func _physics_process(delta):
@@ -29,8 +29,8 @@ func _physics_process(delta):
 		$AnimatedSprite2D.stop()
 	
 	# prevent player from going outside the screen
-	position.x = clamp(position.x, 0, screensize.x)
-	position.y = clamp(position.y, 0, screensize.y)
+	#position.x = clamp(position.x, 0, screensize.x)
+	#position.y = clamp(position.y, 0, screensize.y)
 
 func set_pos(pos): # function to set position of player
 	position = pos

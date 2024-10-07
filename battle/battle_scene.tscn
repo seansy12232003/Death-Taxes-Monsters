@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://blxk0w8diokqq" path="res://Assets/BG/battleback1.png" id="1_hfq7x"]
 
 [node name="BattleScene" type="Node2D"]
+z_index = 3
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 1152.0

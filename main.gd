@@ -6,7 +6,6 @@ var slow_speed = 20.0
 func _ready() -> void:
 	$Player.set_pos($StartPosition.position) # set position of player to start position
 
-
 # Called every frame. 'delta' is the elapsed timea since the previous frame.
 func _process(delta: float) -> void:
 	pass

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://baxn7b4aay4mt"]
+[gd_scene load_steps=15 format=4 uid="uid://baxn7b4aay4mt"]
 
 [ext_resource type="Texture2D" uid="uid://ca8cmnj12mr1q" path="res://Assets/SERENE_VILLAGE_REVAMPED/Serene_Village_16x16.png" id="1_ftrtj"]
 [ext_resource type="Script" path="res://main.gd" id="1_g078x"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://battle/battle_spawn.gd" id="4_bb00a"]
 [ext_resource type="PackedScene" uid="uid://du2bgpkwl3xxl" path="res://Player/ui.tscn" id="4_m14w0"]
 [ext_resource type="Texture2D" uid="uid://dx87fd6jyf0h8" path="res://icon.svg" id="5_bh1fk"]
+[ext_resource type="AudioStream" uid="uid://b0ocikrhmt7ty" path="res://battle-theme-194713.mp3" id="6_ivnyj"]
+[ext_resource type="AudioStream" uid="uid://dmvvubi462afi" path="res://First level sound.mp3" id="7_avoy2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4jofr"]
 texture = ExtResource("1_ftrtj")
@@ -796,7 +798,21 @@ texture = ExtResource("5_bh1fk")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BattleSpawn"]
 shape = SubResource("CircleShape2D_elxgp")
 
+[node name="BattleMusic" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+process_mode = 2
+auto_translate_mode = 1
+position = Vector2(500, 400)
+stream = ExtResource("6_ivnyj")
+parameters/looping = true
+
 [node name="UI" parent="." instance=ExtResource("4_m14w0")]
 layer = 2
+
+[node name="Level1" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, 0)
+stream = ExtResource("7_avoy2")
+autoplay = true
+parameters/looping = true
 
 [connection signal="body_entered" from="BattleSpawn" to="BattleSpawn" method="_on_body_entered"]

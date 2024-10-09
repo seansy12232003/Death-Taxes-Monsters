@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://baxn7b4aay4mt"]
+[gd_scene load_steps=29 format=4 uid="uid://baxn7b4aay4mt"]
 
 [ext_resource type="Texture2D" uid="uid://ca8cmnj12mr1q" path="res://Assets/SERENE_VILLAGE_REVAMPED/Serene_Village_16x16.png" id="1_ftrtj"]
 [ext_resource type="Script" path="res://main.gd" id="1_g078x"]
@@ -739,6 +739,21 @@ size = Vector2(11.1, 382)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_setqh"]
 size = Vector2(473, 15)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tvr1o"]
+size = Vector2(259.484, 39.4782)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g60sf"]
+size = Vector2(123.387, 22.7397)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yn1uw"]
+size = Vector2(20, 138)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_et32q"]
+size = Vector2(141.904, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ur1nv"]
+size = Vector2(162.431, 18.4103)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dbwsi"]
 size = Vector2(40, 45.5)
 
@@ -836,6 +851,31 @@ shape = SubResource("RectangleShape2D_g7wdn")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="ForestBarriers"]
 position = Vector2(592, 172)
 shape = SubResource("RectangleShape2D_setqh")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="ForestBarriers"]
+position = Vector2(496.701, 629.469)
+rotation = 1.13272
+shape = SubResource("RectangleShape2D_tvr1o")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="ForestBarriers"]
+position = Vector2(599, 779)
+rotation = 0.794125
+shape = SubResource("RectangleShape2D_g60sf")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="ForestBarriers"]
+position = Vector2(675, 809)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_yn1uw")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="ForestBarriers"]
+position = Vector2(659.246, 706.3)
+rotation = 0.975639
+shape = SubResource("RectangleShape2D_et32q")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="ForestBarriers"]
+position = Vector2(660, 588)
+rotation = -1.0472
+shape = SubResource("RectangleShape2D_ur1nv")
 
 [node name="Houses" type="StaticBody2D" parent="."]
 

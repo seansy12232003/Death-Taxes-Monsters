@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://baxn7b4aay4mt"]
+[gd_scene load_steps=44 format=4 uid="uid://baxn7b4aay4mt"]
 
 [ext_resource type="Texture2D" uid="uid://ca8cmnj12mr1q" path="res://Assets/SERENE_VILLAGE_REVAMPED/Serene_Village_16x16.png" id="1_ftrtj"]
 [ext_resource type="Script" path="res://main.gd" id="1_g078x"]
@@ -737,7 +737,7 @@ size = Vector2(20, 358)
 size = Vector2(11.1, 382)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_setqh"]
-size = Vector2(473, 15)
+size = Vector2(473, 8.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tvr1o"]
 size = Vector2(259.484, 39.4782)
@@ -773,7 +773,7 @@ size = Vector2(29.5767, 277.001)
 size = Vector2(23, 88.0231)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qq80j"]
-size = Vector2(20.9172, 133.842)
+size = Vector2(20.9172, 128.878)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_opj3u"]
 size = Vector2(18.1337, 138.822)
@@ -797,10 +797,22 @@ size = Vector2(53, 57)
 size = Vector2(66, 51)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qtypj"]
-size = Vector2(34, 54)
+size = Vector2(37, 54)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dlne5"]
 size = Vector2(68, 54)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cmq5c"]
+size = Vector2(117, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aq6x4"]
+size = Vector2(64, 53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_087h5"]
+size = Vector2(40, 47)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_swpxo"]
+size = Vector2(42, 49)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1dfnx"]
 size = Vector2(29, 9)
@@ -882,7 +894,7 @@ position = Vector2(368, 307)
 shape = SubResource("RectangleShape2D_g7wdn")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="ForestBarriers"]
-position = Vector2(592, 172)
+position = Vector2(592, 168.75)
 shape = SubResource("RectangleShape2D_setqh")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="ForestBarriers"]
@@ -938,7 +950,7 @@ rotation = 0.305433
 shape = SubResource("RectangleShape2D_dbude")
 
 [node name="CollisionShape2D15" type="CollisionShape2D" parent="ForestBarriers"]
-position = Vector2(756.11, 868.712)
+position = Vector2(755.08, 866.453)
 rotation = -0.427606
 shape = SubResource("RectangleShape2D_qq80j")
 
@@ -976,12 +988,28 @@ position = Vector2(631, 401.5)
 shape = SubResource("RectangleShape2D_h4hd0")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Houses"]
-position = Vector2(709, 399)
+position = Vector2(710.5, 399)
 shape = SubResource("RectangleShape2D_qtypj")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Houses"]
 position = Vector2(711, 287)
 shape = SubResource("RectangleShape2D_dlne5")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Houses"]
+position = Vector2(478.5, 278.5)
+shape = SubResource("RectangleShape2D_cmq5c")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Houses"]
+position = Vector2(630, 286.5)
+shape = SubResource("RectangleShape2D_aq6x4")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Houses"]
+position = Vector2(519, 402.5)
+shape = SubResource("RectangleShape2D_087h5")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Houses"]
+position = Vector2(519, 402.5)
+shape = SubResource("RectangleShape2D_swpxo")
 
 [node name="Stairs" type="Area2D" parent="."]
 

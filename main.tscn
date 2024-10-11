@@ -6,8 +6,8 @@
 [ext_resource type="Script" path="res://battle/battle_spawn.gd" id="4_bb00a"]
 [ext_resource type="PackedScene" uid="uid://du2bgpkwl3xxl" path="res://Player/ui.tscn" id="4_m14w0"]
 [ext_resource type="Texture2D" uid="uid://dx87fd6jyf0h8" path="res://icon.svg" id="5_bh1fk"]
-[ext_resource type="AudioStream" uid="uid://b0ocikrhmt7ty" path="res://battle-theme-194713.mp3" id="6_ivnyj"]
-[ext_resource type="AudioStream" uid="uid://dmvvubi462afi" path="res://First level sound.mp3" id="7_avoy2"]
+[ext_resource type="AudioStream" uid="uid://b0ocikrhmt7ty" path="res://Music/battle-theme-194713.mp3" id="6_ivnyj"]
+[ext_resource type="AudioStream" uid="uid://dmvvubi462afi" path="res://Music/First level sound.mp3" id="7_avoy2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4jofr"]
 texture = ExtResource("1_ftrtj")
@@ -941,7 +941,6 @@ shape = SubResource("RectangleShape2D_4vqj5")
 [node name="CollisionShape2D13" type="CollisionShape2D" parent="ForestBarriers"]
 position = Vector2(859.807, 880.871)
 rotation = -0.488692
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_lpfkg")
 
 [node name="CollisionShape2D14" type="CollisionShape2D" parent="ForestBarriers"]
@@ -957,7 +956,6 @@ shape = SubResource("RectangleShape2D_qq80j")
 [node name="CollisionShape2D16" type="CollisionShape2D" parent="ForestBarriers"]
 position = Vector2(657.994, 895.744)
 rotation = 0.488692
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_opj3u")
 
 [node name="CollisionShape2D17" type="CollisionShape2D" parent="ForestBarriers"]

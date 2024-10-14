@@ -71,6 +71,7 @@ text = "Run"
 
 [node name="Fight" type="HBoxContainer" parent="UI"]
 visible = false
+layout_mode = 0
 offset_left = 450.0
 offset_top = 500.0
 offset_right = 600.0
@@ -106,6 +107,7 @@ text = "Attack 4"
 
 [node name="Items" type="HBoxContainer" parent="UI"]
 visible = false
+layout_mode = 0
 offset_left = 350.0
 offset_top = 500.0
 offset_right = 500.0
@@ -152,10 +154,12 @@ texture_under = ExtResource("4_pedmu")
 texture_progress = ExtResource("5_u10ma")
 
 [node name="Player Health" type="Label" parent="UI"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="ProgressBar2" type="ProgressBar" parent="UI/Player Health"]
+layout_mode = 0
 offset_left = 90.0
 offset_top = 21.0
 offset_right = 493.0

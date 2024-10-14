@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=4 uid="uid://baxn7b4aay4mt"]
+[gd_scene load_steps=89 format=4 uid="uid://baxn7b4aay4mt"]
 
 [ext_resource type="Texture2D" uid="uid://ca8cmnj12mr1q" path="res://Assets/SERENE_VILLAGE_REVAMPED/Serene_Village_16x16.png" id="1_ftrtj"]
 [ext_resource type="Script" path="res://main.gd" id="1_g078x"]
@@ -12,6 +12,9 @@
 [ext_resource type="Script" path="res://shop_keeper.gd" id="10_3fo3l"]
 [ext_resource type="PackedScene" uid="uid://1efliekgt7k6" path="res://shop.tscn" id="11_rr0k2"]
 [ext_resource type="Texture2D" uid="uid://dufpcjqbm3uns" path="res://Download75842.png" id="12_lyx6n"]
+[ext_resource type="AudioStream" uid="uid://b7x7xjgx7pfku" path="res://Music/footsteps-dirt-gravel-6823 (mp3cut.net).mp3" id="13_dohrn"]
+[ext_resource type="AudioStream" uid="uid://b4gpe4spuqxhl" path="res://sword-battle-jingle-loop-96983.mp3" id="13_uv4sm"]
+[ext_resource type="AudioStream" uid="uid://cd8ukvfocr8l2" path="res://birds-19624.mp3" id="15_rubnu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4jofr"]
 texture = ExtResource("1_ftrtj")
@@ -1343,6 +1346,22 @@ shape = SubResource("RectangleShape2D_swpxo")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stairs"]
 position = Vector2(575, 500.5)
 shape = SubResource("RectangleShape2D_1dfnx")
+
+[node name="Footsteps" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("13_dohrn")
+volume_db = 24.0
+
+[node name="swordSound" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+stream = ExtResource("13_uv4sm")
+
+[node name="birds" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("15_rubnu")
+autoplay = true
+parameters/looping = true
 
 [connection signal="body_entered" from="ShopKeeper" to="ShopKeeper" method="_on_body_entered"]
 [connection signal="body_entered" from="BattleSpawn" to="BattleSpawn" method="_on_body_entered"]

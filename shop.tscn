@@ -1,0 +1,315 @@
+[gd_scene load_steps=29 format=3 uid="uid://1efliekgt7k6"]
+
+[ext_resource type="Script" path="res://shop.gd" id="1_ypg6j"]
+[ext_resource type="Texture2D" uid="uid://dufpcjqbm3uns" path="res://Download75842.png" id="2_ccq7h"]
+[ext_resource type="Script" path="res://gold.gd" id="3_b62m0"]
+
+[sub_resource type="Animation" id="Animation_2wekl"]
+resource_name = "TransIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -300), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6acob"]
+resource_name = "TransOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 1000)]
+}
+
+[sub_resource type="Animation" id="Animation_dqxjs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -300)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4x1qn"]
+_data = {
+"RESET": SubResource("Animation_dqxjs"),
+"TransIn": SubResource("Animation_2wekl"),
+"TransOut": SubResource("Animation_6acob")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3ag6"]
+atlas = ExtResource("2_ccq7h")
+region = Rect2(0, 195, 64, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_no52k"]
+atlas = ExtResource("2_ccq7h")
+region = Rect2(64, 195, 64, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kw86j"]
+atlas = ExtResource("2_ccq7h")
+region = Rect2(128, 195, 64, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oujc2"]
+atlas = ExtResource("2_ccq7h")
+region = Rect2(192, 195, 64, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o748i"]
+atlas = ExtResource("2_ccq7h")
+region = Rect2(256, 195, 64, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ris"]
+atlas = ExtResource("2_ccq7h")
+region = Rect2(320, 195, 64, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4w68"]
+atlas = ExtResource("2_ccq7h")
+region = Rect2(384, 195, 64, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyv1g"]
+atlas = ExtResource("2_ccq7h")
+region = Rect2(0, 1288, 64, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tssfl"]
+atlas = ExtResource("2_ccq7h")
+region = Rect2(64, 1288, 64, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bptfm"]
+atlas = ExtResource("2_ccq7h")
+region = Rect2(128, 1288, 64, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vekfy"]
+atlas = ExtResource("2_ccq7h")
+region = Rect2(192, 1288, 64, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fcwq"]
+atlas = ExtResource("2_ccq7h")
+region = Rect2(256, 1288, 64, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlvgw"]
+atlas = ExtResource("2_ccq7h")
+region = Rect2(320, 1288, 64, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qemi7"]
+atlas = ExtResource("2_ccq7h")
+region = Rect2(960, 65, 64, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uacbs"]
+atlas = ExtResource("2_ccq7h")
+region = Rect2(0, 910, 64, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6m1u"]
+atlas = ExtResource("2_ccq7h")
+region = Rect2(64, 910, 64, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqho6"]
+atlas = ExtResource("2_ccq7h")
+region = Rect2(128, 910, 64, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ut12y"]
+atlas = ExtResource("2_ccq7h")
+region = Rect2(192, 910, 64, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyjl5"]
+atlas = ExtResource("2_ccq7h")
+region = Rect2(256, 910, 64, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvmmu"]
+atlas = ExtResource("2_ccq7h")
+region = Rect2(320, 910, 64, 65)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fptop"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3ag6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_no52k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kw86j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oujc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o748i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1ris")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4w68")
+}],
+"loop": true,
+"name": &"Magic",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iyv1g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tssfl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bptfm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vekfy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fcwq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlvgw")
+}],
+"loop": true,
+"name": &"Random",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qemi7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uacbs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6m1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pqho6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ut12y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jyjl5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvmmu")
+}],
+"loop": true,
+"name": &"Sword",
+"speed": 5.0
+}]
+
+[node name="Shop" type="CanvasLayer"]
+process_mode = 3
+offset = Vector2(0, -300)
+transform = Transform2D(1, 0, 0, 1, 0, -300)
+script = ExtResource("1_ypg6j")
+
+[node name="Panel" type="Panel" parent="."]
+process_mode = 3
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 535.0
+offset_bottom = 316.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4x1qn")
+}
+
+[node name="Button" type="Button" parent="."]
+offset_left = 478.0
+offset_top = 14.0
+offset_right = 528.0
+offset_bottom = 45.0
+text = "Close
+"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control"]
+position = Vector2(274, 116)
+sprite_frames = SubResource("SpriteFrames_fptop")
+animation = &"Magic"
+
+[node name="Name" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 218.0
+offset_top = 34.0
+offset_right = 331.0
+offset_bottom = 57.0
+text = "Ms. Take"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Description" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 157.0
+offset_right = 347.0
+offset_bottom = 258.0
+text = "Welcome, buy what you need blah blah
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Next" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 327.0
+offset_top = 111.0
+offset_right = 372.0
+offset_bottom = 142.0
+text = "Next
+"
+
+[node name="Prev" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 109.0
+offset_right = 233.0
+offset_bottom = 140.0
+text = "Previous
+"
+
+[node name="Buy" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 254.0
+offset_top = 245.0
+offset_right = 292.0
+offset_bottom = 276.0
+text = "Buy
+"
+
+[node name="Gold" type="Label" parent="."]
+offset_left = 18.0
+offset_top = 15.0
+offset_right = 58.0
+offset_bottom = 38.0
+script = ExtResource("3_b62m0")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Control/Prev" to="." method="_on_prev_pressed"]
+[connection signal="pressed" from="Control/Buy" to="." method="_on_buy_pressed"]

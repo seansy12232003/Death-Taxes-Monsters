@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 var screensize
 const ORIGINAL_SPEED = 75.0
 var SPEED = 75.0

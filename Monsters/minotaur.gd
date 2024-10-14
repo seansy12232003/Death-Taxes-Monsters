@@ -5,8 +5,7 @@ var level = 1
 
 func _ready():
 	level = randi_range(1, 5)
-	print("Level set, calling spawn()")
-	call_deferred("spawn")  # Delay the spawn call until the next frame
+	spawn()  # Delay the spawn call until the next frame
 
 func spawn():
 	$AnimatedSprite2D.scale *= 3

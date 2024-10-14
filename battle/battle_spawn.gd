@@ -13,7 +13,7 @@ func _on_body_entered(body: Node2D) -> void: # on encountering enemy
 		var battleTemp = battle.instantiate() # create battle scene
 		get_parent().add_child(battleTemp) # add battlescene child to main
 		queue_free() # prevent code from making multiple battle scenes
-		$"../Player".get_node("Camera2D").enabled = false # disable player camera so battle scene camera is correct
+		$"../Player/Camera2D2".enabled = false # disable player camera so battle scene camera is correct
 		$"../UI/AnimationPlayer".play("TransOut") # play black circle getting smaller
 
  

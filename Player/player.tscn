@@ -3,6 +3,9 @@
 [ext_resource type="Script" path="res://Player/player.gd" id="1_j6qsi"]
 [ext_resource type="Texture2D" uid="uid://bb14pnrnq6ewx" path="res://Assets/character_sheet.png" id="2_r4pno"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n7pl6"]
+size = Vector2(23.5, 39.375)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_iltu8"]
 atlas = ExtResource("2_r4pno")
 region = Rect2(64, 640, 64, 64)
@@ -34,6 +37,10 @@ region = Rect2(448, 640, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_cyidg"]
 atlas = ExtResource("2_r4pno")
 region = Rect2(512, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hc6d"]
+atlas = ExtResource("2_r4pno")
+region = Rect2(0, 704, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n43y3"]
 atlas = ExtResource("2_r4pno")
@@ -70,10 +77,6 @@ region = Rect2(448, 576, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_72w5p"]
 atlas = ExtResource("2_r4pno")
 region = Rect2(512, 576, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3hc6d"]
-atlas = ExtResource("2_r4pno")
-region = Rect2(0, 704, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1cmbk"]
 atlas = ExtResource("2_r4pno")
@@ -172,6 +175,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_3hc6d")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_n43y3")
 }, {
 "duration": 1.0,
@@ -264,27 +275,16 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n7pl6"]
-size = Vector2(23.5, 39.375)
-
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_j6qsi")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 1.19209e-07)
-scale = Vector2(0.359375, 0.355063)
-sprite_frames = SubResource("SpriteFrames_bktu1")
-animation = &"right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
 scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_n7pl6")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(5, 5)
-limit_left = 0
-limit_top = 0
-limit_smoothed = true
-position_smoothing_enabled = true
-position_smoothing_speed = 10.0
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 1.19209e-07)
+scale = Vector2(0.359375, 0.355063)
+sprite_frames = SubResource("SpriteFrames_bktu1")
+animation = &"idle"

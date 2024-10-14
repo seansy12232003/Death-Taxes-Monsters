@@ -1,11 +1,173 @@
-[gd_scene load_steps=2 format=3 uid="uid://c0aak3obwv5kr"]
+[gd_scene load_steps=11 format=3 uid="uid://c0aak3obwv5kr"]
 
+[ext_resource type="Script" path="res://battle/battle_scene_2.gd" id="1_0h6xf"]
 [ext_resource type="Texture2D" uid="uid://blxk0w8diokqq" path="res://Assets/BG/battleback1.png" id="1_hfq7x"]
+[ext_resource type="Script" path="res://battle/ui.gd" id="3_d7r15"]
+[ext_resource type="Texture2D" uid="uid://dyaryl5vmnpth" path="res://Assets/healthbarUnder.png" id="4_pedmu"]
+[ext_resource type="Texture2D" uid="uid://dejrxwcpcbkw5" path="res://Assets/HEALTHBAR.png" id="4_ugbhp"]
+[ext_resource type="FontFile" uid="uid://bd2w5elvdk3v8" path="res://Assets/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.ttf" id="5_b1b63"]
+[ext_resource type="Texture2D" uid="uid://b5uq7j3o5djou" path="res://Assets/healthbarProgress.png" id="5_u10ma"]
 
-[node name="BattleScene" type="Node2D"]
-z_index = 3
+[sub_resource type="Theme" id="Theme_6brp3"]
+default_font = ExtResource("5_b1b63")
+default_font_size = 10
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kfoyj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p2jab"]
+bg_color = Color(0.917647, 0, 0.027451, 1)
+
+[node name="BattleScene" type="CanvasLayer"]
+script = ExtResource("1_0h6xf")
+
+[node name="Background" type="TextureRect" parent="."]
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("1_hfq7x")
+metadata/_edit_use_anchors_ = true
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2(320, 320)
+
+[node name="Enemy" type="Node2D" parent="."]
+position = Vector2(896, 320)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_d7r15")
+
+[node name="Menu" type="HBoxContainer" parent="UI"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 500.0
+offset_right = 200.0
+offset_bottom = 550.0
+scale = Vector2(3, 3)
+theme_override_constants/separation = 45
+alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="UI/Menu"]
+layout_mode = 2
+columns = 3
+
+[node name="Fight" type="Button" parent="UI/Menu/GridContainer"]
+layout_mode = 2
+focus_neighbor_right = NodePath("../Items")
+text = "Fight"
+
+[node name="Items" type="Button" parent="UI/Menu/GridContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Fight")
+focus_neighbor_right = NodePath("../Run")
+text = "Items"
+
+[node name="Run" type="Button" parent="UI/Menu/GridContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Items")
+text = "Run"
+
+[node name="Fight" type="HBoxContainer" parent="UI"]
+visible = false
+offset_left = 450.0
+offset_top = 500.0
+offset_right = 600.0
+offset_bottom = 566.0
+scale = Vector2(2, 2)
+theme_override_constants/separation = 45
+alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="UI/Fight"]
+layout_mode = 2
+columns = 2
+
+[node name="Attack 1" type="Button" parent="UI/Fight/GridContainer"]
+layout_mode = 2
+focus_neighbor_right = NodePath("../Attack 2")
+text = "Attack 1"
+
+[node name="Attack 2" type="Button" parent="UI/Fight/GridContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Attack 1")
+focus_neighbor_right = NodePath("../Attack 3")
+text = "Attack 2"
+
+[node name="Attack 3" type="Button" parent="UI/Fight/GridContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Attack 2")
+text = "Attack 3"
+
+[node name="Attack 4" type="Button" parent="UI/Fight/GridContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Attack 2")
+text = "Attack 4"
+
+[node name="Items" type="HBoxContainer" parent="UI"]
+visible = false
+offset_left = 350.0
+offset_top = 500.0
+offset_right = 500.0
+offset_bottom = 550.0
+scale = Vector2(3, 3)
+theme_override_constants/separation = 45
+alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="UI/Items"]
+layout_mode = 2
+columns = 3
+
+[node name="Heal" type="Button" parent="UI/Items/GridContainer"]
+layout_mode = 2
+focus_neighbor_right = NodePath("../Buff")
+text = "Heal"
+
+[node name="Buff" type="Button" parent="UI/Items/GridContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Heal")
+focus_neighbor_right = NodePath("../Debuff")
+text = "Buff"
+
+[node name="Debuff" type="Button" parent="UI/Items/GridContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Buff")
+text = "Debuff"
+
+[node name="Enemy Health2" type="Label" parent="UI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="UI/Enemy Health2"]
+layout_mode = 0
+offset_left = 800.0
+offset_top = 151.0
+offset_right = 864.0
+offset_bottom = 163.0
+scale = Vector2(3, 3)
+theme = SubResource("Theme_6brp3")
+value = 100.0
+texture_under = ExtResource("4_pedmu")
+texture_progress = ExtResource("5_u10ma")
+
+[node name="Player Health" type="Label" parent="UI"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="ProgressBar2" type="ProgressBar" parent="UI/Player Health"]
+offset_left = 90.0
+offset_top = 21.0
+offset_right = 493.0
+offset_bottom = 54.0
+theme_override_fonts/font = ExtResource("5_b1b63")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/background = SubResource("StyleBoxEmpty_kfoyj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_p2jab")
+value = 100.0
+rounded = true
+
+[node name="Healthbar" type="Sprite2D" parent="UI/Player Health"]
+position = Vector2(268.833, 49.5)
+scale = Vector2(2.83833, 1.66)
+texture = ExtResource("4_ugbhp")

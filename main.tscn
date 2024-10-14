@@ -1157,6 +1157,14 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 
+[node name="Camera2D2" type="Camera2D" parent="Player"]
+zoom = Vector2(5, 5)
+limit_left = 0
+limit_top = 0
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
 [node name="CliffLeft" type="StaticBody2D" parent="."]
 position = Vector2(470.5, 505)
 physics_material_override = SubResource("PhysicsMaterial_akypi")

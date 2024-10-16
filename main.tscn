@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=4 uid="uid://baxn7b4aay4mt"]
+[gd_scene load_steps=91 format=4 uid="uid://baxn7b4aay4mt"]
 
 [ext_resource type="Texture2D" uid="uid://ca8cmnj12mr1q" path="res://Assets/SERENE_VILLAGE_REVAMPED/Serene_Village_16x16.png" id="1_ftrtj"]
 [ext_resource type="Script" path="res://main.gd" id="1_g078x"]
@@ -10,7 +10,8 @@
 [ext_resource type="AudioStream" uid="uid://b0ocikrhmt7ty" path="res://Music/battle-theme-194713.mp3" id="6_ivnyj"]
 [ext_resource type="AudioStream" uid="uid://dmvvubi462afi" path="res://Music/First level sound.mp3" id="7_avoy2"]
 [ext_resource type="Script" path="res://shop_keeper.gd" id="10_3fo3l"]
-[ext_resource type="PackedScene" uid="uid://1efliekgt7k6" path="res://shop.tscn" id="11_rr0k2"]
+[ext_resource type="PackedScene" uid="uid://ceawnrrql0g6" path="res://Monsters/minotaurmob.tscn" id="10_qgnkn"]
+[ext_resource type="PackedScene" path="res://shop.tscn" id="11_rr0k2"]
 [ext_resource type="Texture2D" uid="uid://dufpcjqbm3uns" path="res://Download75842.png" id="12_lyx6n"]
 [ext_resource type="AudioStream" uid="uid://b7x7xjgx7pfku" path="res://Music/footsteps-dirt-gravel-6823 (mp3cut.net).mp3" id="13_dohrn"]
 [ext_resource type="AudioStream" uid="uid://b4gpe4spuqxhl" path="res://sword-battle-jingle-loop-96983.mp3" id="13_uv4sm"]
@@ -1099,6 +1100,12 @@ size = Vector2(40, 47)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_swpxo"]
 size = Vector2(42, 49)
 
+[sub_resource type="Curve2D" id="Curve2D_ir8re"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 14, 10, 0, 0, 0, 0, -68, 12, 0, 0, 0, 0, -102, 11, 0, 0, 0, 0, -105, 0, 0, 0, 0, 0, 15, 1, 0, 0, 0, 0, 14, 10)
+}
+point_count = 6
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1dfnx"]
 size = Vector2(29, 9)
 
@@ -1340,6 +1347,19 @@ shape = SubResource("RectangleShape2D_087h5")
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="Houses"]
 position = Vector2(519, 402.5)
 shape = SubResource("RectangleShape2D_swpxo")
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(603, 547)
+curve = SubResource("Curve2D_ir8re")
+
+[node name="PathFollow2D2" type="PathFollow2D" parent="Path2D"]
+position = Vector2(14, 10)
+rotation = 3.11721
+
+[node name="Minotaur" parent="Path2D/PathFollow2D2" instance=ExtResource("10_qgnkn")]
+z_index = 4
+position = Vector2(13.752, 10.3383)
+rotation = -3.11721
 
 [node name="Stairs" type="Area2D" parent="."]
 

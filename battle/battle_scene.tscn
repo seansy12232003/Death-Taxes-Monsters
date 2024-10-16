@@ -1,21 +1,61 @@
-[gd_scene load_steps=11 format=3 uid="uid://c0aak3obwv5kr"]
+[gd_scene load_steps=13 format=3 uid="uid://c0aak3obwv5kr"]
 
-[ext_resource type="Script" path="res://battle/battle_scene_2.gd" id="1_0h6xf"]
+[ext_resource type="Script" path="res://battle/battle_scene.gd" id="1_0h6xf"]
 [ext_resource type="Texture2D" uid="uid://blxk0w8diokqq" path="res://Assets/BG/battleback1.png" id="1_hfq7x"]
+[ext_resource type="Texture2D" uid="uid://doxo0nq6vmbad" path="res://Assets/dilaoguebox.png" id="3_bos8e"]
 [ext_resource type="Script" path="res://battle/ui.gd" id="3_d7r15"]
 [ext_resource type="Texture2D" uid="uid://dyaryl5vmnpth" path="res://Assets/healthbarUnder.png" id="4_pedmu"]
-[ext_resource type="Texture2D" uid="uid://dejrxwcpcbkw5" path="res://Assets/HEALTHBAR.png" id="4_ugbhp"]
 [ext_resource type="FontFile" uid="uid://bd2w5elvdk3v8" path="res://Assets/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.ttf" id="5_b1b63"]
+[ext_resource type="FontFile" uid="uid://xh1infatyc4u" path="res://Assets/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/architect-s-daughter/ArchitectsDaughter.ttf" id="5_sakuu"]
 [ext_resource type="Texture2D" uid="uid://b5uq7j3o5djou" path="res://Assets/healthbarProgress.png" id="5_u10ma"]
 
 [sub_resource type="Theme" id="Theme_6brp3"]
 default_font = ExtResource("5_b1b63")
 default_font_size = 10
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kfoyj"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sa2on"]
+bg_color = Color(0.752725, 0.672848, 0.384714, 1)
+skew = Vector2(0.2, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.000766534, 0.00243896, 0.000610895, 1)
+border_blend = true
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p2jab"]
-bg_color = Color(0.917647, 0, 0.027451, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgxnm"]
+bg_color = Color(0.653397, 0.578712, 0.307524, 1)
+skew = Vector2(0.2, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.000766534, 0.00243896, 0.000610895, 1)
+border_blend = true
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+shadow_size = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hck0d"]
+bg_color = Color(0.480769, 0.421512, 0.204888, 1)
+skew = Vector2(0.2, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.000766534, 0.00243896, 0.000610895, 1)
+border_blend = true
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+shadow_size = 1
 
 [node name="BattleScene" type="CanvasLayer"]
 script = ExtResource("1_0h6xf")
@@ -26,123 +66,25 @@ offset_bottom = 648.0
 texture = ExtResource("1_hfq7x")
 metadata/_edit_use_anchors_ = true
 
-[node name="Player" type="Node2D" parent="."]
-position = Vector2(320, 320)
+[node name="Dilaoguebox" type="Sprite2D" parent="Background"]
+position = Vector2(575, 539.5)
+scale = Vector2(4.38095, 2.98387)
+texture = ExtResource("3_bos8e")
 
-[node name="Enemy" type="Node2D" parent="."]
-position = Vector2(896, 320)
+[node name="Action Box" type="Sprite2D" parent="Background/Dilaoguebox"]
+modulate = Color(0.892756, 0.892756, 0.892756, 1)
+position = Vector2(65.0544, 7.42078e-06)
+scale = Vector2(0.458333, 0.891892)
+texture = ExtResource("3_bos8e")
 
-[node name="UI" type="Control" parent="."]
+[node name="MonsterUI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_d7r15")
 
-[node name="Menu" type="HBoxContainer" parent="UI"]
-layout_mode = 0
-offset_left = 50.0
-offset_top = 500.0
-offset_right = 200.0
-offset_bottom = 550.0
-scale = Vector2(3, 3)
-theme_override_constants/separation = 45
-alignment = 1
-
-[node name="GridContainer" type="GridContainer" parent="UI/Menu"]
-layout_mode = 2
-columns = 3
-
-[node name="Fight" type="Button" parent="UI/Menu/GridContainer"]
-layout_mode = 2
-focus_neighbor_right = NodePath("../Items")
-text = "Fight"
-
-[node name="Items" type="Button" parent="UI/Menu/GridContainer"]
-layout_mode = 2
-focus_neighbor_left = NodePath("../Fight")
-focus_neighbor_right = NodePath("../Run")
-text = "Items"
-
-[node name="Run" type="Button" parent="UI/Menu/GridContainer"]
-layout_mode = 2
-focus_neighbor_top = NodePath("../Items")
-text = "Run"
-
-[node name="Fight" type="HBoxContainer" parent="UI"]
-visible = false
-layout_mode = 0
-offset_left = 450.0
-offset_top = 500.0
-offset_right = 600.0
-offset_bottom = 566.0
-scale = Vector2(2, 2)
-theme_override_constants/separation = 45
-alignment = 1
-
-[node name="GridContainer" type="GridContainer" parent="UI/Fight"]
-layout_mode = 2
-columns = 2
-
-[node name="Attack 1" type="Button" parent="UI/Fight/GridContainer"]
-layout_mode = 2
-focus_neighbor_right = NodePath("../Attack 2")
-text = "Attack 1"
-
-[node name="Attack 2" type="Button" parent="UI/Fight/GridContainer"]
-layout_mode = 2
-focus_neighbor_left = NodePath("../Attack 1")
-focus_neighbor_right = NodePath("../Attack 3")
-text = "Attack 2"
-
-[node name="Attack 3" type="Button" parent="UI/Fight/GridContainer"]
-layout_mode = 2
-focus_neighbor_top = NodePath("../Attack 2")
-text = "Attack 3"
-
-[node name="Attack 4" type="Button" parent="UI/Fight/GridContainer"]
-layout_mode = 2
-focus_neighbor_top = NodePath("../Attack 2")
-text = "Attack 4"
-
-[node name="Items" type="HBoxContainer" parent="UI"]
-visible = false
-layout_mode = 0
-offset_left = 350.0
-offset_top = 500.0
-offset_right = 500.0
-offset_bottom = 550.0
-scale = Vector2(3, 3)
-theme_override_constants/separation = 45
-alignment = 1
-
-[node name="GridContainer" type="GridContainer" parent="UI/Items"]
-layout_mode = 2
-columns = 3
-
-[node name="Heal" type="Button" parent="UI/Items/GridContainer"]
-layout_mode = 2
-focus_neighbor_right = NodePath("../Buff")
-text = "Heal"
-
-[node name="Buff" type="Button" parent="UI/Items/GridContainer"]
-layout_mode = 2
-focus_neighbor_left = NodePath("../Heal")
-focus_neighbor_right = NodePath("../Debuff")
-text = "Buff"
-
-[node name="Debuff" type="Button" parent="UI/Items/GridContainer"]
-layout_mode = 2
-focus_neighbor_top = NodePath("../Buff")
-text = "Debuff"
-
-[node name="Enemy Health2" type="Label" parent="UI"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="UI/Enemy Health2"]
-layout_mode = 0
+[node name="HPBar" type="TextureProgressBar" parent="MonsterUI"]
 offset_left = 800.0
 offset_top = 151.0
 offset_right = 864.0
@@ -153,25 +95,313 @@ value = 100.0
 texture_under = ExtResource("4_pedmu")
 texture_progress = ExtResource("5_u10ma")
 
-[node name="Player Health" type="Label" parent="UI"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="ProgressBar2" type="ProgressBar" parent="UI/Player Health"]
-layout_mode = 0
-offset_left = 90.0
-offset_top = 21.0
-offset_right = 493.0
-offset_bottom = 54.0
+[node name="Info" type="Label" parent="MonsterUI"]
+offset_left = 804.0
+offset_top = 130.0
+offset_right = 984.0
+offset_bottom = 154.0
 theme_override_fonts/font = ExtResource("5_b1b63")
-theme_override_font_sizes/font_size = 25
-theme_override_styles/background = SubResource("StyleBoxEmpty_kfoyj")
-theme_override_styles/fill = SubResource("StyleBoxFlat_p2jab")
-value = 100.0
-rounded = true
+theme_override_font_sizes/font_size = 20
+text = "Monster LVL 10"
 
-[node name="Healthbar" type="Sprite2D" parent="UI/Player Health"]
-position = Vector2(268.833, 49.5)
-scale = Vector2(2.83833, 1.66)
-texture = ExtResource("4_ugbhp")
+[node name="HpTxt" type="Label" parent="MonsterUI"]
+offset_left = 914.0
+offset_top = 171.0
+offset_right = 989.0
+offset_bottom = 223.0
+theme_override_fonts/font = ExtResource("5_b1b63")
+theme_override_font_sizes/font_size = 20
+text = "10/10"
+horizontal_alignment = 2
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2(320, 320)
+
+[node name="Enemy" type="Node2D" parent="."]
+position = Vector2(896, 320)
+
+[node name="BattleUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_d7r15")
+
+[node name="Menu" type="HBoxContainer" parent="BattleUI"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 496.0
+offset_right = 218.0
+offset_bottom = 533.0
+scale = Vector2(3, 3)
+theme_override_constants/separation = 45
+alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="BattleUI/Menu"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+columns = 3
+
+[node name="Fight" type="Button" parent="BattleUI/Menu/GridContainer"]
+layout_mode = 2
+focus_neighbor_right = NodePath("../Items")
+theme_override_fonts/font = ExtResource("5_sakuu")
+theme_override_styles/focus = SubResource("StyleBoxFlat_sa2on")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_mgxnm")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mgxnm")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_sa2on")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sa2on")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mgxnm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mgxnm")
+text = "Fight"
+
+[node name="Items" type="Button" parent="BattleUI/Menu/GridContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Fight")
+focus_neighbor_right = NodePath("../Run")
+theme_override_fonts/font = ExtResource("5_sakuu")
+theme_override_styles/focus = SubResource("StyleBoxFlat_sa2on")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_mgxnm")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mgxnm")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_sa2on")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sa2on")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mgxnm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mgxnm")
+text = "Items"
+
+[node name="Run" type="Button" parent="BattleUI/Menu/GridContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Items")
+theme_override_fonts/font = ExtResource("5_sakuu")
+theme_override_styles/focus = SubResource("StyleBoxFlat_sa2on")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_mgxnm")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mgxnm")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_sa2on")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sa2on")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mgxnm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mgxnm")
+text = "Run"
+
+[node name="Fight" type="HBoxContainer" parent="BattleUI"]
+visible = false
+layout_mode = 0
+offset_left = 150.0
+offset_top = 475.0
+offset_right = 298.0
+offset_bottom = 554.0
+scale = Vector2(2, 2)
+theme_override_constants/separation = 45
+alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="BattleUI/Fight"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="Attack 1" type="Button" parent="BattleUI/Fight/GridContainer"]
+layout_mode = 2
+focus_neighbor_right = NodePath("../Attack 2")
+theme_override_styles/focus = SubResource("StyleBoxFlat_sa2on")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_mgxnm")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mgxnm")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_sa2on")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sa2on")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mgxnm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mgxnm")
+text = "Attack 1"
+
+[node name="Attack 2" type="Button" parent="BattleUI/Fight/GridContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Attack 1")
+focus_neighbor_right = NodePath("../Attack 3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_sa2on")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_mgxnm")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mgxnm")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_sa2on")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sa2on")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mgxnm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mgxnm")
+text = "Attack 2"
+
+[node name="Attack 3" type="Button" parent="BattleUI/Fight/GridContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Attack 2")
+theme_override_styles/focus = SubResource("StyleBoxFlat_sa2on")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_mgxnm")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mgxnm")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_sa2on")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sa2on")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mgxnm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mgxnm")
+text = "Attack 3"
+
+[node name="Back" type="Button" parent="BattleUI/Fight/GridContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Attack 2")
+theme_override_styles/focus = SubResource("StyleBoxFlat_sa2on")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_mgxnm")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mgxnm")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_sa2on")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sa2on")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mgxnm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mgxnm")
+text = "Back"
+
+[node name="Items" type="HBoxContainer" parent="BattleUI"]
+visible = false
+layout_mode = 0
+offset_left = 150.0
+offset_top = 475.0
+offset_right = 300.0
+offset_bottom = 541.0
+scale = Vector2(2, 2)
+theme_override_constants/separation = 45
+alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="BattleUI/Items"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="Heal" type="Button" parent="BattleUI/Items/GridContainer"]
+layout_mode = 2
+focus_neighbor_right = NodePath("../Buff")
+theme_override_styles/focus = SubResource("StyleBoxFlat_sa2on")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_mgxnm")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mgxnm")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_sa2on")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sa2on")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mgxnm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mgxnm")
+text = "Heal"
+
+[node name="Buff" type="Button" parent="BattleUI/Items/GridContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Heal")
+focus_neighbor_right = NodePath("../Debuff")
+theme_override_styles/focus = SubResource("StyleBoxFlat_sa2on")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_mgxnm")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mgxnm")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_sa2on")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sa2on")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mgxnm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mgxnm")
+text = "Buff"
+
+[node name="Back" type="Button" parent="BattleUI/Items/GridContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Attack 2")
+theme_override_styles/focus = SubResource("StyleBoxFlat_sa2on")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_mgxnm")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mgxnm")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_sa2on")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sa2on")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mgxnm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mgxnm")
+text = "Back"
+
+[node name="Debuff" type="Button" parent="BattleUI/Items/GridContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Buff")
+theme_override_styles/focus = SubResource("StyleBoxFlat_sa2on")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_mgxnm")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mgxnm")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_sa2on")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sa2on")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mgxnm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mgxnm")
+text = "Debuff"
+
+[node name="HPBar" type="TextureProgressBar" parent="BattleUI"]
+offset_left = 224.0
+offset_top = 151.0
+offset_right = 288.0
+offset_bottom = 163.0
+scale = Vector2(3, 3)
+theme = SubResource("Theme_6brp3")
+value = 100.0
+texture_under = ExtResource("4_pedmu")
+texture_progress = ExtResource("5_u10ma")
+
+[node name="Info" type="Label" parent="BattleUI"]
+offset_left = 228.0
+offset_top = 130.0
+offset_right = 372.0
+offset_bottom = 154.0
+theme_override_fonts/font = ExtResource("5_b1b63")
+theme_override_font_sizes/font_size = 20
+text = "Player LVL 1"
+
+[node name="HpTxt" type="Label" parent="BattleUI"]
+offset_left = 338.0
+offset_top = 171.0
+offset_right = 413.0
+offset_bottom = 223.0
+theme_override_fonts/font = ExtResource("5_b1b63")
+theme_override_font_sizes/font_size = 20
+text = "10/10"
+horizontal_alignment = 2
+
+[node name="Action" type="Label" parent="."]
+offset_left = 607.0
+offset_top = 465.0
+offset_right = 1104.0
+offset_bottom = 613.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_sakuu")
+text = "This is an Action!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="BattleUI/Menu/GridContainer/Fight" to="BattleUI" method="_on_fight_pressed"]
+[connection signal="pressed" from="BattleUI/Menu/GridContainer/Items" to="BattleUI" method="_on_items_pressed"]
+[connection signal="pressed" from="BattleUI/Menu/GridContainer/Run" to="BattleUI" method="_on_run_pressed"]
+[connection signal="pressed" from="BattleUI/Fight/GridContainer/Back" to="BattleUI" method="_on_back_pressed"]
+[connection signal="pressed" from="BattleUI/Items/GridContainer/Back" to="BattleUI" method="_on_back_pressed"]

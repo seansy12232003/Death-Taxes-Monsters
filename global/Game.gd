@@ -3,14 +3,15 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	addMonster("Minotaur")
 
 
 var dataBaseMonsters = {
-	0 : {
+	0: {
 		"Name": "Player",
 		"Frame": 0,
 		"Health": 100,
+		"Level": 1,
 		"Exp": 0,
 		"MaxExp": 0,
 		"Strength": 10,
@@ -19,31 +20,25 @@ var dataBaseMonsters = {
 		"Attacks": {
 			0: {
 				"Name": "Slash",
-				"Target":"Monster",
+				"Target":"Player",
 				"Damage": 10, 
 				"Type": "Physical",
 				"cost": 2,
 			},
 			1: {
-				"Name": "Stab",
-				"Target":"Monster",
+				"Name": "Ram",
+				"Target":"Player",
 				"Damage": 10, 
 				"Type": "Stab",
-				"cost": 2,
-			},
-			2: {
-				"Name": "Spell",
-				"Target":"Monster",
-				"Damage": 10, 
-				"Type": "Magic",
 				"cost": 2,
 			}
 		}
 	},
-	1 : {
+	1: {
 		"Name": "Minotaur",
 		"Frame": 0,
 		"Health": 100,
+		"Level": 1,
 		"Exp": 0,
 		"MaxExp": 0,
 		"Strength": 10,
@@ -70,6 +65,7 @@ var dataBaseMonsters = {
 		"Name": "",
 		"Frame": 0,
 		"Health": 100,
+		"Level": 1,
 		"Exp": 0,
 		"MaxExp": 0,
 		"Strength": 10,
@@ -100,6 +96,7 @@ var dataBaseMonsters = {
 		"Name": "",
 		"Frame": 0,
 		"Health": 100,
+		"Level": 1,
 		"Exp": 0,
 		"MaxExp": 0,
 		"Strength": 10,
@@ -130,7 +127,33 @@ var dataBaseMonsters = {
 }
 
 var selectedMonsters = {
-	
+	0: {
+		"Name": "Player",
+		"Frame": 0,
+		"Health": 100,
+		"Level": 1,
+		"Exp": 0,
+		"MaxExp": 0,
+		"Strength": 10,
+		"Defense": 5,
+		"Scene": preload("res://Player/player.tscn"), # placeholder
+		"Attacks": {
+			0: {
+				"Name": "Slash",
+				"Target":"Player",
+				"Damage": 10, 
+				"Type": "Physical",
+				"cost": 2,
+			},
+			1: {
+				"Name": "Ram",
+				"Target":"Player",
+				"Damage": 10, 
+				"Type": "Stab",
+				"cost": 2,
+			}
+		}
+	},
 }
 
 func addMonster(Name):
@@ -138,6 +161,7 @@ func addMonster(Name):
 		if dataBaseMonsters[i]["Name"] == Name:
 			var tempDic = dataBaseMonsters[i].duplicate(true)
 			selectedMonsters[selectedMonsters.size()] = tempDic
+			
 			
 
 func addEXP(amount):

@@ -393,7 +393,7 @@ _data = {
 "spawn": SubResource("Animation_q5b72")
 }
 
-[node name="minotaur" type="StaticBody2D"]
+[node name="monster" type="StaticBody2D"]
 position = Vector2(98.667, 58)
 scale = Vector2(0.1, 0.1)
 script = ExtResource("1_dja1c")

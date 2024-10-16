@@ -85,6 +85,7 @@ offset_bottom = 40.0
 script = ExtResource("3_d7r15")
 
 [node name="HPBar" type="TextureProgressBar" parent="MonsterUI"]
+layout_mode = 0
 offset_left = 800.0
 offset_top = 151.0
 offset_right = 864.0
@@ -96,6 +97,7 @@ texture_under = ExtResource("4_pedmu")
 texture_progress = ExtResource("5_u10ma")
 
 [node name="Info" type="Label" parent="MonsterUI"]
+layout_mode = 0
 offset_left = 804.0
 offset_top = 130.0
 offset_right = 984.0
@@ -105,6 +107,7 @@ theme_override_font_sizes/font_size = 20
 text = "Monster LVL 10"
 
 [node name="HpTxt" type="Label" parent="MonsterUI"]
+layout_mode = 0
 offset_left = 914.0
 offset_top = 171.0
 offset_right = 989.0
@@ -359,6 +362,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_mgxnm")
 text = "Debuff"
 
 [node name="HPBar" type="TextureProgressBar" parent="BattleUI"]
+layout_mode = 0
 offset_left = 224.0
 offset_top = 151.0
 offset_right = 288.0
@@ -370,6 +374,7 @@ texture_under = ExtResource("4_pedmu")
 texture_progress = ExtResource("5_u10ma")
 
 [node name="Info" type="Label" parent="BattleUI"]
+layout_mode = 0
 offset_left = 228.0
 offset_top = 130.0
 offset_right = 372.0
@@ -379,6 +384,7 @@ theme_override_font_sizes/font_size = 20
 text = "Player LVL 1"
 
 [node name="HpTxt" type="Label" parent="BattleUI"]
+layout_mode = 0
 offset_left = 338.0
 offset_top = 171.0
 offset_right = 413.0

@@ -7,17 +7,20 @@ var items = {
 	0: {
 		"Name" : "Magic",
 		"Description" : "Woo Waa Magic",
-		"Cost" : 10
+		"Cost" : 10,
+		"Icon" : preload("res://staff.jpg")
 	},
 	1:{
 		"Name" : "Sword",
 		"Description" : "Slash",
-		"Cost" : 15
+		"Cost" : 15,
+		"Icon" : preload("res://sword.png")
 	},
 	2:{
-		"Name" : "Random",
-		"Description" : "idk",
-		"Cost" : 10
+		"Name" : "Bow",
+		"Description" : "pew pew",
+		"Cost" : 10,
+		"Icon" : preload("res://bow.jpg")
 	},
 }
 var inventory = {

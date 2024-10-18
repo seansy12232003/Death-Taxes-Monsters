@@ -1,4 +1,4 @@
-extends Area2D
+extends CanvasLayer
 
 
 # Called when the node enters the scene tree for the first time.
@@ -11,9 +11,5 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
-		get_tree().paused = true
-		get_node("Shop").visible = true
-		get_node("Shop/AnimationPlayer").play("TransIn")
-		%BattleMusic.stop()
+func _on_button_pressed() -> void:
+	pass # Replace with function body.

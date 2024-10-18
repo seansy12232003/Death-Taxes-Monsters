@@ -12,6 +12,7 @@ func _on_back_pressed() -> void:
 	$Menu/GridContainer/Fight.grab_focus()
 	$Fight.hide()
 	$Items.hide()
+	
 
 func _process(delta):
 	$"../BattleUI/HPBar".value = Game.selectedMonsters[0]["Health"]
@@ -39,4 +40,3 @@ func _on_run_pressed() -> void:
 	#print(self.get_path())
 	get_parent().queue_free()
 	get_tree().paused = false
-	

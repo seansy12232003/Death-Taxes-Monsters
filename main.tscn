@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=4 uid="uid://baxn7b4aay4mt"]
+[gd_scene load_steps=100 format=4 uid="uid://baxn7b4aay4mt"]
 
 [ext_resource type="Texture2D" uid="uid://ca8cmnj12mr1q" path="res://Assets/SERENE_VILLAGE_REVAMPED/Serene_Village_16x16.png" id="1_ftrtj"]
 [ext_resource type="Script" path="res://main.gd" id="1_g078x"]
@@ -9,9 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://dx87fd6jyf0h8" path="res://icon.svg" id="5_bh1fk"]
 [ext_resource type="AudioStream" uid="uid://b0ocikrhmt7ty" path="res://Music/battle-theme-194713.mp3" id="6_ivnyj"]
 [ext_resource type="AudioStream" uid="uid://dmvvubi462afi" path="res://Music/First level sound.mp3" id="7_avoy2"]
+[ext_resource type="PackedScene" uid="uid://bjt6k568ehcfq" path="res://inventory.tscn" id="7_hhw2g"]
 [ext_resource type="Script" path="res://shop_keeper.gd" id="10_3fo3l"]
 [ext_resource type="PackedScene" uid="uid://ceawnrrql0g6" path="res://Monsters/minotaurmob.tscn" id="10_qgnkn"]
-[ext_resource type="PackedScene" path="res://shop.tscn" id="11_rr0k2"]
+[ext_resource type="PackedScene" uid="uid://1efliekgt7k6" path="res://shop.tscn" id="11_rr0k2"]
 [ext_resource type="Texture2D" uid="uid://dufpcjqbm3uns" path="res://Download75842.png" id="12_lyx6n"]
 [ext_resource type="AudioStream" uid="uid://b7x7xjgx7pfku" path="res://Music/footsteps-dirt-gravel-6823 (mp3cut.net).mp3" id="13_dohrn"]
 [ext_resource type="AudioStream" uid="uid://b4gpe4spuqxhl" path="res://sword-battle-jingle-loop-96983.mp3" id="13_uv4sm"]
@@ -1853,33 +1854,6 @@ size = Vector2(29, 9)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qd4t3"]
 size = Vector2(20, 75)
 
-[sub_resource type="Animation" id="Animation_wol3h"]
-resource_name = "fade_out"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("FadeColorRect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("FadeColorRect:color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_ycnni"]
 length = 0.001
 tracks/0/type = "value"
@@ -1934,6 +1908,33 @@ tracks/1/keys = {
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_wol3h"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FadeColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_keh7g"]
 _data = {
 "RESET": SubResource("Animation_ycnni"),
@@ -1982,6 +1983,8 @@ sprite_frames = SubResource("SpriteFrames_h2lxi")
 animation = &"forward walk"
 
 [node name="Player" parent="." instance=ExtResource("3_6va6h")]
+
+[node name="Inventory" parent="Player" instance=ExtResource("7_hhw2g")]
 
 [node name="CoinAmount" type="ColorRect" parent="Player"]
 anchors_preset = 1

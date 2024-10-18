@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://c0aak3obwv5kr"]
+[gd_scene load_steps=14 format=3 uid="uid://c0aak3obwv5kr"]
 
 [ext_resource type="Script" path="res://battle/battle_scene.gd" id="1_0h6xf"]
 [ext_resource type="Texture2D" uid="uid://blxk0w8diokqq" path="res://Assets/BG/battleback1.png" id="1_hfq7x"]
 [ext_resource type="Texture2D" uid="uid://doxo0nq6vmbad" path="res://Assets/dilaoguebox.png" id="3_bos8e"]
 [ext_resource type="Script" path="res://battle/ui.gd" id="3_d7r15"]
+[ext_resource type="Script" path="res://battle/monster_ui.gd" id="4_32dfv"]
 [ext_resource type="Texture2D" uid="uid://dyaryl5vmnpth" path="res://Assets/healthbarUnder.png" id="4_pedmu"]
 [ext_resource type="FontFile" uid="uid://bd2w5elvdk3v8" path="res://Assets/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.ttf" id="5_b1b63"]
 [ext_resource type="FontFile" uid="uid://xh1infatyc4u" path="res://Assets/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/architect-s-daughter/ArchitectsDaughter.ttf" id="5_sakuu"]
@@ -82,7 +83,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("3_d7r15")
+script = ExtResource("4_32dfv")
 
 [node name="HPBar" type="TextureProgressBar" parent="MonsterUI"]
 layout_mode = 0
@@ -329,22 +330,6 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mgxnm")
 theme_override_styles/normal = SubResource("StyleBoxFlat_mgxnm")
 text = "Buff"
 
-[node name="Back" type="Button" parent="BattleUI/Items/GridContainer"]
-layout_mode = 2
-focus_neighbor_top = NodePath("../Attack 2")
-theme_override_styles/focus = SubResource("StyleBoxFlat_sa2on")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_mgxnm")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_mgxnm")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_hck0d")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_hck0d")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_sa2on")
-theme_override_styles/hover = SubResource("StyleBoxFlat_sa2on")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_hck0d")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_hck0d")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mgxnm")
-theme_override_styles/normal = SubResource("StyleBoxFlat_mgxnm")
-text = "Back"
-
 [node name="Debuff" type="Button" parent="BattleUI/Items/GridContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Buff")
@@ -360,6 +345,22 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_hck0d")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mgxnm")
 theme_override_styles/normal = SubResource("StyleBoxFlat_mgxnm")
 text = "Debuff"
+
+[node name="Back" type="Button" parent="BattleUI/Items/GridContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Attack 2")
+theme_override_styles/focus = SubResource("StyleBoxFlat_sa2on")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_mgxnm")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mgxnm")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_sa2on")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sa2on")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hck0d")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mgxnm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_mgxnm")
+text = "Back"
 
 [node name="HPBar" type="TextureProgressBar" parent="BattleUI"]
 layout_mode = 0
@@ -405,9 +406,12 @@ theme_override_fonts/font = ExtResource("5_sakuu")
 text = "This is an Action!"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 
 [connection signal="pressed" from="BattleUI/Menu/GridContainer/Fight" to="BattleUI" method="_on_fight_pressed"]
 [connection signal="pressed" from="BattleUI/Menu/GridContainer/Items" to="BattleUI" method="_on_items_pressed"]
 [connection signal="pressed" from="BattleUI/Menu/GridContainer/Run" to="BattleUI" method="_on_run_pressed"]
+[connection signal="pressed" from="BattleUI/Fight/GridContainer/Attack 2" to="BattleUI" method="_on_attack_pressed" binds= [1]]
+[connection signal="pressed" from="BattleUI/Fight/GridContainer/Attack 3" to="BattleUI" method="_on_attack_pressed" binds= [2]]
 [connection signal="pressed" from="BattleUI/Fight/GridContainer/Back" to="BattleUI" method="_on_back_pressed"]
 [connection signal="pressed" from="BattleUI/Items/GridContainer/Back" to="BattleUI" method="_on_back_pressed"]

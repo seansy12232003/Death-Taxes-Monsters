@@ -153,10 +153,10 @@ var selectedMonsters = {
 				"cost": 2,
 			},
 			1: {
-				"Name": "Stab",
+				"Name": "Throw Rock",
 				"Target":"Monster",
 				"Damage": 10, 
-				"Type": "Stab",
+				"Type": "Ranged",
 				"cost": 2,
 			},
 			2: {

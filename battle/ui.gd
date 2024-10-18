@@ -15,15 +15,12 @@ func _on_back_pressed() -> void:
 	
 
 func _process(delta):
+	
 	# SET PLAYER INFO
 	$"../BattleUI/HPBar".value = Game.selectedMonsters[0]["Health"]
-	$"../BattleUI/Info".text = str(Game.selectedMonsters[0]["Name"]) + " LVL" + str(Game.selectedMonsters[get_parent().selected]["Level"])
+	$"../BattleUI/Info".text = str(Game.selectedMonsters[0]["Name"]) + " LVL" + str(Game.selectedMonsters[0]["Level"])
 	$"../BattleUI/HpTxt".text = str(Game.selectedMonsters[0]["Health"])
 	
-	# SET MONSTER INFO
-	$HPBar.value = Game.selectedMonsters[get_parent().selected]["Health"]
-	$Info.text = str(Game.selectedMonsters[get_parent().selected]["Name"]) + " LVL" + str(Game.selectedMonsters[get_parent().selected]["Level"])
-	$HpTxt.text = str(Game.selectedMonsters[get_parent().selected]["Health"])
 	
 	# SET ATTACK NAMES
 	for i in Game.selectedMonsters[0]["Attacks"]:
@@ -46,3 +43,11 @@ func _on_run_pressed() -> void:
 	#print(self.get_path())
 	get_parent().queue_free()
 	get_tree().paused = false
+
+
+func _on_attack_pressed(extra_arg_0: int) -> void:
+	if Game.selectedMonsters[0]["Attacks"][extra_arg_0]["Target"] == "Monster":
+		var tempDic = Game.selectedMonsters[0]["Attacks"]
+		$"../Enemy".get_child(0).hit(tempDic[extra_arg_0]["Name"], tempDic[extra_arg_0]["Damage"]) 
+		$"../Action".text = Game.selectedMonsters[0]["Name"] + " has attacked for " + str(tempDic[0]["Damage"]) + " hp"
+		get_parent().MonsterTurn()

@@ -16,8 +16,8 @@ func spawn(): # play animation for battle scene
 	await get_tree().create_timer(1).timeout
 	animation_player.play("spawn", -1, 2) # play spawn and make it faster
 
-func hit(anim, dmg):
+func hit(anim, dmg): # animation for getting hit
 	health -= dmg
-	$AnimatedSprite2D.play("attack")
+	$AnimatedSprite2D.play(anim)
 	await get_tree().create_timer(1).timeout
 	$AnimatedSprite2D.play("idle")

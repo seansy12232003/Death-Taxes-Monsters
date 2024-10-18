@@ -3,7 +3,7 @@ extends CanvasLayer
 var player = preload("res://Player/player.tscn")
 var minotaur = preload("res://Monsters/minotaur.tscn")
 
-var selected = 0
+var selected = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

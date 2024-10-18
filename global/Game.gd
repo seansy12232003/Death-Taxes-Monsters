@@ -20,16 +20,23 @@ var dataBaseMonsters = {
 		"Attacks": {
 			0: {
 				"Name": "Slash",
-				"Target":"Player",
+				"Target":"Monster",
 				"Damage": 10, 
 				"Type": "Physical",
 				"cost": 2,
 			},
 			1: {
-				"Name": "Ram",
-				"Target":"Player",
+				"Name": "Stab",
+				"Target":"Monster",
 				"Damage": 10, 
 				"Type": "Stab",
+				"cost": 2,
+			},
+			2: {
+				"Name": "Spell",
+				"Target":"Monster",
+				"Damage": 10, 
+				"Type": "Magic",
 				"cost": 2,
 			}
 		}
@@ -140,20 +147,27 @@ var selectedMonsters = {
 		"Attacks": {
 			0: {
 				"Name": "Slash",
-				"Target":"Player",
+				"Target":"Monster",
 				"Damage": 10, 
 				"Type": "Physical",
 				"cost": 2,
 			},
 			1: {
-				"Name": "Ram",
-				"Target":"Player",
+				"Name": "Stab",
+				"Target":"Monster",
 				"Damage": 10, 
 				"Type": "Stab",
 				"cost": 2,
+			},
+			2: {
+				"Name": "Spell",
+				"Target":"Monster",
+				"Damage": 10, 
+				"Type": "Magic",
+				"cost": 2,
 			}
 		}
-	},
+	}
 }
 
 func addMonster(Name):

@@ -15,9 +15,15 @@ func _on_back_pressed() -> void:
 	
 
 func _process(delta):
+	# SET PLAYER INFO
 	$"../BattleUI/HPBar".value = Game.selectedMonsters[0]["Health"]
 	$"../BattleUI/Info".text = str(Game.selectedMonsters[0]["Name"]) + " LVL" + str(Game.selectedMonsters[get_parent().selected]["Level"])
 	$"../BattleUI/HpTxt".text = str(Game.selectedMonsters[0]["Health"])
+	
+	# SET MONSTER INFO
+	$HPBar.value = Game.selectedMonsters[get_parent().selected]["Health"]
+	$Info.text = str(Game.selectedMonsters[get_parent().selected]["Name"]) + " LVL" + str(Game.selectedMonsters[get_parent().selected]["Level"])
+	$HpTxt.text = str(Game.selectedMonsters[get_parent().selected]["Health"])
 	
 	# SET ATTACK NAMES
 	for i in Game.selectedMonsters[0]["Attacks"]:

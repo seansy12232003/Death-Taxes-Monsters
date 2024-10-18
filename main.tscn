@@ -11,7 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://dmvvubi462afi" path="res://Music/First level sound.mp3" id="7_avoy2"]
 [ext_resource type="Script" path="res://shop_keeper.gd" id="10_3fo3l"]
 [ext_resource type="PackedScene" uid="uid://ceawnrrql0g6" path="res://Monsters/minotaurmob.tscn" id="10_qgnkn"]
-[ext_resource type="PackedScene" uid="uid://1efliekgt7k6" path="res://shop.tscn" id="11_rr0k2"]
+[ext_resource type="PackedScene" path="res://shop.tscn" id="11_rr0k2"]
 [ext_resource type="Texture2D" uid="uid://dufpcjqbm3uns" path="res://Download75842.png" id="12_lyx6n"]
 [ext_resource type="AudioStream" uid="uid://b7x7xjgx7pfku" path="res://Music/footsteps-dirt-gravel-6823 (mp3cut.net).mp3" id="13_dohrn"]
 [ext_resource type="AudioStream" uid="uid://b4gpe4spuqxhl" path="res://sword-battle-jingle-loop-96983.mp3" id="13_uv4sm"]
@@ -1205,7 +1205,7 @@ shape = SubResource("CircleShape2D_elxgp")
 
 [node name="BattleMusic" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
-process_mode = 3
+process_mode = 2
 auto_translate_mode = 1
 position = Vector2(500, 400)
 stream = ExtResource("6_ivnyj")
@@ -1385,5 +1385,6 @@ parameters/looping = true
 
 [connection signal="body_entered" from="ShopKeeper" to="ShopKeeper" method="_on_body_entered"]
 [connection signal="body_entered" from="BattleSpawn" to="BattleSpawn" method="_on_body_entered"]
+[connection signal="battle_triggered" from="Path2D/PathFollow2D2/Minotaur" to="." method="_on_minotaur_battle_triggered"]
 [connection signal="body_entered" from="Stairs" to="." method="_on_stairs_body_entered"]
 [connection signal="body_exited" from="Stairs" to="." method="_on_stairs_body_exited"]

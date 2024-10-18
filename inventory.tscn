@@ -1,32 +1,114 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtcl0fcx53lnr"]
+[gd_scene load_steps=9 format=3 uid="uid://bjt6k568ehcfq"]
 
 [ext_resource type="Script" path="res://inventory.gd" id="1_ju1hh"]
+[ext_resource type="Script" path="res://inv_container.gd" id="3_6apak"]
+[ext_resource type="Script" path="res://gold.gd" id="3_ra3dg"]
+[ext_resource type="PackedScene" uid="uid://b8t0seidv0ipj" path="res://ItemInfo.tscn" id="4_3apk7"]
+
+[sub_resource type="Animation" id="Animation_dqxjs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -300)]
+}
+
+[sub_resource type="Animation" id="Animation_2wekl"]
+resource_name = "TransIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(250, -500), Vector2(250, 150)]
+}
+
+[sub_resource type="Animation" id="Animation_6acob"]
+resource_name = "TransOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(250, 150), Vector2(250, 1000)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4x1qn"]
+_data = {
+"RESET": SubResource("Animation_dqxjs"),
+"TransIn": SubResource("Animation_2wekl"),
+"TransOut": SubResource("Animation_6acob")
+}
 
 [node name="Inventory" type="CanvasLayer"]
+process_mode = 3
+offset = Vector2(0, -300)
+transform = Transform2D(1, 0, 0, 1, 0, -300)
 script = ExtResource("1_ju1hh")
 
-[node name="Button" type="Button" parent="."]
-offset_left = 135.0
-offset_top = 277.0
-offset_right = 288.0
-offset_bottom = 308.0
-text = "Close"
-
 [node name="Panel" type="Panel" parent="."]
-offset_left = 13.0
-offset_top = 90.0
-offset_right = 404.0
-offset_bottom = 318.0
+process_mode = 3
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 535.0
+offset_bottom = 316.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4x1qn")
+}
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Button" type="Button" parent="."]
+offset_left = 478.0
+offset_top = 14.0
+offset_right = 528.0
+offset_bottom = 45.0
+text = "Close
+"
 
-[node name="Button" type="Button" parent="Control"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="Name" type="Label" parent="."]
+offset_left = 219.0
+offset_top = 22.0
+offset_right = 332.0
+offset_bottom = 45.0
+text = "Inventory
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Gold" type="Label" parent="."]
+offset_left = 18.0
+offset_top = 15.0
+offset_right = 58.0
+offset_bottom = 38.0
+script = ExtResource("3_ra3dg")
+
+[node name="InvContainer" type="GridContainer" parent="."]
+offset_left = 111.0
+offset_top = 70.0
+offset_right = 415.0
+offset_bottom = 278.0
+columns = 6
+script = ExtResource("3_6apak")
+
+[node name="ItemInfo" parent="." instance=ExtResource("4_3apk7")]
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

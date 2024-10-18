@@ -4,7 +4,8 @@ var currItem = 0
 var select = 0 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	%Name.text = Global.items[currItem]["Name"]
+	%Description.text = Global.items[currItem]["Description"] + "\nCost: " + str(Global.items[currItem]["Cost"])
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -14,7 +15,7 @@ func switchItem(select):
 	for i in range(Global.items.size()):
 		if select == i:
 			currItem=select
-			get_node("Control/AnimatedSprite2D").play(Global.items[currItem]["Name"])
+			get_node("Control/item").texture = Global.items[currItem]["Icon"]
 			get_node("Control/Name").text = Global.items[currItem]["Name"]
 			get_node("Control/Description").text = Global.items[currItem]["Description"]
 			get_node("Control/Description").text += "\nCost: " + str(Global.items[currItem]["Cost"])

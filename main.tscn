@@ -1946,7 +1946,7 @@ _data = {
 script = ExtResource("1_g078x")
 
 [node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(892.08, 650)
+position = Vector2(576, 464)
 
 [node name="TileGridTop" type="TileMapLayer" parent="."]
 z_index = 1
@@ -1983,6 +1983,18 @@ sprite_frames = SubResource("SpriteFrames_h2lxi")
 animation = &"forward walk"
 
 [node name="Player" parent="." instance=ExtResource("3_6va6h")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
+
+[node name="InventoryButton" type="Button" parent="Player/CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -83.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "Inventory
+"
 
 [node name="Inventory" parent="Player" instance=ExtResource("7_hhw2g")]
 
@@ -2251,6 +2263,7 @@ libraries = {
 }
 
 [connection signal="body_entered" from="ShopKeeper" to="ShopKeeper" method="_on_body_entered"]
+[connection signal="pressed" from="Player/CanvasLayer/InventoryButton" to="." method="_on_inventory_button_pressed"]
 [connection signal="body_entered" from="BattleSpawn" to="BattleSpawn" method="_on_body_entered"]
 [connection signal="battle_triggered" from="Path2D/PathFollow2D2/Minotaur" to="." method="_on_minotaur_battle_triggered"]
 [connection signal="body_entered" from="Stairs" to="." method="_on_stairs_body_entered"]

@@ -11,5 +11,6 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_button_pressed() -> void:
-	pass # Replace with function body.
+
+func _on_inventory_pressed() -> void:
+	Input.action_press("Inv")

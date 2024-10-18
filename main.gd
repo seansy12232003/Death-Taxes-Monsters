@@ -64,3 +64,13 @@ func _on_teleport_area_kingdom_body_entered(body: Node2D) -> void:
 		await get_tree().create_timer(2).timeout
 		$FadeAnimationPlayer.play("fade_out")
 		get_tree().paused = false
+
+
+func _on_inventory_button_pressed() -> void:
+	if get_node("Player/Inventory").offset.y == -500:
+		get_node("Player/Inventory/AnimationPlayer").play("TransIn")
+	elif get_node("Player/Inventory").offset.y == 1000:
+		get_node("Player/Inventory/AnimationPlayer").play("TransIn")
+	elif get_node("Player/Inventory").offset.y == 150:
+		get_node("Player/Inventory/AnimationPlayer").play("TransOut")
+	get_node("Player/Inventory/InvContainer").fillInventorySlots()

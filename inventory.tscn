@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bjt6k568ehcfq"]
+[gd_scene load_steps=9 format=3 uid="uid://bjt6k568ehcfq"]
 
 [ext_resource type="Script" path="res://inventory.gd" id="1_ju1hh"]
+[ext_resource type="Script" path="res://inv_container.gd" id="3_6apak"]
 [ext_resource type="Script" path="res://gold.gd" id="3_ra3dg"]
+[ext_resource type="PackedScene" uid="uid://b8t0seidv0ipj" path="res://ItemInfo.tscn" id="4_3apk7"]
 
 [sub_resource type="Animation" id="Animation_dqxjs"]
 length = 0.001
@@ -98,5 +100,15 @@ offset_top = 15.0
 offset_right = 58.0
 offset_bottom = 38.0
 script = ExtResource("3_ra3dg")
+
+[node name="InvContainer" type="GridContainer" parent="."]
+offset_left = 111.0
+offset_top = 70.0
+offset_right = 415.0
+offset_bottom = 278.0
+columns = 6
+script = ExtResource("3_6apak")
+
+[node name="ItemInfo" parent="." instance=ExtResource("4_3apk7")]
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

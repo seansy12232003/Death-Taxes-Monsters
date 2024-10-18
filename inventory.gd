@@ -24,3 +24,4 @@ func _input(event):
 			get_node("AnimationPlayer").play("TransIn")
 		elif self.offset.y == 150:
 			get_node("AnimationPlayer").play("TransOut")
+		get_node("InvContainer").fillInventorySlots()

@@ -25,9 +25,10 @@ var items = {
 }
 var inventory = {
 	0: {
-		"Name" : "Magic",
-		"Description" : "Woo Waa Magic",
-		"Cost" : 10,
+		"Name" : "Sword",
+		"Description" : "Slash",
+		"Cost" : 15,
+		"Icon" : preload("res://sword.png"),
 		"Count" : 1
 	},
 

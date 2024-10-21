@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=4 uid="uid://baxn7b4aay4mt"]
+[gd_scene load_steps=101 format=4 uid="uid://baxn7b4aay4mt"]
 
 [ext_resource type="Texture2D" uid="uid://ca8cmnj12mr1q" path="res://Assets/SERENE_VILLAGE_REVAMPED/Serene_Village_16x16.png" id="1_ftrtj"]
 [ext_resource type="Script" path="res://main.gd" id="1_g078x"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://b0ocikrhmt7ty" path="res://Music/battle-theme-194713.mp3" id="6_ivnyj"]
 [ext_resource type="AudioStream" uid="uid://dmvvubi462afi" path="res://Music/First level sound.mp3" id="7_avoy2"]
 [ext_resource type="PackedScene" uid="uid://bjt6k568ehcfq" path="res://inventory.tscn" id="7_hhw2g"]
+[ext_resource type="PackedScene" uid="uid://buq5slepreo2h" path="res://instructions.tscn" id="8_wvw2g"]
 [ext_resource type="Script" path="res://shop_keeper.gd" id="10_3fo3l"]
 [ext_resource type="PackedScene" uid="uid://ceawnrrql0g6" path="res://Monsters/minotaurmob.tscn" id="10_qgnkn"]
 [ext_resource type="PackedScene" uid="uid://1efliekgt7k6" path="res://shop.tscn" id="11_rr0k2"]
@@ -1984,6 +1985,14 @@ animation = &"forward walk"
 
 [node name="Player" parent="." instance=ExtResource("3_6va6h")]
 
+[node name="Camera2D2" type="Camera2D" parent="Player"]
+zoom = Vector2(5, 5)
+limit_left = 0
+limit_top = 0
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
 [node name="CanvasLayer" type="CanvasLayer" parent="Player"]
 
 [node name="InventoryButton" type="Button" parent="Player/CanvasLayer"]
@@ -1996,7 +2005,15 @@ grow_horizontal = 0
 text = "Inventory
 "
 
+[node name="Instructions" type="Button" parent="Player/CanvasLayer"]
+offset_top = 608.0
+offset_right = 160.0
+offset_bottom = 648.0
+text = "Instructions"
+
 [node name="Inventory" parent="Player" instance=ExtResource("7_hhw2g")]
+
+[node name="Instructions" parent="Player" instance=ExtResource("8_wvw2g")]
 
 [node name="CoinAmount" type="ColorRect" parent="Player"]
 anchors_preset = 1
@@ -2017,14 +2034,6 @@ texture = ExtResource("4_7im2s")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-
-[node name="Camera2D2" type="Camera2D" parent="Player"]
-zoom = Vector2(5, 5)
-limit_left = 0
-limit_top = 0
-limit_smoothed = true
-position_smoothing_enabled = true
-position_smoothing_speed = 10.0
 
 [node name="CliffLeft" type="StaticBody2D" parent="."]
 position = Vector2(470.5, 505)
@@ -2264,6 +2273,7 @@ libraries = {
 
 [connection signal="body_entered" from="ShopKeeper" to="ShopKeeper" method="_on_body_entered"]
 [connection signal="pressed" from="Player/CanvasLayer/InventoryButton" to="." method="_on_inventory_button_pressed"]
+[connection signal="pressed" from="Player/CanvasLayer/Instructions" to="." method="_on_instructions_pressed"]
 [connection signal="body_entered" from="BattleSpawn" to="BattleSpawn" method="_on_body_entered"]
 [connection signal="battle_triggered" from="Path2D/PathFollow2D2/Minotaur" to="." method="_on_minotaur_battle_triggered"]
 [connection signal="body_entered" from="Stairs" to="." method="_on_stairs_body_entered"]

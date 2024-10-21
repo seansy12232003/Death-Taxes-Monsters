@@ -46,6 +46,7 @@ func _physics_process(delta):
 	# prevent player from going outside the screen
 	#position.x = clamp(position.x, 0, screensize.x)
 	#position.y = clamp(position.y, 0, screensize.y)
+	screensize = get_viewport_rect().size
 
 func set_pos(pos): # function to set position of player
 	position = pos

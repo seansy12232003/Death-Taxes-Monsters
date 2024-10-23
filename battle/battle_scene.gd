@@ -46,6 +46,7 @@ func MonsterTurn():
 		Game.addEXP(10)
 		get_tree().paused = false
 		queue_free()
+		
 	
 	var damage = randi_range(10,15)
 	$Action.text = "Enemy is thinking..."

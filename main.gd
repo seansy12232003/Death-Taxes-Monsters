@@ -74,3 +74,14 @@ func _on_inventory_button_pressed() -> void:
 	elif get_node("Player/Inventory").offset.y == 150:
 		get_node("Player/Inventory/AnimationPlayer").play("TransOut")
 	get_node("Player/Inventory/InvContainer").fillInventorySlots()
+	
+
+
+
+func _on_instructions_pressed() -> void:
+	if get_node("Player/Instructions").offset.y == -500:
+		get_node("Player/Instructions/AnimationPlayer").play("TransIn")
+	elif get_node("Player/Instructions").offset.y == 1000:
+		get_node("Player/Instructions/AnimationPlayer").play("TransIn")
+	elif get_node("Player/Instructions").offset.y == 150:
+		get_node("Player/Instructions/AnimationPlayer").play("TransOut")

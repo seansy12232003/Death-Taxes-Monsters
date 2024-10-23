@@ -51,6 +51,8 @@ func MonsterTurn():
 	$Action.text = "Enemy is thinking..."
 	await get_tree().create_timer(2).timeout
 	
+	
+	
 	$Enemy.get_child(0).hit("attack", damage)
 	$Action.text = "Enemy " + $Enemy.get_child(0).name + " has attacked using <placeholder> for " + str(damage) + " hp"
 	Game.selectedMonsters[0]["Health"] -= damage

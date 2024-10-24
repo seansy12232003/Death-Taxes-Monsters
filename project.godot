@@ -18,8 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://Global.gd"
-Utils="*res://global/utils.gd"
 Game="*res://global/Game.gd"
+Utils="*res://global/utils.gd"
 
 [input]
 

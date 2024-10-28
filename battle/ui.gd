@@ -28,14 +28,14 @@ func _process(delta):
 		get_node(path).text = Game.selectedMonsters[0]["Attacks"][i]["Name"]
 
 
-func _on_items_pressed() -> void:
+func _on_items_pressed() -> void: # open items menu
 	$Menu.hide()
 	$Items.show()
 	$Fight.hide()
 	$"../BattleUI/Items/GridContainer/Heal".grab_focus()
 
 
-func _on_run_pressed() -> void:
+func _on_run_pressed() -> void: # run from battle
 	$"../../UI/AnimationPlayer".play("TransIn")
 	await get_tree().create_timer(1.5).timeout
 	$"../../UI/AnimationPlayer".play("TransOut")
@@ -45,9 +45,9 @@ func _on_run_pressed() -> void:
 	get_tree().paused = false
 
 
-func _on_attack_pressed(extra_arg_0: int) -> void:
+func _on_attack_pressed(extra_arg_0: int) -> void: # attack menu
 	if Game.selectedMonsters[0]["Attacks"][extra_arg_0]["Target"] == "Monster":
-		var tempDic = Game.selectedMonsters[0]["Attacks"]
-		$"../Enemy".get_child(0).hit(tempDic[extra_arg_0]["Name"], tempDic[extra_arg_0]["Damage"]) 
-		$"../Action".text = Game.selectedMonsters[0]["Name"] + " has attacked for " + str(tempDic[0]["Damage"]) + " hp"
-		get_parent().MonsterTurn()
+		var tempDic = Game.selectedMonsters[0]["Attacks"] # get the players attacks
+		$"../Enemy".get_child(0).hit(tempDic[extra_arg_0]["Name"], tempDic[extra_arg_0]["Damage"]) # use hit function in monster scene and send animation name and damage
+		$"../Action".text = Game.selectedMonsters[0]["Name"] + " has attacked for " + str(tempDic[0]["Damage"]) + " hp" # change text in action section of battle menu
+		get_parent().MonsterTurn() # call monster turn

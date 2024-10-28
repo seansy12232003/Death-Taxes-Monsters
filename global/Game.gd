@@ -62,8 +62,15 @@ var dataBaseMonsters = {
 			1: {
 				"Name": "Ram",
 				"Target":"Player",
-				"Damage": 10, 
-				"Type": "Stab",
+				"Damage": 15, 
+				"Type": "Physical",
+				"cost": 2,
+			},
+			2: {
+				"Name": "Throw Rock",
+				"Target":"Player",
+				"Damage": 5, 
+				"Type": "Ranged",
 				"cost": 2,
 			}
 		}
@@ -184,6 +191,6 @@ func addEXP(amount):
 		if selectedMonsters[i]["Exp"] >= selectedMonsters[i]["MaxExp"]:
 			#LEVEL UP
 			selectedMonsters[i]["Level"] += 1
-			selectedMonsters[i]["Exp"] = 0
-			selectedMonsters[i]["MaxExp"] = selectedMonsters[i]["MaxExp"] * 1.5
+			selectedMonsters[i]["Exp"] = selectedMonsters[i]["Exp"] % selectedMonsters[i]["MaxExp"]
+			selectedMonsters[i]["MaxExp"] = selectedMonsters[i]["MaxExp"] * 1.25
 	

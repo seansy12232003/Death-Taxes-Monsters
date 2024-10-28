@@ -18,6 +18,7 @@ func spawn(): # play animation for battle scene
 
 func hit(anim, dmg): # animation for getting hit
 	health -= dmg
-	$AnimatedSprite2D.play(anim)
+	$Hit/Attack.play("hit")
+	$Hit/NormalHitSound.play()
 	await get_tree().create_timer(1).timeout
 	$AnimatedSprite2D.play("idle")

@@ -403,7 +403,7 @@ offset_bottom = 613.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_sakuu")
-text = "This is an Action!"
+text = "What will you do?"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -411,6 +411,7 @@ autowrap_mode = 3
 [connection signal="pressed" from="BattleUI/Menu/GridContainer/Fight" to="BattleUI" method="_on_fight_pressed"]
 [connection signal="pressed" from="BattleUI/Menu/GridContainer/Items" to="BattleUI" method="_on_items_pressed"]
 [connection signal="pressed" from="BattleUI/Menu/GridContainer/Run" to="BattleUI" method="_on_run_pressed"]
+[connection signal="pressed" from="BattleUI/Fight/GridContainer/Attack 1" to="BattleUI" method="_on_attack_pressed" binds= [0]]
 [connection signal="pressed" from="BattleUI/Fight/GridContainer/Attack 2" to="BattleUI" method="_on_attack_pressed" binds= [1]]
 [connection signal="pressed" from="BattleUI/Fight/GridContainer/Attack 3" to="BattleUI" method="_on_attack_pressed" binds= [2]]
 [connection signal="pressed" from="BattleUI/Fight/GridContainer/Back" to="BattleUI" method="_on_back_pressed"]

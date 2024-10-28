@@ -20,11 +20,7 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	get_parent().set_progress(get_parent().get_progress() + speed *delta)
 	#position = get_parent().position
-	print("")
-	print(previous_position)
-	print(get_parent().position)
 	var direction = (get_parent().position - previous_position).normalized()
-	print(direction)
 	if direction != Vector2.ZERO:
 		play_walk_animation(direction)
 

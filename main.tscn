@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=4 uid="uid://baxn7b4aay4mt"]
+[gd_scene load_steps=109 format=4 uid="uid://baxn7b4aay4mt"]
 
 [ext_resource type="Texture2D" uid="uid://ca8cmnj12mr1q" path="res://Assets/SERENE_VILLAGE_REVAMPED/Serene_Village_16x16.png" id="1_ftrtj"]
 [ext_resource type="Script" path="res://main.gd" id="1_g078x"]
@@ -5055,9 +5055,27 @@ size = Vector2(42, 49)
 
 [sub_resource type="Curve2D" id="Curve2D_ir8re"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 14, 10, 0, 0, 0, 0, -68, 12, 0, 0, 0, 0, -102, 11, 0, 0, 0, 0, -105, 0, 0, 0, 0, 0, 15, 1, 0, 0, 0, 0, 14, 10)
+"points": PackedVector2Array(0, 0, 0, 0, 20, 10, 0, 0, 0, 0, 20, 10, 0, 0, 0, 0, -73, 12, 0, 0, 0, 0, -73, -25, 0, 0, 0, 0, 20, -26, 0, 0, 0, 0, 20, 10)
 }
 point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_ybnhu"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -77.2498, 26.0053, 0, 0, 0, 0, 13.7502, 25.0053, 0, 0, 0, 0, 14.7502, 50.0053, 0, 0, 0, 0, -78.2498, 49.0053, 0, 0, 0, 0, -77.2498, 26.0053)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_go57p"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -3.24982, 168.005, 0, 0, 0, 0, -37.2498, 167.005, 0, 0, 0, 0, -41.2498, -30.9947, 0, 0, 0, 0, -22.2498, -29.9947, 0, 0, 0, 0, -22.2498, 148.005, 0, 0, 0, 0, -3.24982, 148.005, 0, 0, 0, 0, -3.24982, 168.005)
+}
+point_count = 7
+
+[sub_resource type="Curve2D" id="Curve2D_nv0hg"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -125.25, -27.9947, 0, 0, 0, 0, 56.7502, -29.9947, 0, 0, 0, 0, -30.2498, 135.005, 0, 0, 0, 0, -125.25, -27.9947)
+}
+point_count = 4
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1dfnx"]
 size = Vector2(29, 9)
@@ -5434,13 +5452,51 @@ position = Vector2(603, 547)
 curve = SubResource("Curve2D_ir8re")
 
 [node name="PathFollow2D2" type="PathFollow2D" parent="Path2D"]
-position = Vector2(14, 10)
+position = Vector2(20.2498, 9.99463)
 rotation = 3.11721
+rotates = false
 
 [node name="Minotaur" parent="Path2D/PathFollow2D2" instance=ExtResource("10_qgnkn")]
 z_index = 4
 position = Vector2(13.752, 10.3383)
 rotation = -3.11721
+
+[node name="Path2D2" type="Path2D" parent="."]
+position = Vector2(609.25, 546.995)
+scale = Vector2(1, 1)
+curve = SubResource("Curve2D_ybnhu")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
+position = Vector2(-77.2498, 26.0053)
+rotation = -0.0109886
+rotates = false
+
+[node name="CharacterBody2D" parent="Path2D2/PathFollow2D" instance=ExtResource("10_qgnkn")]
+
+[node name="Path2D4" type="Path2D" parent="."]
+position = Vector2(609.25, 546.995)
+scale = Vector2(1, 1)
+curve = SubResource("Curve2D_go57p")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D4"]
+position = Vector2(-3.24982, 168.005)
+rotation = -2.11122
+rotates = false
+
+[node name="CharacterBody2D" parent="Path2D4/PathFollow2D" instance=ExtResource("10_qgnkn")]
+rotation = 2.07345
+
+[node name="Path2D5" type="Path2D" parent="."]
+position = Vector2(609.25, 555.995)
+scale = Vector2(1, 1)
+curve = SubResource("Curve2D_nv0hg")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D5"]
+position = Vector2(-125.25, -27.9947)
+rotation = 0.0102037
+rotates = false
+
+[node name="CharacterBody2D" parent="Path2D5/PathFollow2D" instance=ExtResource("10_qgnkn")]
 
 [node name="Stairs" type="Area2D" parent="."]
 

@@ -11,7 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://b0ocikrhmt7ty" path="res://Music/battle-theme-194713.mp3" id="6_ivnyj"]
 [ext_resource type="AudioStream" uid="uid://dmvvubi462afi" path="res://Music/First level sound.mp3" id="7_avoy2"]
 [ext_resource type="PackedScene" uid="uid://bjt6k568ehcfq" path="res://inventory.tscn" id="7_hhw2g"]
-[ext_resource type="PackedScene" path="res://instructions.tscn" id="8_wvw2g"]
+[ext_resource type="PackedScene" uid="uid://buq5slepreo2h" path="res://instructions.tscn" id="8_wvw2g"]
 [ext_resource type="Script" path="res://shop_keeper.gd" id="10_3fo3l"]
 [ext_resource type="PackedScene" uid="uid://ceawnrrql0g6" path="res://Monsters/minotaurmob.tscn" id="10_qgnkn"]
 [ext_resource type="PackedScene" uid="uid://b3wi2gwga31ja" path="res://shop.tscn" id="11_rr0k2"]
@@ -5463,7 +5463,6 @@ rotation = -3.11721
 
 [node name="Path2D2" type="Path2D" parent="."]
 position = Vector2(609.25, 546.995)
-scale = Vector2(1, 1)
 curve = SubResource("Curve2D_ybnhu")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
@@ -5475,7 +5474,6 @@ rotates = false
 
 [node name="Path2D4" type="Path2D" parent="."]
 position = Vector2(609.25, 546.995)
-scale = Vector2(1, 1)
 curve = SubResource("Curve2D_go57p")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D4"]
@@ -5488,7 +5486,6 @@ rotation = 2.07345
 
 [node name="Path2D5" type="Path2D" parent="."]
 position = Vector2(609.25, 555.995)
-scale = Vector2(1, 1)
 curve = SubResource("Curve2D_nv0hg")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D5"]

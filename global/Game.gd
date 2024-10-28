@@ -13,7 +13,7 @@ var dataBaseMonsters = {
 		"Health": 100,
 		"Level": 1,
 		"Exp": 0,
-		"MaxExp": 0,
+		"MaxExp": 10,
 		"Strength": 10,
 		"Defense": 5,
 		"Scene": preload("res://Player/player.tscn"), # placeholder
@@ -44,7 +44,7 @@ var dataBaseMonsters = {
 	1: {
 		"Name": "Minotaur",
 		"Frame": 0,
-		"Health": 100,
+		"Health": 10,
 		"Level": 1,
 		"Exp": 0,
 		"MaxExp": 0,
@@ -147,7 +147,7 @@ var selectedMonsters = {
 		"Health": 100,
 		"Level": 1,
 		"Exp": 0,
-		"MaxExp": 0,
+		"MaxExp": 10,
 		"Strength": 10,
 		"Defense": 5,
 		"Scene": preload("res://Player/player.tscn"), # placeholder
@@ -186,11 +186,9 @@ func addMonster(Name):
 			
 
 func addEXP(amount):
-	for i in selectedMonsters:
-		selectedMonsters[i]["Exp"] += amount
-		if selectedMonsters[i]["Exp"] >= selectedMonsters[i]["MaxExp"]:
-			#LEVEL UP
-			selectedMonsters[i]["Level"] += 1
-			selectedMonsters[i]["Exp"] = selectedMonsters[i]["Exp"] % selectedMonsters[i]["MaxExp"]
-			selectedMonsters[i]["MaxExp"] = selectedMonsters[i]["MaxExp"] * 1.25
+	if selectedMonsters[0]["Exp"] >= selectedMonsters[0]["MaxExp"]:
+		#LEVEL UP
+		selectedMonsters[0]["Level"] += 1
+		selectedMonsters[0]["Exp"] = int(selectedMonsters[0]["Exp"]) % int(selectedMonsters[0]["MaxExp"])
+		selectedMonsters[0]["MaxExp"] = selectedMonsters[0]["MaxExp"] * 1.25
 	

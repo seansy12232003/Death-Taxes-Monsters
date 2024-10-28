@@ -5,6 +5,7 @@ var level = 1
 
 func _ready():
 	level = randi_range(1, 5)
+	health = level * 10
 	if get_parent().name == "Enemy": # call spawn animation if in battle scene
 		spawn()  # Delay the spawn call until the next frame
 		set_process(true)

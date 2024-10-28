@@ -27,18 +27,7 @@ func _on_stairs_body_exited(body: Node2D) -> void:
 
 
 func _on_minotaur_battle_triggered() -> void:
-		$"UI/AnimationPlayer".play("TransIn") # play black circle getting bigger
-		%Level1.stop()
-		%BattleMusic.play()
-		%swordSound.play()
-		%birds.stop()
-		get_tree().paused = true # pause player movement and world movement
-		await get_tree().create_timer(1.5).timeout # wait for TransIn to finish
-		var battleTemp = battle.instantiate() # create battle scene
-		get_parent().add_child(battleTemp) # add battlescene child to main
-		queue_free() # prevent code from making multiple battle scenes
-		$"Player/Camera2D2".enabled = false # disable player camera so battle scene camera is correct
-		$"UI/AnimationPlayer".play("TransOut") # play black circle getting smaller
+	pass
 
 
 

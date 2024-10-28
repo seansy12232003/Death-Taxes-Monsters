@@ -52,7 +52,7 @@ func MonsterTurn():
 		Game.addEXP(expToGain) # add exp to player and scale exp with monster level
 		get_tree().paused = false
 		queue_free()
-		$"../Player/Camera2D2".enabled = true
+		$"../../../Player/Camera2D2".enabled = true
 	
 	# wait for a second and show what the player did
 	await get_tree().create_timer(1.5).timeout 

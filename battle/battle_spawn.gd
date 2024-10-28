@@ -5,6 +5,7 @@ var battle = preload("res://battle/battle_scene.tscn")
 
 func _on_body_entered(body: Node2D) -> void: # on encountering enemy
 	if "Player" in body.name: # if player runs into enemy
+		print(self.get_path())
 		$"../UI/AnimationPlayer".play("TransIn") # play black circle getting bigger
 		%Level1.stop()
 		%BattleMusic.play()

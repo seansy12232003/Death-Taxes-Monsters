@@ -5160,7 +5160,7 @@ _data = {
 script = ExtResource("1_g078x")
 
 [node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(575, 450)
+position = Vector2(575, 455)
 
 [node name="TileGridTop" type="TileMapLayer" parent="."]
 z_index = 1

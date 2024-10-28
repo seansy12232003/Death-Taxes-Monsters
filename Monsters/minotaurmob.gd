@@ -3,9 +3,12 @@ extends CharacterBody2D
 signal battle_triggered
 
 #@onready var path_follow: PathFollow2D = $Path2D/PathFollow2D2
-@export var speed = 100
+@export var speed = 10
+var direction = Vector2.ZERO
+var previous_position: Vector2
 
-#func _ready():
+func _ready():
+	previous_position = get_parent().position
 	#$Area2D.connect("body_entered", self, "_on_body_entered")
 	#
 
@@ -16,6 +19,17 @@ signal battle_triggered
 #
 func _physics_process(delta: float) -> void:
 	get_parent().set_progress(get_parent().get_progress() + speed *delta)
+	#position = get_parent().position
+	print("")
+	print(previous_position)
+	print(get_parent().position)
+	var direction = (get_parent().position - previous_position).normalized()
+	print(direction)
+	if direction != Vector2.ZERO:
+		play_walk_animation(direction)
+
+	previous_position = get_parent().position
+	#direction = Vector2.ZERO
 	
 	## Add the gravity.
 	#if not is_on_floor():
@@ -36,6 +50,20 @@ func _physics_process(delta: float) -> void:
 	#move_and_slide()
 
  
+func play_walk_animation(dir: Vector2) -> void:
+	if abs(dir.x) > abs(dir.y):  # Moving horizontally
+		if dir.x > 0:
+			$AnimatedSprite2D.animation = "walk_right"
+		else:
+			$AnimatedSprite2D.animation = "walk_left"
+	else:  # Moving vertically
+		if dir.y > 0:
+			$AnimatedSprite2D.animation = "walk_down"
+		else:
+			$AnimatedSprite2D.animation = "walk_up"
+	
+	# Ensure the animation is playing
+	$AnimatedSprite2D.play()
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

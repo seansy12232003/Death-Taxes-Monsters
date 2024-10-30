@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=4 uid="uid://baxn7b4aay4mt"]
+[gd_scene load_steps=111 format=4 uid="uid://baxn7b4aay4mt"]
 
 [ext_resource type="Texture2D" uid="uid://ca8cmnj12mr1q" path="res://Assets/SERENE_VILLAGE_REVAMPED/Serene_Village_16x16.png" id="1_ftrtj"]
 [ext_resource type="Script" path="res://main.gd" id="1_g078x"]
@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://b7x7xjgx7pfku" path="res://Music/footsteps-dirt-gravel-6823 (mp3cut.net).mp3" id="13_dohrn"]
 [ext_resource type="AudioStream" uid="uid://b4gpe4spuqxhl" path="res://sword-battle-jingle-loop-96983.mp3" id="13_uv4sm"]
 [ext_resource type="AudioStream" uid="uid://cd8ukvfocr8l2" path="res://birds-19624.mp3" id="15_rubnu"]
+[ext_resource type="PackedScene" uid="uid://ca4u2ljj1xl8f" path="res://wolfmob.tscn" id="20_5ihrp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4jofr"]
 texture = ExtResource("1_ftrtj")
@@ -5173,6 +5174,12 @@ _data = {
 "fade_out": SubResource("Animation_wol3h")
 }
 
+[sub_resource type="Curve2D" id="Curve2D_62aot"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 646, 791, 0, 0, 0, 0, 750, 793, 0, 0, 0, 0, 778, 861, 0, 0, 0, 0, 815, 854, 0, 0, 0, 0, 773, 781, 0, 0, 0, 0, 647, 791)
+}
+point_count = 6
+
 [node name="World" type="Node2D"]
 script = ExtResource("1_g078x")
 
@@ -5545,6 +5552,16 @@ libraries = {
 "": SubResource("AnimationLibrary_keh7g")
 }
 
+[node name="Path2D3" type="Path2D" parent="."]
+curve = SubResource("Curve2D_62aot")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D3"]
+position = Vector2(646, 791)
+rotation = 0.0192284
+rotates = false
+
+[node name="CharacterBody2D" parent="Path2D3/PathFollow2D" instance=ExtResource("20_5ihrp")]
+
 [connection signal="body_entered" from="ShopKeeper" to="ShopKeeper" method="_on_body_entered"]
 [connection signal="pressed" from="Player/CanvasLayer/InventoryButton" to="." method="_on_inventory_button_pressed"]
 [connection signal="pressed" from="Player/CanvasLayer/Instructions" to="." method="_on_instructions_pressed"]
@@ -5557,3 +5574,4 @@ libraries = {
 [connection signal="body_exited" from="Stairs" to="." method="_on_stairs_body_exited"]
 [connection signal="body_entered" from="TeleportAreaKingdom" to="." method="_on_teleport_area_kingdom_body_entered"]
 [connection signal="body_entered" from="TeleportAreaForest" to="." method="_on_teleport_area_forest_body_entered"]
+[connection signal="battle_triggered" from="Path2D3/PathFollow2D/CharacterBody2D" to="." method="_on_minotaur_battle_triggered"]

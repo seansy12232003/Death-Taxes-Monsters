@@ -153,7 +153,7 @@ var selectedMonsters = {
 		"Scene": preload("res://Player/player.tscn"), # placeholder
 		"Attacks": {
 			0: {
-				"Name": "Slash",
+				"Name": "Punch",
 				"Target":"Monster",
 				"Damage": 10, 
 				"Type": "Physical",
@@ -167,7 +167,7 @@ var selectedMonsters = {
 				"cost": 2,
 			},
 			2: {
-				"Name": "Spell",
+				"Name": "None",
 				"Target":"Monster",
 				"Damage": 10, 
 				"Type": "Magic",

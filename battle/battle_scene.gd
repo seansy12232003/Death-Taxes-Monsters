@@ -2,7 +2,8 @@ extends CanvasLayer
 
 var player = preload("res://Player/player.tscn")
 var minotaur = preload("res://Monsters/minotaur.tscn")
-
+var currPlayerPosition
+var startHealth
 var selected = 1
 
 # Called when the node enters the scene tree for the first time.
@@ -10,7 +11,10 @@ func _ready():
 	$".".process_mode = Node.PROCESS_MODE_ALWAYS
 	call_deferred("add_minotaur")
 	call_deferred("add_player")
+	currPlayerPosition = $"../../../Player".position
+	startHealth = Game.selectedMonsters[0]["Health"]
 	$BattleUI/Menu/GridContainer/Fight.grab_focus()
+	print(self.get_path())
 	
 
 func add_player():
@@ -50,9 +54,16 @@ func MonsterTurn():
 		$Action.text = "You gained " + str(expToGain) + " exp!"
 		await get_tree().create_timer(2).timeout
 		Game.addEXP(expToGain) # add exp to player and scale exp with monster level
+		$"../../../Player".position = currPlayerPosition
 		get_tree().paused = false
-		queue_free()
+		$"../../../UI/AnimationPlayer".play("TransIn")
+		await get_tree().create_timer(1.5).timeout
 		$"../../../Player/Camera2D2".enabled = true
+		queue_free()
+		$"../../../UI/AnimationPlayer".play("TransOut")
+		Game.selectedMonsters[0]["Health"] = startHealth
+		var minotaur = $"../".get_child(0) # get minotaur
+		minotaur.queue_free() # delete minotaur
 	
 	# wait for a second and show what the player did
 	await get_tree().create_timer(1.5).timeout 
@@ -71,6 +82,22 @@ func MonsterTurn():
 	Game.selectedMonsters[0]["Health"] -= damage
 	await get_tree().create_timer(1).timeout # wait for attack animation to be done
 	$Enemy.get_child(0).get_node("AnimatedSprite2D").play("idle")
-	$BattleUI/Menu/GridContainer/Fight.grab_focus()
-	$BattleUI/Menu.show()
-	await get_tree().create_timer(1.5).timeout # show what the monster did
+	
+		#check if player is dead
+	if Game.selectedMonsters[0]["Health"] <= 0:
+		$Player.get_child(0).get_node("AnimatedSprite2D").play("die")
+		$Action.text = "You have died!"
+		await get_tree().create_timer(2).timeout
+		$"../../../Player".position = $"../../../StartPosition".position
+		get_tree().paused = false
+		$"../../../UI/AnimationPlayer".play("TransIn")
+		await get_tree().create_timer(1.5).timeout
+		$"../../../Player/Camera2D2".enabled = true
+		queue_free()
+		$"../../../UI/AnimationPlayer".play("TransOut")
+		Game.selectedMonsters[0]["Health"] = startHealth
+	else:
+		$BattleUI/Menu/GridContainer/Fight.grab_focus()
+		$BattleUI/Menu.show()
+		await get_tree().create_timer(1.5).timeout # show what the monster did
+	

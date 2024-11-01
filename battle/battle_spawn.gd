@@ -15,7 +15,8 @@ func _on_body_entered(body: Node2D) -> void: # on encountering enemy
 		await get_tree().create_timer(1.5).timeout # wait for TransIn to finish
 		var battleTemp = battle.instantiate() # create battle scene
 		get_parent().add_child(battleTemp) # add battlescene child to main
-		queue_free() # prevent code from making multiple battle scenes
+		#queue_free() # prevent code from making multiple battle scenes
+		$"../Player".set_pos($"../StartPosition".position)
 		$"../Player/Camera2D2".enabled = false # disable player camera so battle scene camera is correct
 		$"../UI/AnimationPlayer".play("TransOut") # play black circle getting smaller
 

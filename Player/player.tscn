@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bfnxbub54pbsl"]
+[gd_scene load_steps=45 format=3 uid="uid://bfnxbub54pbsl"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_j6qsi"]
 [ext_resource type="Texture2D" uid="uid://bb14pnrnq6ewx" path="res://Assets/character_sheet.png" id="2_r4pno"]
@@ -6,6 +6,30 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pb20b"]
 radius = 10.6383
 height = 36.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e68wu"]
+atlas = ExtResource("2_r4pno")
+region = Rect2(0, 1280, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eikel"]
+atlas = ExtResource("2_r4pno")
+region = Rect2(64, 1280, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmcsn"]
+atlas = ExtResource("2_r4pno")
+region = Rect2(128, 1280, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdn1n"]
+atlas = ExtResource("2_r4pno")
+region = Rect2(192, 1280, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q84i6"]
+atlas = ExtResource("2_r4pno")
+region = Rect2(256, 1280, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x86uu"]
+atlas = ExtResource("2_r4pno")
+region = Rect2(320, 1280, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iltu8"]
 atlas = ExtResource("2_r4pno")
@@ -145,6 +169,29 @@ region = Rect2(512, 512, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bktu1"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e68wu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eikel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmcsn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdn1n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q84i6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x86uu")
+}],
+"loop": false,
+"name": &"die",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_iltu8")
@@ -288,6 +335,8 @@ shape = SubResource("CapsuleShape2D_pb20b")
 position = Vector2(0, 1.19209e-07)
 scale = Vector2(0.359375, 0.355063)
 sprite_frames = SubResource("SpriteFrames_bktu1")
-animation = &"idle"
+animation = &"die"
+frame = 5
+frame_progress = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

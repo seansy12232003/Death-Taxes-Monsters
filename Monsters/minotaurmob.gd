@@ -3,6 +3,7 @@ extends CharacterBody2D
 signal battle_triggered
 
 var battle = preload("res://battle/battle_scene.tscn")
+var currPlayerPosition
 
 #@onready var path_follow: PathFollow2D = $Path2D/PathFollow2D2
 @export var speed = 10
@@ -11,6 +12,7 @@ var previous_position: Vector2
 
 func _ready():
 	previous_position = get_parent().position
+	currPlayerPosition = $"../../../Player".position
 	#$Area2D.connect("body_entered", self, "_on_body_entered")
 	#
 
@@ -75,7 +77,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		await get_tree().create_timer(1.5).timeout # wait for TransIn to finish
 		var battleTemp = battle.instantiate() # create battle scene
 		get_parent().add_child(battleTemp) # add battlescene child to main
-		queue_free() # prevent code from making multiple battle scenes
+		$"../../../Player".set_pos($"../../../StartPosition".position)
+		#queue_free() # prevent code from making multiple battle scenes
 		$"../../../Player/Camera2D2".enabled = false # disable player camera so battle scene camera is correct
 		$"../../../UI/AnimationPlayer".play("TransOut") # play black circle getting smaller
 

@@ -2,6 +2,7 @@ extends Control
 
 
 func _on_fight_pressed() -> void:
+	print(self.get_path())
 	$Menu.hide()
 	$"Fight/GridContainer/Attack 1".grab_focus()
 	$Fight.show()
@@ -15,7 +16,6 @@ func _on_back_pressed() -> void:
 	
 
 func _process(delta):
-	
 	# SET PLAYER INFO
 	$"../BattleUI/HPBar".value = Game.selectedMonsters[0]["Health"]
 	$"../BattleUI/Info".text = str(Game.selectedMonsters[0]["Name"]) + " LVL" + str(Game.selectedMonsters[0]["Level"])
@@ -36,10 +36,10 @@ func _on_items_pressed() -> void: # open items menu
 
 
 func _on_run_pressed() -> void: # run from battle
-	$"../../UI/AnimationPlayer".play("TransIn")
+	$"../../../../UI/AnimationPlayer".play("TransIn")
 	await get_tree().create_timer(1.5).timeout
-	$"../../UI/AnimationPlayer".play("TransOut")
-	$"../../Player/Camera2D2".enabled = true
+	$"../../../../UI/AnimationPlayer".play("TransOut")
+	$"../../../../Player/Camera2D2".enabled = true
 	#print(self.get_path())
 	get_parent().queue_free()
 	get_tree().paused = false

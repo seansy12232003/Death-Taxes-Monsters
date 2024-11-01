@@ -35,7 +35,7 @@ var dataBaseMonsters = {
 			2: {
 				"Name": "Spell",
 				"Target":"Monster",
-				"Damage": 10, 
+				"Damage": 1000, 
 				"Type": "Magic",
 				"cost": 2,
 			}

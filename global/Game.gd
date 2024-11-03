@@ -3,7 +3,7 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	addMonster("Minotaur")
+	pass
 
 
 var dataBaseMonsters = {
@@ -48,8 +48,8 @@ var dataBaseMonsters = {
 		"Level": 1,
 		"Exp": 0,
 		"MaxExp": 0,
-		"Strength": 10,
-		"Defense": 5,
+		"Strength": 25,
+		"Defense": 10,
 		"Scene": preload("res://Monsters/minotaur.tscn"), # placeholder
 		"Attacks": {
 			0: {
@@ -148,8 +148,8 @@ var selectedMonsters = {
 		"Level": 1,
 		"Exp": 0,
 		"MaxExp": 10,
-		"Strength": 10,
-		"Defense": 5,
+		"Strength": 1,
+		"Defense": 0,
 		"Scene": preload("res://Player/player.tscn"), # placeholder
 		"Attacks": {
 			0: {
@@ -192,3 +192,19 @@ func addEXP(amount):
 		selectedMonsters[0]["Exp"] = int(selectedMonsters[0]["Exp"]) % int(selectedMonsters[0]["MaxExp"])
 		selectedMonsters[0]["MaxExp"] = selectedMonsters[0]["MaxExp"] * 1.25
 	
+func calculate_damage(attacker_level: int, attacker_strength: int, attack_damage: int, defender_defense: int) -> int:
+	# Calculate base damage
+	var base_damage = ((attacker_level + attack_damage) / 10) * (attacker_strength / float(defender_defense + 1))
+	
+	# Apply a random multiplier for variation
+	var random_factor = randi_range(85, 100) / 100.0
+	return min(int(base_damage * random_factor), 100)  # Ensure damage doesn't exceed max health
+
+func calculate_strength(level: int) -> int:
+	return 10 + (level * 2) + randi_range(0, level)
+
+func calculate_attack_power(level: int) -> int:
+	return 5 + int(level * 1.5) + randi_range(0, level / 2)
+
+func calculate_defense(level: int) -> int:
+	return 5 + int(level * 1.2) + randi_range(0, level / 3)

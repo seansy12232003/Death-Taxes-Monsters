@@ -1,11 +1,16 @@
 extends StaticBody2D
 
-var health = 20
+var health = 100
 var level = 1
 
 func _ready():
 	level = randi_range(1, 5)
-	health = level * 10
+	Game.dataBaseMonsters[0]["Defense"] = Game.calculate_defense(level)
+	Game.dataBaseMonsters[0]["Strength"] = Game.calculate_strength(level)
+	for i in Game.selectedMonsters[0]["Attacks"]:
+		var path = "../BattleUI/Fight/GridContainer/Attack " + str(((i) + 1))
+		Game.selectedMonsters[0]["Attacks"][i]["Damage"] = Game.calculate_attack_power(level)
+		print(Game.selectedMonsters[0]["Attacks"][i]["Damage"])
 	if get_parent().name == "Enemy": # call spawn animation if in battle scene
 		spawn()  # Delay the spawn call until the next frame
 		set_process(true)

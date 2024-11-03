@@ -4,7 +4,19 @@ var player = preload("res://Player/player.tscn")
 var minotaur = preload("res://Monsters/minotaur.tscn")
 var currPlayerPosition
 var startHealth
-var selected = 1
+
+# monster damage stats
+var monsterLevel
+var monsterStrength
+var monsterDefense
+
+# player damage stats
+var playerLevel
+var playerStrength
+var playerDefense
+
+# selected monster, or encountered monster ID, change when encountering other monsters
+var selected
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,7 +26,9 @@ func _ready():
 	currPlayerPosition = $"../../../Player".position
 	startHealth = Game.selectedMonsters[0]["Health"]
 	$BattleUI/Menu/GridContainer/Fight.grab_focus()
-	print(self.get_path())
+	playerLevel = Game.selectedMonsters[0]["Level"]
+	playerStrength = Game.selectedMonsters[0]["Strength"]
+	playerDefense = Game.selectedMonsters[0]["Defense"]
 	
 
 func add_player():
@@ -33,6 +47,9 @@ func add_minotaur():
 		sprite.play("idle")
 	$Enemy.add_child(monstertemp)
 	$Action.text = "You've encountered a Minotaur!"
+	monsterLevel = Game.dataBaseMonsters[1]["Level"]
+	monsterStrength = Game.dataBaseMonsters[1]["Strength"]
+	monsterDefense = Game.dataBaseMonsters[1]["Defense"]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -70,7 +87,8 @@ func MonsterTurn():
 	
 	# choosing enemy attack
 	var attack = randi_range(0,2) # chooses a random attack
-	var damage = Game.dataBaseMonsters[selected]["Attacks"][attack]["Damage"] * (monsterLevel * 1.25) # gets damage of the attack
+	var attackDamage = Game.dataBaseMonsters[selected]["Attacks"][attack]["Damage"] # gets damage of the attack
+	var damage = Game.calculate_damage(monsterLevel, monsterStrength, attackDamage, playerDefense)# gets damage of the attack
 	
 	# Pause for battle suspense
 	$Action.text = Game.dataBaseMonsters[selected]["Name"] + " is thinking..."

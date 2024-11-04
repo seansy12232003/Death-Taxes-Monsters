@@ -22,6 +22,12 @@ var items = {
 		"Cost" : 10,
 		"Icon" : preload("res://bow.jpg")
 	},
+	3:{
+		"Name" : "Health Potion",
+		"Description" : "Heals you for 50 health points",
+		"Cost" : 500,
+		"Icon" : preload("res://Potion+small (1).png")
+	},
 }
 var inventory = {
 	0: {
@@ -30,6 +36,6 @@ var inventory = {
 		"Cost" : 15,
 		"Icon" : preload("res://sword.png"),
 		"Count" : 1
-	},
+	},	
 
 }

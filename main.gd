@@ -13,7 +13,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed timea since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	get_node("Player/CanvasLayer/Health").text = str(Game.selectedMonsters[0]["Health"])
+	
 
 
 func _on_stairs_body_entered(body: Node2D) -> void:

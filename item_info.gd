@@ -27,6 +27,23 @@ func _on_button_2_pressed() -> void:
 	for i in Global.inventory:
 		if Global.inventory[i]["Name"] == ItemName:
 			ItemCount-=1
+			get_node("../../../Bell").play()
+			var random_int_range = randi() % 10
+			if Global.inventory[i]["Name"] == "Health Potion":
+				Game.selectedMonsters[0]["Health"] == 100
+				get_node("../../../Bell").play()
+			if Global.inventory[i]["Name"] == "Sword":
+				Game.selectedMonsters[0]["Attacks"][0]["Damage"] += random_int_range
+				print("Damage increased by " + str(random_int_range))
+				get_node("../../../Bell").play()
+			if Global.inventory[i]["Name"] == "Magic":
+				Game.selectedMonsters[0]["Attacks"][2]["Damage"] += random_int_range
+				print("Damage increased by " + str(random_int_range))
+				get_node("../../../Bell").play()
+			if Global.inventory[i]["Name"] == "Bow":
+				Game.selectedMonsters[0]["Attacks"][1]["Damage"] += random_int_range
+				print("Damage increased by " + str(random_int_range))
+				get_node("../../../Bell").play()
 			if ItemCount == 0:
 				#remove item from inventory,then update inventory
 				var tempDic = {}

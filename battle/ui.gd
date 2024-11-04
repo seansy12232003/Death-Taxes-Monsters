@@ -60,3 +60,7 @@ func _on_attack_pressed(extra_arg_0: int) -> void: # attack menu
 		$"../Enemy".get_child(0).hit(tempDic[extra_arg_0]["Name"], tempDic[extra_arg_0]["Damage"]) # use hit function in monster scene and send animation name and damage
 		$"../Action".text = Game.selectedMonsters[0]["Name"] + " has attacked for " + str(tempDic[0]["Damage"]) + " hp" # change text in action section of battle menu
 		get_parent().MonsterTurn() # call monster turn
+
+
+func _on_heal_pressed() -> void:
+	pass

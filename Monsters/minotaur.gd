@@ -4,13 +4,20 @@ var health = 100
 var level = 1
 
 func _ready():
-	level = randi_range(1, 5)
-	Game.dataBaseMonsters[0]["Defense"] = Game.calculate_defense(level)
-	Game.dataBaseMonsters[0]["Strength"] = Game.calculate_strength(level)
-	for i in Game.selectedMonsters[0]["Attacks"]:
+	# set stats
+	level = randi_range(1, 5) # Level
+	Game.dataBaseMonsters[1]["Defense"] = Game.calculate_defense(level) # Defense
+	print("Defense " + str(Game.dataBaseMonsters[1]["Defense"]))
+	
+	#Set attack power of every attack depending on stats
+	for i in Game.dataBaseMonsters[1]["Attacks"]:
 		var path = "../BattleUI/Fight/GridContainer/Attack " + str(((i) + 1))
-		Game.selectedMonsters[0]["Attacks"][i]["Damage"] = Game.calculate_attack_power(level)
-		print(Game.selectedMonsters[0]["Attacks"][i]["Damage"])
+		Game.dataBaseMonsters[1]["Attacks"][i]["Damage"] = Game.calculate_attack_power(Game.dataBaseMonsters[1]["Attacks"][i]["Damage"], level)
+		print(Game.dataBaseMonsters[1]["Attacks"][i]["Name"])
+		print(Game.dataBaseMonsters[1]["Attacks"][i]["Damage"])
+		
+		
+	# spawn enemy if in battle scene
 	if get_parent().name == "Enemy": # call spawn animation if in battle scene
 		spawn()  # Delay the spawn call until the next frame
 		set_process(true)

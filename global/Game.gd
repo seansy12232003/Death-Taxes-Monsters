@@ -7,40 +7,6 @@ func _ready() -> void:
 
 
 var dataBaseMonsters = {
-	0: {
-		"Name": "Player",
-		"Frame": 0,
-		"Health": 100,
-		"Level": 1,
-		"Exp": 0,
-		"MaxExp": 10,
-		"Strength": 10,
-		"Defense": 5,
-		"Scene": preload("res://Player/player.tscn"), # placeholder
-		"Attacks": {
-			0: {
-				"Name": "Slash",
-				"Target":"Monster",
-				"Damage": 10, 
-				"Type": "Physical",
-				"cost": 2,
-			},
-			1: {
-				"Name": "Stab",
-				"Target":"Monster",
-				"Damage": 10, 
-				"Type": "Stab",
-				"cost": 2,
-			},
-			2: {
-				"Name": "Spell",
-				"Target":"Monster",
-				"Damage": 1000, 
-				"Type": "Magic",
-				"cost": 2,
-			}
-		}
-	},
 	1: {
 		"Name": "Minotaur",
 		"Frame": 0,
@@ -48,21 +14,20 @@ var dataBaseMonsters = {
 		"Level": 1,
 		"Exp": 0,
 		"MaxExp": 0,
-		"Strength": 25,
-		"Defense": 10,
+		"Defense": 0,
 		"Scene": preload("res://Monsters/minotaur.tscn"), # placeholder
 		"Attacks": {
 			0: {
 				"Name": "Slash",
 				"Target":"Player",
-				"Damage": 10, 
+				"Damage": 15, 
 				"Type": "Physical",
 				"cost": 2,
 			},
 			1: {
 				"Name": "Ram",
 				"Target":"Player",
-				"Damage": 15, 
+				"Damage": 20, 
 				"Type": "Physical",
 				"cost": 2,
 			},
@@ -82,7 +47,6 @@ var dataBaseMonsters = {
 		"Level": 1,
 		"Exp": 0,
 		"MaxExp": 0,
-		"Strength": 10,
 		"Defense": 5,
 		"Scene": preload("res://icon.svg"), # placeholder
 		"Attacks": {
@@ -113,7 +77,6 @@ var dataBaseMonsters = {
 		"Level": 1,
 		"Exp": 0,
 		"MaxExp": 0,
-		"Strength": 10,
 		"Defense": 5,
 		"Scene": preload("res://icon.svg"), # placeholder
 		"Attacks": {
@@ -148,28 +111,27 @@ var selectedMonsters = {
 		"Level": 1,
 		"Exp": 0,
 		"MaxExp": 10,
-		"Strength": 1,
-		"Defense": 0,
+		"Defense": 10,
 		"Scene": preload("res://Player/player.tscn"), # placeholder
 		"Attacks": {
 			0: {
 				"Name": "Sword",
 				"Target":"Monster",
-				"Damage": 10, 
+				"Damage": 25, 
 				"Type": "Physical",
 				"cost": 2,
 			},
 			1: {
 				"Name": "Bow",
 				"Target":"Monster",
-				"Damage": 10, 
+				"Damage": 18, 
 				"Type": "Ranged",
 				"cost": 2,
 			},
 			2: {
 				"Name": "Magic",
 				"Target":"Monster",
-				"Damage": 10, 
+				"Damage": 45, 
 				"Type": "Magic",
 				"cost": 2,
 			}
@@ -177,34 +139,27 @@ var selectedMonsters = {
 	}
 }
 
-func addMonster(Name):
-	for i in dataBaseMonsters:
-		if dataBaseMonsters[i]["Name"] == Name:
-			var tempDic = dataBaseMonsters[i].duplicate(true)
-			selectedMonsters[selectedMonsters.size()] = tempDic
-			
-			
-
 func addEXP(amount):
-	if selectedMonsters[0]["Exp"] >= selectedMonsters[0]["MaxExp"]:
+	while selectedMonsters[0]["Exp"] >= selectedMonsters[0]["MaxExp"]:
 		#LEVEL UP
 		selectedMonsters[0]["Level"] += 1
-		selectedMonsters[0]["Exp"] = int(selectedMonsters[0]["Exp"]) % int(selectedMonsters[0]["MaxExp"])
+		selectedMonsters[0]["Exp"] = int(selectedMonsters[0]["Exp"]) - int(selectedMonsters[0]["MaxExp"])
 		selectedMonsters[0]["MaxExp"] = selectedMonsters[0]["MaxExp"] * 1.25
 	
-func calculate_damage(attacker_level: int, attacker_strength: int, attack_damage: int, defender_defense: int) -> int:
-	# Calculate base damage
-	var base_damage = ((attacker_level + attack_damage) / 10) * (attacker_strength / float(defender_defense + 1))
+#Atk / (Def+100 / 100)
+func calculate_damage(defense: int, attack_power: int, level: int) -> int:
 	
-	# Apply a random multiplier for variation
-	var random_factor = randi_range(85, 100) / 100.0
-	return min(int(base_damage * random_factor), 100)  # Ensure damage doesn't exceed max health
+	# Apply defense mitigation, so higher defense reduces incoming damage
+	var damage = max(attack_power/(defense+100/100), 1)  # Ensure at least 1 damage
+	
+	# Round damage to an integer for final output
+	return int(damage)
 
-func calculate_strength(level: int) -> int:
-	return 10 + (level * 2) + randi_range(0, level)
-
-func calculate_attack_power(level: int) -> int:
-	return 5 + int(level * 1.5) + randi_range(0, level / 2)
+func calculate_attack_power(base_attack_power: int, level: int) -> int:
+	var scaled_attack_power = base_attack_power * (1 + level / 20.0)
+	return int(scaled_attack_power + randi_range(0, level / 2))
 
 func calculate_defense(level: int) -> int:
-	return 5 + int(level * 1.2) + randi_range(0, level / 3)
+	# Calculate defense using a quadratic formula, capped at 50 and starting from 0 at level 1
+	var defense = int(pow(level - 1, 2) * 0.5)  # Quadratic growth starting from level 1
+	return min(defense, 50)  # Cap defense at 50

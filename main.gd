@@ -6,10 +6,21 @@ var battle = preload("res://battle/battle_scene.tscn")
 
 var kingdom_entry_position = Vector2(950, 1695)
 var forest_exit_position = Vector2(905, 642)
+var level
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Player.set_pos($StartPosition.position) # set position of player to start position
+	level = 1 # Level
+	Game.selectedMonsters[0]["Level"] = 1
+	Game.selectedMonsters[0]["Defense"] = Game.calculate_defense(level) # Defense
+	
+	#Set attack power of every attack depending on stats
+	for i in Game.selectedMonsters[0]["Attacks"]:
+		var path = "../BattleUI/Fight/GridContainer/Attack " + str(((i) + 1))
+		Game.selectedMonsters[0]["Attacks"][i]["Damage"] = Game.calculate_attack_power(Game.selectedMonsters[0]["Attacks"][i]["Damage"], level)
+		print(Game.selectedMonsters[0]["Attacks"][i]["Name"])
+		print(Game.selectedMonsters[0]["Attacks"][i]["Damage"])
 
 # Called every frame. 'delta' is the elapsed timea since the previous frame.
 func _process(delta: float) -> void:

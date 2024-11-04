@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=4 uid="uid://baxn7b4aay4mt"]
+[gd_scene load_steps=125 format=4 uid="uid://baxn7b4aay4mt"]
 
 [ext_resource type="Texture2D" uid="uid://ca8cmnj12mr1q" path="res://Assets/SERENE_VILLAGE_REVAMPED/Serene_Village_16x16.png" id="1_ftrtj"]
 [ext_resource type="Script" path="res://main.gd" id="1_g078x"]
@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://b7x7xjgx7pfku" path="res://Music/footsteps-dirt-gravel-6823 (mp3cut.net).mp3" id="13_dohrn"]
 [ext_resource type="AudioStream" uid="uid://b4gpe4spuqxhl" path="res://sword-battle-jingle-loop-96983.mp3" id="13_uv4sm"]
 [ext_resource type="AudioStream" uid="uid://cd8ukvfocr8l2" path="res://birds-19624.mp3" id="15_rubnu"]
+[ext_resource type="PackedScene" uid="uid://240rotwx60x6" path="res://lizardmob.tscn" id="17_usyxb"]
 [ext_resource type="PackedScene" uid="uid://ca4u2ljj1xl8f" path="res://wolfmob.tscn" id="20_5ihrp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4jofr"]
@@ -5078,6 +5079,12 @@ _data = {
 }
 point_count = 4
 
+[sub_resource type="Curve2D" id="Curve2D_idyti"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 721.75, 1496.01, 0, 0, 0, 0, 793.75, 1497.01, 0, 0, 0, 0, 798.75, 1552.01, 0, 0, 0, 0, 725.75, 1550.01, 0, 0, 0, 0, 721.75, 1496.01)
+}
+point_count = 5
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1dfnx"]
 size = Vector2(29, 7)
 
@@ -5221,7 +5228,7 @@ point_count = 6
 script = ExtResource("1_g078x")
 
 [node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(575, 455)
+position = Vector2(1028, 1687)
 
 [node name="TileGridTop" type="TileMapLayer" parent="."]
 z_index = 1
@@ -5539,6 +5546,17 @@ rotates = false
 
 [node name="CharacterBody2D" parent="Path2D5/PathFollow2D" instance=ExtResource("10_qgnkn")]
 
+[node name="Lizard1" type="Path2D" parent="."]
+position = Vector2(609.25, 555.995)
+curve = SubResource("Curve2D_idyti")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Lizard1"]
+position = Vector2(721.75, 1496.01)
+rotation = 0.013888
+rotates = false
+
+[node name="CharacterBody2D" parent="Lizard1/PathFollow2D" instance=ExtResource("17_usyxb")]
+
 [node name="Stairs" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stairs"]
@@ -5562,9 +5580,12 @@ position = Vector2(1095.5, 1798)
 shape = SubResource("RectangleShape2D_fxcy7")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Stairs"]
-position = Vector2(1096, 1647)
+position = Vector2(1061, 1449)
 rotation = -0.663225
 shape = SubResource("RectangleShape2D_of18n")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Stairs"]
+polygon = PackedVector2Array(1079, 1650, 1078, 1668, 1108, 1647, 1108, 1629)
 
 [node name="2ndmapbarriers" type="StaticBody2D" parent="."]
 
@@ -5600,7 +5621,7 @@ shape = SubResource("RectangleShape2D_jxu0x")
 polygon = PackedVector2Array(909, 1582, 940, 1581, 942, 1566, 966, 1567, 970, 1578, 994, 1578, 994, 1570, 1000, 1568, 999, 1577, 1013, 1576, 1016, 1593, 1044, 1594, 1045, 1619, 996, 1620, 995, 1633, 1025, 1633, 1024, 1644, 1033, 1650, 1060, 1646, 1063, 1638, 1063, 1627, 1054, 1620, 1052, 1532, 823, 1566, 831, 1632, 846, 1630, 846, 1643, 870, 1651, 903, 1637, 907, 1631, 918, 1632, 921, 1639, 932, 1640, 936, 1632, 958, 1632, 958, 1619, 908, 1620)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="2ndmapbarriers"]
-polygon = PackedVector2Array(1066, 1637, 1068, 1640, 1073, 1640, 1075, 1625, 1082, 1624, 1084, 1617, 1086, 1613, 1099, 1605, 1109, 1603, 1108, 1624, 1111, 1619, 1111, 1613, 1171, 1614, 1171, 1649, 1111, 1652, 1081, 1672, 1249, 1674, 1247, 1656, 1255, 1653, 1255, 1630, 1260, 1621, 1270, 1631, 1268, 1655, 1283, 1655, 1283, 1679, 1318, 1681, 1318, 1698, 1335, 1698, 1335, 1692, 1344, 1694, 1347, 1721, 1424, 1720, 1400, 1721, 1404, 1727, 1414, 1727, 1418, 1733, 1430, 1734, 1434, 1726, 1423, 1705, 1423, 1694, 1428, 1690, 1428, 1678, 1435, 1680, 1435, 1688, 1450, 1693, 1446, 1706, 1456, 1711, 1450, 1722, 1456, 1737, 1474, 1749, 1473, 1574, 1066, 1528)
+polygon = PackedVector2Array(1066, 1637, 1068, 1640, 1073, 1640, 1075, 1625, 1082, 1624, 1084, 1617, 1086, 1613, 1099, 1605, 1109, 1603, 1108, 1624, 1111, 1619, 1111, 1613, 1171, 1614, 1172, 1647, 1110, 1648, 1078, 1672, 1249, 1674, 1247, 1656, 1255, 1653, 1255, 1630, 1260, 1621, 1270, 1631, 1268, 1655, 1283, 1655, 1283, 1679, 1318, 1681, 1318, 1698, 1335, 1698, 1335, 1692, 1344, 1694, 1347, 1721, 1424, 1720, 1400, 1721, 1404, 1727, 1414, 1727, 1418, 1733, 1430, 1734, 1434, 1726, 1423, 1705, 1423, 1694, 1428, 1690, 1428, 1678, 1435, 1680, 1435, 1688, 1450, 1693, 1446, 1706, 1456, 1711, 1450, 1722, 1456, 1737, 1474, 1749, 1473, 1574, 1066, 1528)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="2ndmapbarriers"]
 polygon = PackedVector2Array(850, 1876, 871, 1907, 896, 1908, 908, 1902, 915, 1910, 922, 1910, 923, 1955, 1029, 1957, 1031, 1941, 1092, 1941, 1095, 1893, 1123, 1894, 1128, 1877, 1156, 1878, 1161, 1860, 1174, 1859, 1174, 1841, 1163, 1840, 1159, 1823, 1155, 1823, 1155, 1808, 1149, 1816, 1138, 1816, 1136, 1806, 1123, 1808, 1123, 1793, 1162, 1796, 1163, 1810, 1192, 1812, 1194, 1834, 1334, 1832, 1357, 1829, 1357, 1855, 1359, 1868, 1344, 1867, 1333, 1873, 1329, 1918, 1324, 1920, 1324, 1945, 1248, 1947, 1248, 1919, 1242, 1919, 1243, 1907, 1177, 1906, 1176, 1888, 1172, 1872, 1168, 1886, 1169, 1914, 1134, 1913, 1132, 1922, 1124, 1922, 1124, 1930, 1115, 1931, 1116, 1945, 1102, 1946, 1102, 1956, 1112, 1956, 1143, 1955, 1147, 2002, 1204, 2004, 1207, 1990, 1288, 1988, 1291, 2005, 1305, 2001, 1321, 2005, 1323, 2021, 1338, 2019, 1342, 2032, 1315, 2031, 1311, 2028, 1286, 2030, 1285, 2014, 1282, 1998, 1274, 2000, 1273, 2010, 1230, 2010, 1214, 2012, 1209, 2017, 1137, 2015, 1137, 1992, 1122, 1992, 1121, 1984, 1111, 1983, 1111, 1972, 1103, 1967, 1037, 1968, 1037, 1984, 955, 1982, 954, 1994, 951, 2003, 828, 1999)
@@ -5619,6 +5640,9 @@ polygon = PackedVector2Array(1410, 1827, 1425, 1827, 1419, 1805, 1427, 1783, 144
 
 [node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="2ndmapbarriers"]
 polygon = PackedVector2Array(1343, 2159, 1344, 2145, 1327, 2146, 1327, 2112, 1310, 2113, 1311, 2063, 1295, 2066, 1294, 2050, 1170, 2049, 1169, 2065, 1152, 2065, 1152, 2079, 1086, 2081, 1088, 2051, 1071, 2047, 1071, 2033, 1056, 2033, 1054, 2016, 1038, 2018, 1038, 2001, 950, 2002, 942, 2017, 1086, 2107)
+
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="2ndmapbarriers"]
+polygon = PackedVector2Array(1075, 1641, 1108, 1620, 1108, 1607, 1072, 1627)
 
 [node name="Footsteps" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
@@ -5684,6 +5708,7 @@ rotates = false
 [connection signal="battle_triggered" from="Path2D2/PathFollow2D/CharacterBody2D" to="." method="_on_minotaur_battle_triggered"]
 [connection signal="battle_triggered" from="Path2D4/PathFollow2D/CharacterBody2D" to="." method="_on_minotaur_battle_triggered"]
 [connection signal="battle_triggered" from="Path2D5/PathFollow2D/CharacterBody2D" to="." method="_on_minotaur_battle_triggered"]
+[connection signal="battle_triggered" from="Lizard1/PathFollow2D/CharacterBody2D" to="." method="_on_minotaur_battle_triggered"]
 [connection signal="body_entered" from="Stairs" to="." method="_on_stairs_body_entered"]
 [connection signal="body_exited" from="Stairs" to="." method="_on_stairs_body_exited"]
 [connection signal="body_entered" from="TeleportAreaKingdom" to="." method="_on_teleport_area_kingdom_body_entered"]

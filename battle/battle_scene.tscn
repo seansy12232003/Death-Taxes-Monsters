@@ -415,4 +415,5 @@ autowrap_mode = 3
 [connection signal="pressed" from="BattleUI/Fight/GridContainer/Attack 2" to="BattleUI" method="_on_attack_pressed" binds= [1]]
 [connection signal="pressed" from="BattleUI/Fight/GridContainer/Attack 3" to="BattleUI" method="_on_attack_pressed" binds= [2]]
 [connection signal="pressed" from="BattleUI/Fight/GridContainer/Back" to="BattleUI" method="_on_back_pressed"]
+[connection signal="pressed" from="BattleUI/Items/GridContainer/Heal" to="BattleUI" method="_on_heal_pressed"]
 [connection signal="pressed" from="BattleUI/Items/GridContainer/Back" to="BattleUI" method="_on_back_pressed"]

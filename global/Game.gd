@@ -20,21 +20,21 @@ var dataBaseMonsters = {
 			0: {
 				"Name": "Slash",
 				"Target":"Player",
-				"Damage": 15, 
+				"Damage": 150, 
 				"Type": "Physical",
 				"cost": 2,
 			},
 			1: {
 				"Name": "Ram",
 				"Target":"Player",
-				"Damage": 20, 
+				"Damage": 200, 
 				"Type": "Physical",
 				"cost": 2,
 			},
 			2: {
 				"Name": "Throw Rock",
 				"Target":"Player",
-				"Damage": 5, 
+				"Damage": 50, 
 				"Type": "Ranged",
 				"cost": 2,
 			}

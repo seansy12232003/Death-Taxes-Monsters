@@ -10,6 +10,8 @@ var level
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	get_node("Dialogue/DialogueBox").hide()
+	get_node("Dialogue/DialogueBox/Panel/Label").text = ""
 	$Player.set_pos($StartPosition.position) # set position of player to start position
 	level = 1 # Level
 	Game.selectedMonsters[0]["Level"] = 1

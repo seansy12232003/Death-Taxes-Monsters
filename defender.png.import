@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2m3y0eu1smum"
-path="res://.godot/imported/Download69808.png-1730089510c67f17ab387e85341e9ee4.ctex"
+uid="uid://brq7oxgd01372"
+path="res://.godot/imported/defender.png-673bf4c4decc45575e5706957bec278c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Download69808.png"
-dest_files=["res://.godot/imported/Download69808.png-1730089510c67f17ab387e85341e9ee4.ctex"]
+source_file="res://defender.png"
+dest_files=["res://.godot/imported/defender.png-673bf4c4decc45575e5706957bec278c.ctex"]
 
 [params]
 

@@ -5,7 +5,7 @@ signal battle_triggered
 var battle = preload("res://battle/battle_scene.tscn")
 
 #@onready var path_follow: PathFollow2D = $Path2D/PathFollow2D2
-@export var speed = 25
+@export var speed = 80
 var direction = Vector2.ZERO
 var previous_position: Vector2
 

@@ -85,7 +85,7 @@ func MonsterTurn():
 	# choosing enemy attack
 	var attack = randi_range(0,2) # chooses a random attack
 	var attackDamage = Game.dataBaseMonsters[selected]["Attacks"][attack]["Damage"] # gets damage of the attack
-	var damage = Game.calculate_damage(playerDefense,attackDamage,monsterLevel)# gets damage of the attack
+	var damage = Game.calculate_damage(playerDefense,attackDamage,monsterLevel, false)# gets damage of the attack
 	#monsterLevel, attackDamage, playerDefense
 	
 	# Pause for battle suspense

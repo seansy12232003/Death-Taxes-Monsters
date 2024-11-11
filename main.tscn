@@ -1,4 +1,4 @@
-[gd_scene load_steps=144 format=4 uid="uid://baxn7b4aay4mt"]
+[gd_scene load_steps=147 format=4 uid="uid://baxn7b4aay4mt"]
 
 [ext_resource type="Texture2D" uid="uid://ca8cmnj12mr1q" path="res://Assets/SERENE_VILLAGE_REVAMPED/Serene_Village_16x16.png" id="1_ftrtj"]
 [ext_resource type="Script" path="res://main.gd" id="1_g078x"]
@@ -24,11 +24,20 @@
 [ext_resource type="PackedScene" uid="uid://240rotwx60x6" path="res://lizardmob.tscn" id="17_usyxb"]
 [ext_resource type="PackedScene" uid="uid://egjmv6uokh1e" path="res://knightmob.tscn" id="18_t43ca"]
 [ext_resource type="PackedScene" uid="uid://ca4u2ljj1xl8f" path="res://wolfmob.tscn" id="20_5ihrp"]
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://cohkot2o3bq51" path="res://NPC1.tscn" id="21_pkhxh"]
 [ext_resource type="PackedScene" uid="uid://b2qlpeuikuahx" path="res://NPC2.tscn" id="25_xqr53"]
 [ext_resource type="PackedScene" uid="uid://d076qpnjdudvg" path="res://NPC3.tscn" id="26_8aqi0"]
 [ext_resource type="PackedScene" uid="uid://dlabv0bh5rawv" path="res://NPC4.tscn" id="27_4n0pd"]
 [ext_resource type="PackedScene" uid="uid://cwqmxupgqgba1" path="res://NPC5.tscn" id="28_l5k7f"]
+=======
+[ext_resource type="PackedScene" path="res://NPC1.tscn" id="21_pkhxh"]
+[ext_resource type="PackedScene" uid="uid://bvghe1si6c0qh" path="res://knightboss.tscn" id="23_k15nc"]
+[ext_resource type="PackedScene" path="res://NPC2.tscn" id="25_xqr53"]
+[ext_resource type="PackedScene" path="res://NPC3.tscn" id="26_8aqi0"]
+[ext_resource type="PackedScene" path="res://NPC4.tscn" id="27_4n0pd"]
+[ext_resource type="PackedScene" path="res://NPC5.tscn" id="28_l5k7f"]
+>>>>>>> 4ca552a4c6eb0034657896ca91380d15423737ad
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4jofr"]
 texture = ExtResource("1_ftrtj")
@@ -5141,6 +5150,12 @@ _data = {
 }
 point_count = 5
 
+[sub_resource type="Curve2D" id="Curve2D_msiol"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1421, 2126, 0, 0, 0, 0, 1348, 2125, 0, 0, 0, 0, 1348, 2064, 0, 0, 0, 0, 1420, 2063, 0, 0, 0, 0, 1421, 2126)
+}
+point_count = 5
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1dfnx"]
 size = Vector2(29, 7)
 
@@ -5743,6 +5758,16 @@ progress = 152.795
 rotates = false
 
 [node name="CharacterBody2D" parent="NPC1/PathFollow2D" instance=ExtResource("21_pkhxh")]
+
+[node name="KnightBoss" type="Path2D" parent="."]
+curve = SubResource("Curve2D_msiol")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="KnightBoss"]
+position = Vector2(1421, 2126)
+rotation = -3.11887
+rotates = false
+
+[node name="CharacterBody2D" parent="KnightBoss/PathFollow2D" instance=ExtResource("23_k15nc")]
 
 [node name="Stairs" type="Area2D" parent="."]
 

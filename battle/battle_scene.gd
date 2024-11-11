@@ -61,7 +61,7 @@ func MonsterTurn():
 	
 	# check if enemy is dead
 	if $Enemy.get_child(0).health <= 0:
-		var expToGain = ceil(10 * (monsterLevel / 1.25))
+		var expToGain = floor(Game.calculate_exp_per_monster(monsterLevel))
 		$Action.text = "You defeated the " + Game.dataBaseMonsters[selected]["Name"] + "!"
 		$Enemy.get_child(0).get_node("AnimationPlayer").play("die")
 		await get_tree().create_timer(2).timeout
@@ -69,6 +69,7 @@ func MonsterTurn():
 		await get_tree().create_timer(2).timeout
 		Game.addEXP(expToGain) # add exp to player and scale exp with monster level
 		$"../../../Player/Level/RichTextLabel".text = "Level " + str(Game.selectedMonsters[0]["Level"]) + "  " + str(Game.selectedMonsters[0]["Exp"]) + "/" + str(Game.selectedMonsters[0]["MaxExp"])
+		print(expToGain)
 		$"../../../Player".position = currPlayerPosition
 		get_tree().paused = false
 		$"../../../UI/AnimationPlayer".play("TransIn")

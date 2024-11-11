@@ -6,8 +6,9 @@ var SPEED = 75.0
 
 func _ready():
 	#screensize = get_viewport_rect().size
-	if get_parent().name != "Player": # call spawn animation if in battle scene
+	if get_parent().name != "Player":
 		hide()
+		$"Level/RichTextLabel".text = "Level " + str(Game.selectedMonsters[0]["Level"]) + "  " + str(Game.selectedMonsters[0]["Exp"]) + "/" + str(Game.selectedMonsters[0]["MaxExp"])
 
 func _physics_process(delta):
 	if get_parent().name != "Player":

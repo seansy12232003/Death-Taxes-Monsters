@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" path="res://instructions.tscn" id="8_wvw2g"]
 [ext_resource type="Script" path="res://shop_keeper.gd" id="10_3fo3l"]
 [ext_resource type="PackedScene" uid="uid://ceawnrrql0g6" path="res://Monsters/minotaurmob.tscn" id="10_qgnkn"]
+[ext_resource type="Texture2D" uid="uid://doxo0nq6vmbad" path="res://Assets/dilaoguebox.png" id="11_6cgij"]
 [ext_resource type="PackedScene" uid="uid://b3wi2gwga31ja" path="res://shop.tscn" id="11_rr0k2"]
 [ext_resource type="Texture2D" uid="uid://dufpcjqbm3uns" path="res://shopkeeperfinal.png" id="12_lyx6n"]
 [ext_resource type="AudioStream" uid="uid://b7x7xjgx7pfku" path="res://Music/footsteps-dirt-gravel-6823 (mp3cut.net).mp3" id="13_dohrn"]
@@ -5296,9 +5297,9 @@ point_count = 36
 
 [sub_resource type="Curve2D" id="Curve2D_l30wb"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 536, 488, 0, 0, 0, 0, 600, 488, 0, 0, 0, 0, 536, 488)
+"points": PackedVector2Array(0, 0, 0, 0, 536, 488, 0, 0, 0, 0, 536, 488, 0, 0, 0, 0, 536, 488, 0, 0, 0, 0, 536, 488, 0, 0, 0, 0, 536, 488, 0, 0, 0, 0, 536, 488, 0, 0, 0, 0, 536, 488, 0, 0, 0, 0, 536, 488)
 }
-point_count = 3
+point_count = 8
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_g078x")
@@ -5397,6 +5398,20 @@ text = "Instructions"
 [node name="Inventory" parent="Player" instance=ExtResource("7_hhw2g")]
 
 [node name="Instructions" parent="Player" instance=ExtResource("8_wvw2g")]
+
+[node name="Level" type="CanvasLayer" parent="Player"]
+
+[node name="TextureRect" type="TextureRect" parent="Player/Level"]
+offset_right = 252.0
+offset_bottom = 62.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_6cgij")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Player/Level"]
+offset_right = 125.0
+offset_bottom = 29.0
+text = "Level N/A"
+fit_content = true
 
 [node name="CoinAmount" type="ColorRect" parent="Player"]
 anchors_preset = 1

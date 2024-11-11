@@ -68,6 +68,7 @@ func MonsterTurn():
 		$Action.text = "You gained " + str(expToGain) + " exp!"
 		await get_tree().create_timer(2).timeout
 		Game.addEXP(expToGain) # add exp to player and scale exp with monster level
+		$"../../../Player/Level/RichTextLabel".text = "Level " + str(Game.selectedMonsters[0]["Level"]) + "  " + str(Game.selectedMonsters[0]["Exp"]) + "/" + str(Game.selectedMonsters[0]["MaxExp"])
 		$"../../../Player".position = currPlayerPosition
 		get_tree().paused = false
 		$"../../../UI/AnimationPlayer".play("TransIn")
@@ -85,7 +86,7 @@ func MonsterTurn():
 	# choosing enemy attack
 	var attack = randi_range(0,2) # chooses a random attack
 	var attackDamage = Game.dataBaseMonsters[selected]["Attacks"][attack]["Damage"] # gets damage of the attack
-	var damage = Game.calculate_damage(playerDefense,attackDamage,monsterLevel)# gets damage of the attack
+	var damage = Game.calculate_damage(playerDefense,attackDamage,monsterLevel, false)# gets damage of the attack
 	#monsterLevel, attackDamage, playerDefense
 	
 	# Pause for battle suspense

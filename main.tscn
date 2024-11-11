@@ -9,10 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://du2bgpkwl3xxl" path="res://Player/ui.tscn" id="4_m14w0"]
 [ext_resource type="Texture2D" uid="uid://dx87fd6jyf0h8" path="res://icon.svg" id="5_bh1fk"]
 [ext_resource type="AudioStream" uid="uid://b0ocikrhmt7ty" path="res://Music/battle-theme-194713.mp3" id="6_ivnyj"]
-[ext_resource type="PackedScene" uid="uid://q52ndtv3sgaw" path="res://dialogue.tscn" id="7_42x4r"]
+[ext_resource type="PackedScene" path="res://dialogue.tscn" id="7_42x4r"]
 [ext_resource type="AudioStream" uid="uid://dmvvubi462afi" path="res://Music/First level sound.mp3" id="7_avoy2"]
 [ext_resource type="PackedScene" uid="uid://bjt6k568ehcfq" path="res://inventory.tscn" id="7_hhw2g"]
-[ext_resource type="PackedScene" uid="uid://buq5slepreo2h" path="res://instructions.tscn" id="8_wvw2g"]
+[ext_resource type="PackedScene" path="res://instructions.tscn" id="8_wvw2g"]
 [ext_resource type="Script" path="res://shop_keeper.gd" id="10_3fo3l"]
 [ext_resource type="PackedScene" uid="uid://ceawnrrql0g6" path="res://Monsters/minotaurmob.tscn" id="10_qgnkn"]
 [ext_resource type="Texture2D" uid="uid://doxo0nq6vmbad" path="res://Assets/dilaoguebox.png" id="11_6cgij"]
@@ -24,11 +24,11 @@
 [ext_resource type="PackedScene" uid="uid://240rotwx60x6" path="res://lizardmob.tscn" id="17_usyxb"]
 [ext_resource type="PackedScene" uid="uid://egjmv6uokh1e" path="res://knightmob.tscn" id="18_t43ca"]
 [ext_resource type="PackedScene" uid="uid://ca4u2ljj1xl8f" path="res://wolfmob.tscn" id="20_5ihrp"]
-[ext_resource type="PackedScene" uid="uid://cohkot2o3bq51" path="res://NPC1.tscn" id="21_pkhxh"]
-[ext_resource type="PackedScene" uid="uid://b2qlpeuikuahx" path="res://NPC2.tscn" id="25_xqr53"]
-[ext_resource type="PackedScene" uid="uid://d076qpnjdudvg" path="res://NPC3.tscn" id="26_8aqi0"]
-[ext_resource type="PackedScene" uid="uid://dlabv0bh5rawv" path="res://NPC4.tscn" id="27_4n0pd"]
-[ext_resource type="PackedScene" uid="uid://cwqmxupgqgba1" path="res://NPC5.tscn" id="28_l5k7f"]
+[ext_resource type="PackedScene" path="res://NPC1.tscn" id="21_pkhxh"]
+[ext_resource type="PackedScene" path="res://NPC2.tscn" id="25_xqr53"]
+[ext_resource type="PackedScene" path="res://NPC3.tscn" id="26_8aqi0"]
+[ext_resource type="PackedScene" path="res://NPC4.tscn" id="27_4n0pd"]
+[ext_resource type="PackedScene" path="res://NPC5.tscn" id="28_l5k7f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4jofr"]
 texture = ExtResource("1_ftrtj")
@@ -5063,6 +5063,9 @@ size = Vector2(40, 47)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_swpxo"]
 size = Vector2(42, 49)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0el7s"]
+size = Vector2(8, 11)
+
 [sub_resource type="Curve2D" id="Curve2D_ir8re"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 20, 10, 0, 0, 0, 0, 20, 10, 0, 0, 0, 0, -73, 12, 0, 0, 0, 0, -73, -25, 0, 0, 0, 0, 20, -26, 0, 0, 0, 0, 20, 10)
@@ -5101,7 +5104,7 @@ point_count = 9
 
 [sub_resource type="Curve2D" id="Curve2D_idyti"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 721.75, 1496.01, 0, 0, 0, 0, 793.75, 1497.01, 0, 0, 0, 0, 798.75, 1552.01, 0, 0, 0, 0, 725.75, 1550.01, 0, 0, 0, 0, 721.75, 1496.01)
+"points": PackedVector2Array(0, 0, 0, 0, 294.75, 100.135, 0, 0, 0, 0, 235.75, 103.134, 0, 0, 0, 0, 235.75, 66.1378, 0, 0, 0, 0, 294.75, 67.1376, 0, 0, 0, 0, 295.75, 99.1348)
 }
 point_count = 5
 
@@ -5603,6 +5606,22 @@ shape = SubResource("RectangleShape2D_087h5")
 position = Vector2(519, 402.5)
 shape = SubResource("RectangleShape2D_swpxo")
 
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Houses"]
+position = Vector2(439, 347.5)
+shape = SubResource("RectangleShape2D_0el7s")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Houses"]
+polygon = PackedVector2Array(595, 353, 596, 340, 602, 340, 602, 353)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Houses"]
+polygon = PackedVector2Array(676, 339, 682, 339, 682, 353, 675, 353)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Houses"]
+polygon = PackedVector2Array(547, 439, 555, 439, 555, 448, 547, 448)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Houses"]
+polygon = PackedVector2Array(404, 438, 410, 438, 410, 447, 405, 447)
+
 [node name="minotaur1" type="Path2D" parent="."]
 position = Vector2(603, 547)
 curve = SubResource("Curve2D_ir8re")
@@ -5671,11 +5690,12 @@ rotates = false
 [node name="CharacterBody2D" parent="wolf2/PathFollow2D" instance=ExtResource("20_5ihrp")]
 
 [node name="Lizard1" type="Path2D" parent="."]
-position = Vector2(609.25, 555.995)
+position = Vector2(609.25, 555.856)
+scale = Vector2(1, 1.00009)
 curve = SubResource("Curve2D_idyti")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Lizard1"]
-position = Vector2(721.75, 1496.01)
+position = Vector2(294.75, 100.135)
 rotation = 0.013888
 rotates = false
 

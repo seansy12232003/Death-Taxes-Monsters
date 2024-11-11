@@ -68,6 +68,7 @@ func MonsterTurn():
 		$Action.text = "You gained " + str(expToGain) + " exp!"
 		await get_tree().create_timer(2).timeout
 		Game.addEXP(expToGain) # add exp to player and scale exp with monster level
+		$"../../../Player/Level/RichTextLabel".text = "Level " + str(Game.selectedMonsters[0]["Level"]) + "  " + str(Game.selectedMonsters[0]["Exp"]) + "/" + str(Game.selectedMonsters[0]["MaxExp"])
 		$"../../../Player".position = currPlayerPosition
 		get_tree().paused = false
 		$"../../../UI/AnimationPlayer".play("TransIn")

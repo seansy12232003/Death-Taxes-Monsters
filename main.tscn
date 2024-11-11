@@ -1,4 +1,4 @@
-[gd_scene load_steps=144 format=4 uid="uid://baxn7b4aay4mt"]
+[gd_scene load_steps=143 format=4 uid="uid://baxn7b4aay4mt"]
 
 [ext_resource type="Texture2D" uid="uid://ca8cmnj12mr1q" path="res://Assets/SERENE_VILLAGE_REVAMPED/Serene_Village_16x16.png" id="1_ftrtj"]
 [ext_resource type="Script" path="res://main.gd" id="1_g078x"]

@@ -5,7 +5,7 @@ signal battle_triggered
 var battle = preload("res://battle/battle_scene.tscn")
 
 #@onready var path_follow: PathFollow2D = $Path2D/PathFollow2D2
-@export var speed = 80
+@export var speed = 15
 var direction = Vector2.ZERO
 var previous_position: Vector2
 
@@ -80,3 +80,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		$"../../../UI/AnimationPlayer".play("TransOut") # play black circle getting smaller
 
  
+
+
+func _on_battle_triggered() -> void:
+	pass # Replace with function body.

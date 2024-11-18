@@ -249,7 +249,7 @@ var selectedMonsters = {
 			2: {
 				"Name": "Magic",
 				"Target":"Monster",
-				"Damage": 2000, 
+				"Damage": 20, 
 				"Type": "Magic",
 				"cost": 2,
 			}

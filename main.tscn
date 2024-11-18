@@ -5310,7 +5310,7 @@ point_count = 8
 script = ExtResource("1_g078x")
 
 [node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(576, 456)
+position = Vector2(577, 456)
 
 [node name="TileGridTop" type="TileMapLayer" parent="."]
 z_index = 1

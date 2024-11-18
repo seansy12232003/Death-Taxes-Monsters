@@ -1,21 +1,21 @@
 extends StaticBody2D
 
 var health = 100
-var level = 1
+var level = 15
 
 func _ready():
 	print(self.get_path())
 	# set stats
-	level = $"../../../".get_node("Wolf").level
-	Game.dataBaseMonsters[2]["Defense"] = Game.calculate_defense(level) # Defense
-	print("Defense " + str(Game.dataBaseMonsters[2]["Defense"]))
+	level = $"../../../".get_node("Lizard").level
+	Game.dataBaseMonsters[3]["Defense"] = Game.calculate_defense(level) # Defense
+	print("Defense " + str(Game.dataBaseMonsters[3]["Defense"]))
 	
 	#Set attack power of every attack depending on stats
-	for i in Game.dataBaseMonsters[2]["Attacks"]:
+	for i in Game.dataBaseMonsters[3]["Attacks"]:
 		var path = "../BattleUI/Fight/GridContainer/Attack " + str(((i) + 1))
-		Game.dataBaseMonsters[2]["Attacks"][i]["Damage"] = Game.calculate_attack_power(Game.dataBaseMonsters[1]["Attacks"][i]["Damage"], level)
-		print(Game.dataBaseMonsters[2]["Attacks"][i]["Name"])
-		print(Game.dataBaseMonsters[2]["Attacks"][i]["Damage"])
+		Game.dataBaseMonsters[3]["Attacks"][i]["Damage"] = Game.calculate_attack_power(Game.dataBaseMonsters[3]["Attacks"][i]["Damage"], level)
+		print(Game.dataBaseMonsters[3]["Attacks"][i]["Name"])
+		print(Game.dataBaseMonsters[3]["Attacks"][i]["Damage"])
 		
 		
 	# spawn enemy if in battle scene

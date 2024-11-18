@@ -5315,7 +5315,8 @@ point_count = 8
 script = ExtResource("1_g078x")
 
 [node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(576, 456)
+position = Vector2(940, 1684)
+scale = Vector2(0.994993, 1)
 
 [node name="TileGridTop" type="TileMapLayer" parent="."]
 z_index = 1
@@ -5712,6 +5713,7 @@ rotation = 0.0192284
 rotates = false
 
 [node name="Wolf" parent="wolf1/PathFollow2D" instance=ExtResource("20_5ihrp")]
+level = 7
 
 [node name="wolf2" type="Path2D" parent="."]
 curve = SubResource("Curve2D_4eeu5")
@@ -5721,6 +5723,7 @@ position = Vector2(703, 1008)
 rotates = false
 
 [node name="Wolf" parent="wolf2/PathFollow2D" instance=ExtResource("20_5ihrp")]
+level = 9
 
 [node name="Lizard1" type="Path2D" parent="."]
 position = Vector2(609.25, 555.995)

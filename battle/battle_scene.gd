@@ -3,6 +3,8 @@ extends CanvasLayer
 var player = preload("res://Player/player.tscn")
 var minotaur = preload("res://Monsters/minotaur.tscn")
 var wolf = preload("res://Monsters/wolf.tscn")
+var lizard = preload("res://Monsters/lizard.tscn")
+var knight = preload("res://Monsters/knight.tscn")
 var currPlayerPosition
 var startHealth
 
@@ -69,14 +71,29 @@ func add_wolf():
 		sprite.play("idle")
 	$Enemy.add_child(monstertemp)
 	$Action.text = "You've encountered a Wolf!"
-	monsterLevel = Game.dataBaseMonsters[1]["Level"]
-	monsterDefense = Game.dataBaseMonsters[1]["Defense"]
+	monsterLevel = Game.dataBaseMonsters[2]["Level"]
+	monsterDefense = Game.dataBaseMonsters[2]["Defense"]
 
 func add_lizard():
-	pass
+	var monstertemp = lizard.instantiate()
+	var sprite = monstertemp.get_node("AnimatedSprite2D")
+	if sprite:
+		sprite.play("idle")
+	$Enemy.add_child(monstertemp)
+	$Action.text = "You've encountered a Lizard!"
+	monsterLevel = Game.dataBaseMonsters[3]["Level"]
+	monsterDefense = Game.dataBaseMonsters[3]["Defense"]
 
 func add_knight():
-	pass
+	var monstertemp = knight.instantiate()
+	var sprite = monstertemp.get_node("AnimatedSprite2D")
+	sprite.scale *= 0.8
+	if sprite:
+		sprite.play("idle")
+	$Enemy.add_child(monstertemp)
+	$Action.text = "You've encountered a Lizard!"
+	monsterLevel = Game.dataBaseMonsters[4]["Level"]
+	monsterDefense = Game.dataBaseMonsters[4]["Defense"]
 
 func add_wizard():
 	pass

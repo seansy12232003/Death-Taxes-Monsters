@@ -135,10 +135,10 @@ var dataBaseMonsters = {
 				"cost": 2,
 			},
 			1: {
-				"Name": "Ram",
+				"Name": "Bow",
 				"Target":"Player",
 				"Damage": 20, 
-				"Type": "Physical",
+				"Type": "Ranged",
 				"cost": 2,
 			},
 			2: {

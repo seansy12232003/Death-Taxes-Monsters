@@ -5669,7 +5669,7 @@ position = Vector2(-77.2498, 26.0053)
 rotation = -0.0109886
 rotates = false
 
-[node name="CharacterBody2D" parent="minotaur2/PathFollow2D" instance=ExtResource("10_qgnkn")]
+[node name="Minotaur" parent="minotaur2/PathFollow2D" instance=ExtResource("10_qgnkn")]
 
 [node name="minotaur3" type="Path2D" parent="."]
 position = Vector2(609.25, 546.995)
@@ -5680,7 +5680,7 @@ position = Vector2(-3.24982, 168.005)
 rotation = -2.11122
 rotates = false
 
-[node name="CharacterBody2D" parent="minotaur3/PathFollow2D" instance=ExtResource("10_qgnkn")]
+[node name="Minotaur" parent="minotaur3/PathFollow2D" instance=ExtResource("10_qgnkn")]
 rotation = 2.07345
 
 [node name="minotaur4" type="Path2D" parent="."]
@@ -5692,7 +5692,7 @@ position = Vector2(-125.25, -27.9947)
 rotation = 0.0102037
 rotates = false
 
-[node name="CharacterBody2D" parent="minotaur4/PathFollow2D" instance=ExtResource("10_qgnkn")]
+[node name="Minotaur" parent="minotaur4/PathFollow2D" instance=ExtResource("10_qgnkn")]
 
 [node name="wolf1" type="Path2D" parent="."]
 curve = SubResource("Curve2D_62aot")
@@ -5702,7 +5702,7 @@ position = Vector2(646, 791)
 rotation = 0.0192284
 rotates = false
 
-[node name="CharacterBody2D" parent="wolf1/PathFollow2D" instance=ExtResource("20_5ihrp")]
+[node name="Wolf" parent="wolf1/PathFollow2D" instance=ExtResource("20_5ihrp")]
 
 [node name="wolf2" type="Path2D" parent="."]
 curve = SubResource("Curve2D_4eeu5")
@@ -5711,7 +5711,7 @@ curve = SubResource("Curve2D_4eeu5")
 position = Vector2(703, 1008)
 rotates = false
 
-[node name="CharacterBody2D" parent="wolf2/PathFollow2D" instance=ExtResource("20_5ihrp")]
+[node name="Wolf" parent="wolf2/PathFollow2D" instance=ExtResource("20_5ihrp")]
 
 [node name="Lizard1" type="Path2D" parent="."]
 position = Vector2(609.25, 555.995)
@@ -5722,7 +5722,7 @@ position = Vector2(295.75, 98.005)
 rotation = 0.013888
 rotates = false
 
-[node name="CharacterBody2D" parent="Lizard1/PathFollow2D" instance=ExtResource("17_usyxb")]
+[node name="Lizard" parent="Lizard1/PathFollow2D" instance=ExtResource("17_usyxb")]
 
 [node name="Knight1" type="Path2D" parent="."]
 position = Vector2(609.25, 555.995)
@@ -5732,7 +5732,7 @@ curve = SubResource("Curve2D_amvpr")
 position = Vector2(372.75, 1098.01)
 rotates = false
 
-[node name="CharacterBody2D" parent="Knight1/PathFollow2D" instance=ExtResource("18_t43ca")]
+[node name="Knight" parent="Knight1/PathFollow2D" instance=ExtResource("18_t43ca")]
 
 [node name="Knight2" type="Path2D" parent="."]
 position = Vector2(609.25, 555.995)
@@ -5742,7 +5742,7 @@ curve = SubResource("Curve2D_tbb8c")
 position = Vector2(578.75, 1226.01)
 rotates = false
 
-[node name="CharacterBody2D" parent="Knight2/PathFollow2D" instance=ExtResource("18_t43ca")]
+[node name="Knight" parent="Knight2/PathFollow2D" instance=ExtResource("18_t43ca")]
 
 [node name="knight4" type="Path2D" parent="."]
 position = Vector2(609.25, 555.995)
@@ -5752,7 +5752,7 @@ curve = SubResource("Curve2D_rff00")
 position = Vector2(799.75, 1255.01)
 rotates = false
 
-[node name="CharacterBody2D" parent="knight4/PathFollow2D" instance=ExtResource("18_t43ca")]
+[node name="Knight" parent="knight4/PathFollow2D" instance=ExtResource("18_t43ca")]
 
 [node name="Knight3" type="Path2D" parent="."]
 position = Vector2(609.25, 555.995)
@@ -5762,18 +5762,18 @@ curve = SubResource("Curve2D_o1mks")
 position = Vector2(736.75, 1324.01)
 rotates = false
 
-[node name="CharacterBody2D" parent="Knight3/PathFollow2D" instance=ExtResource("18_t43ca")]
+[node name="Knight" parent="Knight3/PathFollow2D" instance=ExtResource("18_t43ca")]
 
-[node name="Path2D" type="Path2D" parent="."]
+[node name="Knight4" type="Path2D" parent="."]
 position = Vector2(609.25, 555.995)
 curve = SubResource("Curve2D_416op")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+[node name="PathFollow2D" type="PathFollow2D" parent="Knight4"]
 position = Vector2(531.75, 1277.01)
 rotation = 3.12009
 rotates = false
 
-[node name="CharacterBody2D" parent="Path2D/PathFollow2D" instance=ExtResource("18_t43ca")]
+[node name="Knight" parent="Knight4/PathFollow2D" instance=ExtResource("18_t43ca")]
 rotation = 3.14159
 
 [node name="NPC1" type="Path2D" parent="."]

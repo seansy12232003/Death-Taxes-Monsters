@@ -47,7 +47,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_timer_timeout() -> void:
 	get_node("../../../Dialogue/DialogueBox/Panel/Label").text = "I love flowers!"
-	$Talk.play()
 	$Bark.play()
 	$Timer.stop()
 

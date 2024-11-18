@@ -297,5 +297,4 @@ scale = Vector2(0.46875, 0.46875)
 sprite_frames = SubResource("SpriteFrames_0xyn2")
 animation = &"walk_up"
 
-[connection signal="battle_triggered" from="." to="." method="_on_battle_triggered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

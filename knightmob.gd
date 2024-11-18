@@ -1,11 +1,10 @@
 extends CharacterBody2D
 
-signal battle_triggered
-
 var battle = preload("res://battle/battle_scene.tscn")
 
 #@onready var path_follow: PathFollow2D = $Path2D/PathFollow2D2
 @export var speed = 25
+@export var level = 15
 var direction = Vector2.ZERO
 var previous_position: Vector2
 
@@ -66,6 +65,7 @@ func play_walk_animation(dir: Vector2) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
+		Game.selected = 4
 		$"../../../UI/AnimationPlayer".play("TransIn") # play black circle getting bigger
 		%Level1.stop()
 		%BattleMusic.play()
@@ -78,9 +78,3 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		queue_free() # prevent code from making multiple battle scenes
 		$"../../../Player/Camera2D2".enabled = false # disable player camera so battle scene camera is correct
 		$"../../../UI/AnimationPlayer".play("TransOut") # play black circle getting smaller
-
- 
-
-
-func _on_battle_triggered() -> void:
-	pass # Replace with function body.

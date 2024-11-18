@@ -40,11 +40,6 @@ func _on_stairs_body_exited(body: Node2D) -> void:
 		body.reset_speed()
 
 
-func _on_minotaur_battle_triggered() -> void:
-	pass
-
-
-
 func _on_teleport_area_forest_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		$FadeAnimationPlayer.play("fade_in")
@@ -54,8 +49,6 @@ func _on_teleport_area_forest_body_entered(body: Node2D) -> void:
 		$FadeAnimationPlayer.play("fade_out")
 		await get_tree().create_timer(1).timeout
 		get_tree().paused = false
-
-
 
 
 func _on_teleport_area_kingdom_body_entered(body: Node2D) -> void:

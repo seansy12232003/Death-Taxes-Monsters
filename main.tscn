@@ -1,4 +1,4 @@
-[gd_scene load_steps=146 format=4 uid="uid://baxn7b4aay4mt"]
+[gd_scene load_steps=147 format=4 uid="uid://baxn7b4aay4mt"]
 
 [ext_resource type="Texture2D" uid="uid://ca8cmnj12mr1q" path="res://Assets/SERENE_VILLAGE_REVAMPED/Serene_Village_16x16.png" id="1_ftrtj"]
 [ext_resource type="Script" path="res://main.gd" id="1_g078x"]
@@ -9,10 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://du2bgpkwl3xxl" path="res://Player/ui.tscn" id="4_m14w0"]
 [ext_resource type="Texture2D" uid="uid://dx87fd6jyf0h8" path="res://icon.svg" id="5_bh1fk"]
 [ext_resource type="AudioStream" uid="uid://b0ocikrhmt7ty" path="res://Music/battle-theme-194713.mp3" id="6_ivnyj"]
-[ext_resource type="PackedScene" path="res://dialogue.tscn" id="7_42x4r"]
+[ext_resource type="PackedScene" uid="uid://dtjb7xj0bxxig" path="res://dialogue.tscn" id="7_42x4r"]
 [ext_resource type="AudioStream" uid="uid://dmvvubi462afi" path="res://Music/First level sound.mp3" id="7_avoy2"]
 [ext_resource type="PackedScene" uid="uid://bjt6k568ehcfq" path="res://inventory.tscn" id="7_hhw2g"]
-[ext_resource type="PackedScene" path="res://instructions.tscn" id="8_wvw2g"]
+[ext_resource type="PackedScene" uid="uid://buq5slepreo2h" path="res://instructions.tscn" id="8_wvw2g"]
 [ext_resource type="Script" path="res://shop_keeper.gd" id="10_3fo3l"]
 [ext_resource type="PackedScene" uid="uid://ceawnrrql0g6" path="res://Monsters/minotaurmob.tscn" id="10_qgnkn"]
 [ext_resource type="Texture2D" uid="uid://doxo0nq6vmbad" path="res://Assets/dilaoguebox.png" id="11_6cgij"]
@@ -21,11 +21,11 @@
 [ext_resource type="AudioStream" uid="uid://b7x7xjgx7pfku" path="res://Music/footsteps-dirt-gravel-6823 (mp3cut.net).mp3" id="13_dohrn"]
 [ext_resource type="AudioStream" uid="uid://b4gpe4spuqxhl" path="res://sword-battle-jingle-loop-96983.mp3" id="13_uv4sm"]
 [ext_resource type="AudioStream" uid="uid://cd8ukvfocr8l2" path="res://birds-19624.mp3" id="15_rubnu"]
-[ext_resource type="PackedScene" uid="uid://240rotwx60x6" path="res://lizardmob.tscn" id="17_usyxb"]
+[ext_resource type="PackedScene" path="res://lizardmob.tscn" id="17_usyxb"]
 [ext_resource type="PackedScene" uid="uid://egjmv6uokh1e" path="res://knightmob.tscn" id="18_t43ca"]
 [ext_resource type="PackedScene" uid="uid://ca4u2ljj1xl8f" path="res://wolfmob.tscn" id="20_5ihrp"]
 [ext_resource type="PackedScene" path="res://NPC1.tscn" id="21_pkhxh"]
-[ext_resource type="PackedScene" uid="uid://b0ieepfskewua" path="res://knightboss.tscn" id="23_k15nc"]
+[ext_resource type="PackedScene" path="res://knightboss.tscn" id="23_k15nc"]
 [ext_resource type="PackedScene" path="res://NPC2.tscn" id="25_xqr53"]
 [ext_resource type="PackedScene" path="res://NPC3.tscn" id="26_8aqi0"]
 [ext_resource type="PackedScene" path="res://NPC4.tscn" id="27_4n0pd"]
@@ -5088,6 +5088,12 @@ _data = {
 }
 point_count = 4
 
+[sub_resource type="Curve2D" id="Curve2D_kbcgh"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -9, -21, 0, 0, 0, 0, -48, -9, 0, 0, 0, 0, -12, 23, 0, 0, 0, 0, 22, 16, 0, 0, 0, 0, -9, -21)
+}
+point_count = 5
+
 [sub_resource type="Curve2D" id="Curve2D_62aot"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 646, 791, 0, 0, 0, 0, 750, 793, 0, 0, 0, 0, 778, 861, 0, 0, 0, 0, 815, 854, 0, 0, 0, 0, 773, 781, 0, 0, 0, 0, 647, 791)
@@ -5657,7 +5663,8 @@ position = Vector2(-77.2498, 26.0053)
 rotation = -0.0109886
 rotates = false
 
-[node name="CharacterBody2D" parent="minotaur2/PathFollow2D" instance=ExtResource("10_qgnkn")]
+[node name="Minotaur" parent="minotaur2/PathFollow2D" instance=ExtResource("10_qgnkn")]
+level = 2
 
 [node name="minotaur3" type="Path2D" parent="."]
 position = Vector2(609.25, 546.995)
@@ -5668,8 +5675,9 @@ position = Vector2(-3.24982, 168.005)
 rotation = -2.11122
 rotates = false
 
-[node name="CharacterBody2D" parent="minotaur3/PathFollow2D" instance=ExtResource("10_qgnkn")]
+[node name="Minotaur" parent="minotaur3/PathFollow2D" instance=ExtResource("10_qgnkn")]
 rotation = 2.07345
+level = 4
 
 [node name="minotaur4" type="Path2D" parent="."]
 position = Vector2(609.25, 555.995)
@@ -5680,7 +5688,20 @@ position = Vector2(-125.25, -27.9947)
 rotation = 0.0102037
 rotates = false
 
-[node name="CharacterBody2D" parent="minotaur4/PathFollow2D" instance=ExtResource("10_qgnkn")]
+[node name="Minotaur" parent="minotaur4/PathFollow2D" instance=ExtResource("10_qgnkn")]
+
+[node name="minotaur5" type="Path2D" parent="."]
+position = Vector2(650, 750)
+curve = SubResource("Curve2D_kbcgh")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="minotaur5"]
+position = Vector2(-9, -21)
+rotation = 2.84309
+rotates = false
+
+[node name="Minotaur" parent="minotaur5/PathFollow2D" instance=ExtResource("10_qgnkn")]
+rotation = 3.40339
+level = 5
 
 [node name="wolf1" type="Path2D" parent="."]
 curve = SubResource("Curve2D_62aot")
@@ -5690,7 +5711,7 @@ position = Vector2(646, 791)
 rotation = 0.0192284
 rotates = false
 
-[node name="CharacterBody2D" parent="wolf1/PathFollow2D" instance=ExtResource("20_5ihrp")]
+[node name="Wolf" parent="wolf1/PathFollow2D" instance=ExtResource("20_5ihrp")]
 
 [node name="wolf2" type="Path2D" parent="."]
 curve = SubResource("Curve2D_4eeu5")
@@ -5699,7 +5720,7 @@ curve = SubResource("Curve2D_4eeu5")
 position = Vector2(703, 1008)
 rotates = false
 
-[node name="CharacterBody2D" parent="wolf2/PathFollow2D" instance=ExtResource("20_5ihrp")]
+[node name="Wolf" parent="wolf2/PathFollow2D" instance=ExtResource("20_5ihrp")]
 
 [node name="Lizard1" type="Path2D" parent="."]
 position = Vector2(609.25, 555.995)
@@ -5710,7 +5731,7 @@ position = Vector2(295.75, 98.005)
 rotation = 0.013888
 rotates = false
 
-[node name="CharacterBody2D" parent="Lizard1/PathFollow2D" instance=ExtResource("17_usyxb")]
+[node name="Lizard" parent="Lizard1/PathFollow2D" instance=ExtResource("17_usyxb")]
 
 [node name="Knight1" type="Path2D" parent="."]
 position = Vector2(609.25, 555.995)
@@ -5720,7 +5741,7 @@ curve = SubResource("Curve2D_amvpr")
 position = Vector2(372.75, 1098.01)
 rotates = false
 
-[node name="CharacterBody2D" parent="Knight1/PathFollow2D" instance=ExtResource("18_t43ca")]
+[node name="Knight" parent="Knight1/PathFollow2D" instance=ExtResource("18_t43ca")]
 
 [node name="Knight2" type="Path2D" parent="."]
 position = Vector2(609.25, 555.995)
@@ -5730,7 +5751,7 @@ curve = SubResource("Curve2D_tbb8c")
 position = Vector2(578.75, 1226.01)
 rotates = false
 
-[node name="CharacterBody2D" parent="Knight2/PathFollow2D" instance=ExtResource("18_t43ca")]
+[node name="Knight" parent="Knight2/PathFollow2D" instance=ExtResource("18_t43ca")]
 
 [node name="knight4" type="Path2D" parent="."]
 position = Vector2(609.25, 555.995)
@@ -5740,7 +5761,7 @@ curve = SubResource("Curve2D_rff00")
 position = Vector2(799.75, 1255.01)
 rotates = false
 
-[node name="CharacterBody2D" parent="knight4/PathFollow2D" instance=ExtResource("18_t43ca")]
+[node name="Knight" parent="knight4/PathFollow2D" instance=ExtResource("18_t43ca")]
 
 [node name="Knight3" type="Path2D" parent="."]
 position = Vector2(609.25, 555.995)
@@ -5750,18 +5771,18 @@ curve = SubResource("Curve2D_o1mks")
 position = Vector2(736.75, 1324.01)
 rotates = false
 
-[node name="CharacterBody2D" parent="Knight3/PathFollow2D" instance=ExtResource("18_t43ca")]
+[node name="Knight" parent="Knight3/PathFollow2D" instance=ExtResource("18_t43ca")]
 
-[node name="Path2D" type="Path2D" parent="."]
+[node name="Knight5" type="Path2D" parent="."]
 position = Vector2(609.25, 555.995)
 curve = SubResource("Curve2D_416op")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+[node name="PathFollow2D" type="PathFollow2D" parent="Knight5"]
 position = Vector2(531.75, 1277.01)
 rotation = 3.12009
 rotates = false
 
-[node name="CharacterBody2D" parent="Path2D/PathFollow2D" instance=ExtResource("18_t43ca")]
+[node name="Knight" parent="Knight5/PathFollow2D" instance=ExtResource("18_t43ca")]
 rotation = 3.14159
 
 [node name="NPC1" type="Path2D" parent="."]
@@ -5961,13 +5982,6 @@ rotates = false
 [connection signal="pressed" from="Player/CanvasLayer/InventoryButton" to="." method="_on_inventory_button_pressed"]
 [connection signal="pressed" from="Player/CanvasLayer/Instructions" to="." method="_on_instructions_pressed"]
 [connection signal="body_entered" from="BattleSpawn" to="BattleSpawn" method="_on_body_entered"]
-[connection signal="battle_triggered" from="minotaur1/PathFollow2D2/Minotaur" to="." method="_on_minotaur_battle_triggered"]
-[connection signal="battle_triggered" from="minotaur2/PathFollow2D/CharacterBody2D" to="." method="_on_minotaur_battle_triggered"]
-[connection signal="battle_triggered" from="minotaur3/PathFollow2D/CharacterBody2D" to="." method="_on_minotaur_battle_triggered"]
-[connection signal="battle_triggered" from="minotaur4/PathFollow2D/CharacterBody2D" to="." method="_on_minotaur_battle_triggered"]
-[connection signal="battle_triggered" from="wolf1/PathFollow2D/CharacterBody2D" to="." method="_on_minotaur_battle_triggered"]
-[connection signal="battle_triggered" from="Lizard1/PathFollow2D/CharacterBody2D" to="." method="_on_minotaur_battle_triggered"]
-[connection signal="battle_triggered" from="Knight1/PathFollow2D/CharacterBody2D" to="." method="_on_minotaur_battle_triggered"]
 [connection signal="body_entered" from="Stairs" to="." method="_on_stairs_body_entered"]
 [connection signal="body_exited" from="Stairs" to="." method="_on_stairs_body_exited"]
 [connection signal="body_entered" from="TeleportAreaKingdom" to="." method="_on_teleport_area_kingdom_body_entered"]

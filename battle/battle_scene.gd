@@ -2,6 +2,7 @@ extends CanvasLayer
 
 var player = preload("res://Player/player.tscn")
 var minotaur = preload("res://Monsters/minotaur.tscn")
+var wolf = preload("res://Monsters/wolf.tscn")
 var currPlayerPosition
 var startHealth
 
@@ -13,21 +14,36 @@ var monsterDefense
 var playerLevel
 var playerDefense
 
-# selected monster, or encountered monster ID, change when encountering other monsters
-var selected
+# wolf, lizard, knight, wizard, king
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$".".process_mode = Node.PROCESS_MODE_ALWAYS
-	call_deferred("add_minotaur")
+	
+	match Game.selected:
+		1: # minotaur
+			call_deferred("add_minotaur")
+		2: # wolf
+			call_deferred("add_wolf")
+		3: # lizard
+			call_deferred("add_lizard")
+		4: # knight
+			call_deferred("add_knight")
+	
 	call_deferred("add_player")
 	currPlayerPosition = $"../../../Player".position
 	startHealth = Game.selectedMonsters[0]["Health"]
 	$BattleUI/Menu/GridContainer/Fight.grab_focus()
 	playerLevel = Game.selectedMonsters[0]["Level"]
 	playerDefense = Game.selectedMonsters[0]["Defense"]
-	
 
+func _process(delta: float) -> void:
+	pass
+
+
+
+# adding Monsters and player
 func add_player():
 	var playertemp = player.instantiate()
 	var sprite = playertemp.get_node("AnimatedSprite2D")
@@ -37,7 +53,6 @@ func add_player():
 	$Player.add_child(playertemp)
 
 func add_minotaur():
-	selected = 1 # set to respective monster ID in Game.gd
 	var monstertemp = minotaur.instantiate()
 	var sprite = monstertemp.get_node("AnimatedSprite2D")
 	if sprite:
@@ -46,12 +61,31 @@ func add_minotaur():
 	$Action.text = "You've encountered a Minotaur!"
 	monsterLevel = Game.dataBaseMonsters[1]["Level"]
 	monsterDefense = Game.dataBaseMonsters[1]["Defense"]
-	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func add_wolf():
+	var monstertemp = wolf.instantiate()
+	var sprite = monstertemp.get_node("AnimatedSprite2D")
+	if sprite:
+		sprite.play("idle")
+	$Enemy.add_child(monstertemp)
+	$Action.text = "You've encountered a Wolf!"
+	monsterLevel = Game.dataBaseMonsters[1]["Level"]
+	monsterDefense = Game.dataBaseMonsters[1]["Defense"]
+
+func add_lizard():
 	pass
 
+func add_knight():
+	pass
+
+func add_wizard():
+	pass
+
+func add_king():
+	pass
+
+
+# Battle scene functions
 func MonsterTurn():
 	# hide menus
 	$BattleUI/Menu.hide()
@@ -62,7 +96,7 @@ func MonsterTurn():
 	# check if enemy is dead
 	if $Enemy.get_child(0).health <= 0:
 		var expToGain = floor(Game.calculate_exp_per_monster(monsterLevel))
-		$Action.text = "You defeated the " + Game.dataBaseMonsters[selected]["Name"] + "!"
+		$Action.text = "You defeated the " + Game.dataBaseMonsters[Game.selected]["Name"] + "!"
 		$Enemy.get_child(0).get_node("AnimationPlayer").play("die")
 		await get_tree().create_timer(2).timeout
 		$Action.text = "You gained " + str(expToGain) + " exp!"
@@ -86,17 +120,17 @@ func MonsterTurn():
 	
 	# choosing enemy attack
 	var attack = randi_range(0,2) # chooses a random attack
-	var attackDamage = Game.dataBaseMonsters[selected]["Attacks"][attack]["Damage"] # gets damage of the attack
+	var attackDamage = Game.dataBaseMonsters[Game.selected]["Attacks"][attack]["Damage"] # gets damage of the attack
 	var damage = Game.calculate_damage(playerDefense,attackDamage,monsterLevel, false)# gets damage of the attack
 	#monsterLevel, attackDamage, playerDefense
 	
 	# Pause for battle suspense
-	$Action.text = Game.dataBaseMonsters[selected]["Name"] + " is thinking..."
+	$Action.text = Game.dataBaseMonsters[Game.selected]["Name"] + " is thinking..."
 	await get_tree().create_timer(2).timeout
 	
 	# play/display attack and refocus
 	$Enemy.get_child(0).get_node("AnimatedSprite2D").play("attack")
-	$Action.text = Game.dataBaseMonsters[selected]["Name"] + " has attacked using " + Game.dataBaseMonsters[selected]["Attacks"][attack]["Name"] + " for " + str(damage) + " hp"
+	$Action.text = Game.dataBaseMonsters[Game.selected]["Name"] + " has attacked using " + Game.dataBaseMonsters[Game.selected]["Attacks"][attack]["Name"] + " for " + str(damage) + " hp"
 	Game.selectedMonsters[0]["Health"] -= damage
 	await get_tree().create_timer(1).timeout # wait for attack animation to be done
 	$Enemy.get_child(0).get_node("AnimatedSprite2D").play("idle")

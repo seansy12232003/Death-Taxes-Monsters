@@ -58,9 +58,9 @@ func _on_attack_pressed(extra_arg_0: int) -> void: # attack menu
 	if Game.selectedMonsters[0]["Attacks"][extra_arg_0]["Target"] == "Monster":
 		var tempDic = Game.selectedMonsters[0]["Attacks"] # get the players attacks
 		var isWeak = false
-		if(Game.dataBaseMonsters[$"..".selected]["Weakness"] == tempDic[extra_arg_0]["Type"]):
+		if(Game.dataBaseMonsters[Game.selected]["Weakness"] == tempDic[extra_arg_0]["Type"]):
 			isWeak = true
-		var damage = Game.calculate_damage(Game.dataBaseMonsters[$"..".selected]["Defense"], tempDic[extra_arg_0]["Damage"], Game.selectedMonsters[0]["Level"], isWeak)
+		var damage = Game.calculate_damage(Game.dataBaseMonsters[Game.selected]["Defense"], tempDic[extra_arg_0]["Damage"], Game.selectedMonsters[0]["Level"], isWeak)
 		$"../Enemy".get_child(0).hit(damage) # use hit function in monster scene and send animation name and damage
 		$"../Action".text = Game.selectedMonsters[0]["Name"] + " has attacked for " + str(damage) + " hp. " # change text in action section of battle menu
 		if isWeak:

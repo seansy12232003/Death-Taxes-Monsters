@@ -6,7 +6,7 @@ var level = 1
 func _ready():
 	print(self.get_path())
 	# set stats
-	level = $"../../../".get_node("Minotaur").level
+	level = $"../../../".get_node("Wolf").level
 	Game.dataBaseMonsters[1]["Defense"] = Game.calculate_defense(level) # Defense
 	print("Defense " + str(Game.dataBaseMonsters[1]["Defense"]))
 	

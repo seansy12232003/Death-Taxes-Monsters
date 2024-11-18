@@ -1,8 +1,9 @@
-[gd_scene load_steps=42 format=3 uid="uid://d076qpnjdudvg"]
+[gd_scene load_steps=43 format=3 uid="uid://d076qpnjdudvg"]
 
 [ext_resource type="Script" path="res://npc_3.gd" id="1_gluc2"]
 [ext_resource type="Texture2D" uid="uid://bssgahdmju6tt" path="res://DStingy guy.png" id="2_w1eyf"]
 [ext_resource type="AudioStream" uid="uid://c74c0m5hm3idh" path="res://evil-laugh-89423.mp3" id="3_qmu6w"]
+[ext_resource type="AudioStream" uid="uid://hb68sy4lvpkp" path="res://cartoon-phone-voice-88637.mp3" id="4_7kmqy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oeegj"]
 radius = 8.0
@@ -318,6 +319,11 @@ offset_right = 43.0
 offset_bottom = 6.0
 scale = Vector2(0.4, 0.4)
 text = "Robert"
+
+[node name="Talk" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("4_7kmqy")
+volume_db = 10.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

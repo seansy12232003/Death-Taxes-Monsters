@@ -48,6 +48,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_timer_timeout() -> void:
 	get_node("../../../Dialogue/DialogueBox/Panel/Label").text = "Can I have your sister's number?"
+	$Talk.play()
 	#$Bark.play()
 	$Timer.stop()
 

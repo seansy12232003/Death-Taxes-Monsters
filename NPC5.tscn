@@ -1,8 +1,9 @@
-[gd_scene load_steps=42 format=3 uid="uid://cwqmxupgqgba1"]
+[gd_scene load_steps=43 format=3 uid="uid://cwqmxupgqgba1"]
 
 [ext_resource type="Script" path="res://npc_5.gd" id="1_5as5y"]
 [ext_resource type="Texture2D" uid="uid://brq7oxgd01372" path="res://defender.png" id="2_ghqqp"]
 [ext_resource type="AudioStream" uid="uid://cessac0y6upgk" path="res://dog-bark-179915.mp3" id="3_72xhe"]
+[ext_resource type="AudioStream" uid="uid://hb68sy4lvpkp" path="res://cartoon-phone-voice-88637.mp3" id="4_2pe55"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oeegj"]
 radius = 8.0
@@ -319,6 +320,11 @@ offset_bottom = 1.0
 scale = Vector2(0.4, 0.4)
 text = "Nameless Knight
 "
+
+[node name="Talk" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("4_2pe55")
+volume_db = 10.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

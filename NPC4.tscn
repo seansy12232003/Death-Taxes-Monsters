@@ -1,8 +1,9 @@
-[gd_scene load_steps=42 format=3 uid="uid://dlabv0bh5rawv"]
+[gd_scene load_steps=43 format=3 uid="uid://dlabv0bh5rawv"]
 
 [ext_resource type="Script" path="res://npc_4.gd" id="1_raapf"]
 [ext_resource type="Texture2D" uid="uid://bafof01puqvug" path="res://dedgyrival.png" id="2_bb4fc"]
 [ext_resource type="AudioStream" uid="uid://cessac0y6upgk" path="res://dog-bark-179915.mp3" id="3_tl7kk"]
+[ext_resource type="AudioStream" uid="uid://hb68sy4lvpkp" path="res://cartoon-phone-voice-88637.mp3" id="4_4vmeo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oeegj"]
 radius = 8.0
@@ -321,6 +322,11 @@ rotation = 0.785398
 scale = Vector2(0.4, 0.4)
 text = "Billie
 "
+
+[node name="Talk" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("4_4vmeo")
+volume_db = 10.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

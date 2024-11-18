@@ -11,12 +11,13 @@ script = ExtResource("1_j1hak")
 
 [node name="DialogueBox" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
+visible = false
 
 [node name="Panel" type="Panel" parent="DialogueBox"]
 offset_left = 384.0
-offset_top = 440.0
+offset_top = 416.0
 offset_right = 848.0
-offset_bottom = 648.0
+offset_bottom = 624.0
 
 [node name="Label" type="Label" parent="DialogueBox/Panel"]
 layout_mode = 1

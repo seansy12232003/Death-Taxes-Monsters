@@ -3,7 +3,7 @@ extends Node2D
 var slow_speed = 20.0
 
 var battle = preload("res://battle/battle_scene.tscn")
-
+var documents = 0
 var kingdom_entry_position = Vector2(950, 1695)
 var forest_exit_position = Vector2(905, 642)
 var level
@@ -81,3 +81,20 @@ func _on_instructions_pressed() -> void:
 		get_node("Player/Instructions/AnimationPlayer").play("TransIn")
 	elif get_node("Player/Instructions").offset.y == 150:
 		get_node("Player/Instructions/AnimationPlayer").play("TransOut")
+		
+
+
+func _on_documented_collected():
+	documents+=1
+	print("Documents collected: ", documents)
+	if documents == 1:
+		print("You win")
+
+func _on_taxdocuments_collected() -> void:
+	_on_documented_collected()
+	get_node("Player/Tax Documents/Label").text = "Documents collected: " + str(documents)
+
+
+func _on_taxdocuments_2_collected() -> void:
+	_on_documented_collected()
+	get_node("Player/Tax Documents/Label").text = "Documents collected: " + str(documents)

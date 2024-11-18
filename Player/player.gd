@@ -4,6 +4,7 @@ var screensize
 const ORIGINAL_SPEED = 75.0
 var SPEED = 75.0
 
+
 func _ready():
 	#screensize = get_viewport_rect().size
 	if get_parent().name != "Player":
@@ -59,3 +60,4 @@ func set_speed(new_speed):
 
 func reset_speed():
 	SPEED = ORIGINAL_SPEED
+	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://b0ieepfskewua"]
+[gd_scene load_steps=41 format=3 uid="uid://btb2knpsm34iq"]
 
 [ext_resource type="Script" path="res://knightboss.gd" id="1_7nlow"]
 [ext_resource type="Texture2D" path="res://Assets/knightboss.png" id="1_sdqga"]
@@ -282,7 +282,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D2" type="CharacterBody2D"]
 script = ExtResource("1_7nlow")
 
 [node name="Area2D" type="Area2D" parent="."]

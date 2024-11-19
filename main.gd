@@ -1,6 +1,6 @@
 extends Node2D
 
-var slow_speed = 20.0
+var slow_speed = 30.0
 
 var battle = preload("res://battle/battle_scene.tscn")
 var documents = 0

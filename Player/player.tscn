@@ -358,7 +358,8 @@ scale = Vector2(0.43, 0.49)
 shape = SubResource("CapsuleShape2D_pb20b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.382812, 0.378219)
+position = Vector2(2.98023e-08, 0)
+scale = Vector2(0.394531, 0.389797)
 sprite_frames = SubResource("SpriteFrames_bktu1")
 animation = &"attack"
 autoplay = "idle"

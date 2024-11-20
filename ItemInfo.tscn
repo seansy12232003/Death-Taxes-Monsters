@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://bls0444v2i77p" path="res://bellding-254774.mp3" id="3_gh3yu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vwih"]
-bg_color = Color(0.262745, 0.678431, 0.627451, 1)
+bg_color = Color(0, 0, 0, 0.427451)
 
 [sub_resource type="Animation" id="Animation_dqxjs"]
 length = 0.001

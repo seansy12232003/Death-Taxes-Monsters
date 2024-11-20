@@ -1,4 +1,4 @@
-[gd_scene load_steps=163 format=4 uid="uid://baxn7b4aay4mt"]
+[gd_scene load_steps=165 format=4 uid="uid://baxn7b4aay4mt"]
 
 [ext_resource type="Texture2D" uid="uid://ca8cmnj12mr1q" path="res://Assets/SERENE_VILLAGE_REVAMPED/Serene_Village_16x16.png" id="1_ftrtj"]
 [ext_resource type="Script" path="res://main.gd" id="1_g078x"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://doxo0nq6vmbad" path="res://Assets/dilaoguebox.png" id="11_6cgij"]
 [ext_resource type="PackedScene" uid="uid://b3wi2gwga31ja" path="res://shop.tscn" id="11_rr0k2"]
 [ext_resource type="Texture2D" uid="uid://dufpcjqbm3uns" path="res://shopkeeperfinal.png" id="12_lyx6n"]
+[ext_resource type="Script" path="res://camera_swing_castle.gd" id="12_smw6v"]
 [ext_resource type="AudioStream" uid="uid://b7x7xjgx7pfku" path="res://Music/footsteps-dirt-gravel-6823 (mp3cut.net).mp3" id="13_dohrn"]
 [ext_resource type="AudioStream" uid="uid://b4gpe4spuqxhl" path="res://sword-battle-jingle-loop-96983.mp3" id="13_uv4sm"]
 [ext_resource type="AudioStream" uid="uid://cd8ukvfocr8l2" path="res://birds-19624.mp3" id="15_rubnu"]
@@ -7884,6 +7885,9 @@ size = Vector2(24, 13)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rmcox"]
 size = Vector2(20, 145)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0gibl"]
+size = Vector2(3.9999, 147.5)
+
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_akypi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_joaxs"]
@@ -8235,7 +8239,8 @@ point_count = 5
 script = ExtResource("1_g078x")
 
 [node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(1414, 2039)
+z_index = 4
+position = Vector2(2640, 1193)
 
 [node name="TileGridTop" type="TileMapLayer" parent="."]
 z_index = 1
@@ -8333,6 +8338,17 @@ preview_target_position = Vector2(360, 360)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cameraSwingCity"]
 position = Vector2(464.3, 1242.26)
 shape = SubResource("RectangleShape2D_rmcox")
+
+[node name="cameraSwingCastle" type="Area2D" parent="."]
+position = Vector2(565.7, 472.24)
+script = ExtResource("12_smw6v")
+pan_duration = 5.0
+return_duration = 2.5
+preview_target_position = Vector2(-100, -900)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cameraSwingCastle"]
+position = Vector2(1972.3, 712.51)
+shape = SubResource("RectangleShape2D_0gibl")
 
 [node name="Player" parent="." instance=ExtResource("3_6va6h")]
 
@@ -8960,6 +8976,7 @@ position = Vector2(656, 528)
 [connection signal="collected" from="taxdocuments" to="." method="_on_taxdocuments_collected"]
 [connection signal="body_entered" from="cameraSwingTown" to="cameraSwingTown" method="_on_body_entered"]
 [connection signal="body_entered" from="cameraSwingCity" to="cameraSwingCity" method="_on_body_entered"]
+[connection signal="body_entered" from="cameraSwingCastle" to="cameraSwingCastle" method="_on_body_entered"]
 [connection signal="pressed" from="Player/CanvasLayer/InventoryButton" to="." method="_on_inventory_button_pressed"]
 [connection signal="pressed" from="Player/CanvasLayer/Instructions" to="." method="_on_instructions_pressed"]
 [connection signal="body_entered" from="BattleSpawn" to="BattleSpawn" method="_on_body_entered"]

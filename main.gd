@@ -6,6 +6,8 @@ var battle = preload("res://battle/battle_scene.tscn")
 var documents = 0
 var kingdom_entry_position = Vector2(985, 1695)
 var forest_exit_position = Vector2(875, 642)
+var castle_entry_position = Vector2(2793, 1110)
+var kingdom_exit_position = Vector2(1385,2075)
 var level
 var player: Node
 
@@ -68,6 +70,32 @@ func _on_teleport_area_kingdom_body_entered(body: Node2D) -> void:
 		get_tree().paused = false
 		player.can_move = true
 
+func _on_teleport_area_castle_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		player = body
+		$FadeAnimationPlayer.play("fade_in")
+		player.can_move = false
+		await get_tree().create_timer(1.5).timeout
+		body.position = kingdom_exit_position
+		get_tree().paused = true
+		await get_tree().create_timer(2).timeout
+		$FadeAnimationPlayer.play("fade_out")
+		get_tree().paused = false
+		player.can_move = true
+
+
+func _on_teleport_area_kingdom_2_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		player = body
+		$FadeAnimationPlayer.play("fade_in")
+		player.can_move = false
+		await get_tree().create_timer(1.5).timeout
+		body.position = castle_entry_position
+		get_tree().paused = true
+		await get_tree().create_timer(2).timeout
+		$FadeAnimationPlayer.play("fade_out")
+		get_tree().paused = false
+		player.can_move = true
 
 func _on_inventory_button_pressed() -> void:
 	if get_node("Player/Inventory").offset.y == -500:

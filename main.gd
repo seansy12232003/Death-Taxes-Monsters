@@ -4,8 +4,8 @@ var slow_speed = 30.0
 
 var battle = preload("res://battle/battle_scene.tscn")
 var documents = 0
-var kingdom_entry_position = Vector2(950, 1695)
-var forest_exit_position = Vector2(905, 642)
+var kingdom_entry_position = Vector2(990, 1695)
+var forest_exit_position = Vector2(875, 642)
 var level
 
 # Called when the node enters the scene tree for the first time.

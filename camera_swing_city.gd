@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var zoom_out_factor: Vector2 = Vector2(2, 2)  # How much the camera should zoom out
+@export var zoom_out_factor: Vector2 = Vector2(3, 3)  # How much the camera should zoom out
 @export var pan_duration: float = 2.0  # Duration of the pan
 @export var return_duration: float = 1.0  # Duration to return to the original position
 @export var preview_target_position: Vector2 = Vector2()  # The target position for the preview

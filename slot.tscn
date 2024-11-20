@@ -15,6 +15,7 @@ scale = Vector2(0.108154, 0.0471191)
 texture = ExtResource("1_2wep8")
 
 [node name="Count" type="Label" parent="."]
+unique_name_in_owner = true
 process_mode = 3
 layout_mode = 0
 offset_left = 10.0

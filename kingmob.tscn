@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dchy83qgnldtk"]
+[gd_scene load_steps=41 format=3 uid="uid://bquw28e70pw8k"]
 
 [ext_resource type="Texture2D" uid="uid://ddckuev4totmg" path="res://Assets/kingmob.png" id="1_55d2u"]
 [ext_resource type="Script" path="res://kingmob.gd" id="1_muhw4"]

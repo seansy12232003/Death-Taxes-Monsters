@@ -34,7 +34,7 @@
 [ext_resource type="PackedScene" path="res://NPC3.tscn" id="26_8aqi0"]
 [ext_resource type="PackedScene" path="res://NPC4.tscn" id="27_4n0pd"]
 [ext_resource type="PackedScene" path="res://NPC5.tscn" id="28_l5k7f"]
-[ext_resource type="PackedScene" uid="uid://dchy83qgnldtk" path="res://kingmob.tscn" id="33_hfmdh"]
+[ext_resource type="PackedScene" uid="uid://bquw28e70pw8k" path="res://kingmob.tscn" id="33_hfmdh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4jofr"]
 texture = ExtResource("1_ftrtj")
@@ -8594,10 +8594,6 @@ polygon = PackedVector2Array(595, 352, 601, 352, 604, 325, 597, 325)
 position = Vector2(1, -13)
 polygon = PackedVector2Array(674, 351, 681, 351, 684, 326, 675, 326)
 
-[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Houses"]
-visible = false
-polygon = PackedVector2Array(602, 435, 601, 449, 597, 449, 596, 436)
-
 [node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Houses"]
 position = Vector2(-1, -15)
 polygon = PackedVector2Array(541, 436, 555, 436, 553, 448, 549, 448, 540, 441)
@@ -8835,6 +8831,8 @@ polygon = PackedVector2Array(1343, 2159, 1344, 2145, 1327, 2146, 1327, 2112, 131
 [node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="2ndmapbarriers"]
 polygon = PackedVector2Array(1073, 1640, 1108, 1620, 1108, 1607, 1072, 1627)
 
+[node name="CastleBarriers" type="StaticBody2D" parent="."]
+
 [node name="Footsteps" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("13_dohrn")
@@ -8925,12 +8923,13 @@ rotates = false
 [node name="DOG" parent="Path2D4/PathFollow2D" instance=ExtResource("27_4n0pd")]
 
 [node name="KnightBoss" type="Path2D" parent="."]
-position = Vector2(-98, -10)
+position = Vector2(-5, -6)
 curve = SubResource("Curve2D_1gmyr")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="KnightBoss"]
 position = Vector2(1417, 2106)
 rotation = 3.11691
+rotates = false
 
 [node name="CharacterBody2D" parent="KnightBoss/PathFollow2D" instance=ExtResource("23_k15nc")]
 rotation = 3.14159

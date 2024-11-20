@@ -4,9 +4,10 @@ var slow_speed = 30.0
 
 var battle = preload("res://battle/battle_scene.tscn")
 var documents = 0
-var kingdom_entry_position = Vector2(990, 1695)
+var kingdom_entry_position = Vector2(985, 1695)
 var forest_exit_position = Vector2(875, 642)
 var level
+var player: Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -42,24 +43,30 @@ func _on_stairs_body_exited(body: Node2D) -> void:
 
 func _on_teleport_area_forest_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
+		player = body
 		$FadeAnimationPlayer.play("fade_in")
+		player.can_move = false
 		await get_tree().create_timer(2).timeout
 		body.position = kingdom_entry_position
 		get_tree().paused = true
 		$FadeAnimationPlayer.play("fade_out")
 		await get_tree().create_timer(1).timeout
 		get_tree().paused = false
+		player.can_move = true
 
 
 func _on_teleport_area_kingdom_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
+		player = body
 		$FadeAnimationPlayer.play("fade_in")
+		player.can_move = false
 		await get_tree().create_timer(1.5).timeout
 		body.position = forest_exit_position
 		get_tree().paused = true
 		await get_tree().create_timer(2).timeout
 		$FadeAnimationPlayer.play("fade_out")
 		get_tree().paused = false
+		player.can_move = true
 
 
 func _on_inventory_button_pressed() -> void:

@@ -8229,7 +8229,7 @@ point_count = 5
 script = ExtResource("1_g078x")
 
 [node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(985.7, 1683.95)
+position = Vector2(570, 382)
 
 [node name="TileGridTop" type="TileMapLayer" parent="."]
 z_index = 1
@@ -8860,7 +8860,6 @@ position = Vector2(-64, -1)
 shape = SubResource("RectangleShape2D_qd4t3")
 
 [node name="FadeColorRect" type="ColorRect" parent="."]
-visible = false
 self_modulate = Color(0, 0, 0, 1)
 z_index = 9
 offset_left = -104.0

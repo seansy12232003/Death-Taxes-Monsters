@@ -35,7 +35,7 @@ var inventory = {
 		"Description" : "Slash",
 		"Cost" : 15,
 		"Icon" : preload("res://sword.png"),
-		"Count" : 1
+		"Count" : 50
 	},	
 
 }

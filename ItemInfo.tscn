@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://b8t0seidv0ipj"]
+[gd_scene load_steps=11 format=3 uid="uid://b8t0seidv0ipj"]
 
 [ext_resource type="Script" path="res://item_info.gd" id="1_yh5fi"]
 [ext_resource type="Texture2D" uid="uid://dhwm3e43dfexm" path="res://sword.png" id="2_j12df"]
+[ext_resource type="AudioStream" uid="uid://bls0444v2i77p" path="res://bellding-254774.mp3" id="3_gh3yu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vwih"]
 bg_color = Color(0.262745, 0.678431, 0.627451, 1)
@@ -145,6 +146,9 @@ texture = ExtResource("2_j12df")
 libraries = {
 "": SubResource("AnimationLibrary_v0gse")
 }
+
+[node name="Bell" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_gh3yu")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

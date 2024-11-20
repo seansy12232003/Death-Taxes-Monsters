@@ -37,7 +37,7 @@ func play_walk_animation(dir: Vector2) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if get_parent().name != "Player":
+	if body.name == "Player":
 		get_node("../../../Dialogue/DialogueBox/Panel/Label").text = ""
 		get_node("../../../Dialogue/DialogueBox").show()
 		$Timer.start()

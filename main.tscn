@@ -8246,6 +8246,7 @@ point_count = 5
 script = ExtResource("1_g078x")
 
 [node name="level2" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 position = Vector2(1136, 1872)
 stream = ExtResource("2_f4xx8")
 volume_db = 15.0
@@ -8487,7 +8488,7 @@ autoplay = true
 parameters/looping = true
 
 [node name="ForestBarriers" type="StaticBody2D" parent="."]
-position = Vector2(-8, 8)
+position = Vector2(0, 8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ForestBarriers"]
 position = Vector2(801, 335)
@@ -8576,7 +8577,6 @@ position = Vector2(860.5, 1007)
 shape = SubResource("RectangleShape2D_w2732")
 
 [node name="Houses" type="StaticBody2D" parent="."]
-position = Vector2(-16, 16)
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Houses"]
 position = Vector2(519, 400.25)
@@ -8915,13 +8915,12 @@ position = Vector2(1812, 435)
 shape = SubResource("RectangleShape2D_fl4o2")
 
 [node name="FadeColorRect" type="ColorRect" parent="."]
-visible = false
 self_modulate = Color(0, 0, 0, 1)
 z_index = 9
-offset_left = -104.0
-offset_top = -14.0
-offset_right = 1687.0
-offset_bottom = 2789.0
+offset_left = -16.0
+offset_top = -32.0
+offset_right = 3432.0
+offset_bottom = 2771.0
 color = Color(0, 0, 0, 0)
 
 [node name="FadeAnimationPlayer" type="AnimationPlayer" parent="."]
@@ -9018,8 +9017,10 @@ visible = false
 wait_time = 3.0
 
 [node name="level3" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 position = Vector2(3160, 560)
 stream = ExtResource("40_ae1gn")
+volume_db = 15.0
 
 [node name="transitionsound" type="AudioStreamPlayer2D" parent="."]
 process_mode = 2

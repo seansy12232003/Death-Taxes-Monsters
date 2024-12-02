@@ -3,7 +3,6 @@ extends Node2D
 var slow_speed = 30.0
 
 var battle = preload("res://battle/battle_scene.tscn")
-var documents = 0
 var kingdom_entry_position = Vector2(985, 1695)
 var forest_exit_position = Vector2(875, 642)
 var castle_entry_position = Vector2(2793, 1110)
@@ -16,6 +15,7 @@ func _ready() -> void:
 	get_node("notification").hide()
 	get_node("Title").show()
 	get_node("Dialogue/DialogueBox").hide()
+	get_node("GameOverScreen").hide()
 	get_node("Dialogue/DialogueBox/Panel/Label").text = ""
 	$Player.set_pos($StartPosition.position) # set position of player to start position
 	level = 1 # Level
@@ -133,42 +133,40 @@ func _on_instructions_pressed() -> void:
 
 
 func _on_documented_collected():
-	if documents == 0:
+	if Global.documents == 0:
 		get_node("notification").show()
 		get_node("notification/Timer2").start()
-	documents+=1
-	print("Documents collected: ", documents)
-	if documents == 1:
-		print("You win")
+	Global.documents+=1
+	print("Documents collected: ", Global.documents)
 
 func _on_taxdocuments_collected() -> void:
 	_on_documented_collected()
-	get_node("Player/Tax Documents/Label").text = "Documents collected: " + str(documents)
+	get_node("Player/Tax Documents/Label").text = "Documents collected: " + str(Global.documents)
 
 
 func _on_taxdocuments_2_collected() -> void:
 	_on_documented_collected()
-	get_node("Player/Tax Documents/Label").text = "Documents collected: " + str(documents)
+	get_node("Player/Tax Documents/Label").text = "Documents collected: " + str(Global.documents)
 
 
 func _on_taxdocuments_3_collected() -> void:
 	_on_documented_collected()
-	get_node("Player/Tax Documents/Label").text = "Documents collected: " + str(documents)
+	get_node("Player/Tax Documents/Label").text = "Documents collected: " + str(Global.documents)
 
 
 func _on_taxdocuments_4_collected() -> void:
 	_on_documented_collected()
-	get_node("Player/Tax Documents/Label").text = "Documents collected: " + str(documents)
+	get_node("Player/Tax Documents/Label").text = "Documents collected: " + str(Global.documents)
 
 
 func _on_taxdocuments_5_collected() -> void:
 	_on_documented_collected()
-	get_node("Player/Tax Documents/Label").text = "Documents collected: " + str(documents)
+	get_node("Player/Tax Documents/Label").text = "Documents collected: " + str(Global.documents)
 
 
 func _on_taxdocuments_6_collected() -> void:
 	_on_documented_collected()
-	get_node("Player/Tax Documents/Label").text = "Documents collected: " + str(documents)
+	get_node("Player/Tax Documents/Label").text = "Documents collected: " + str(Global.documents)
 
 
 func _on_timer_2_timeout() -> void:

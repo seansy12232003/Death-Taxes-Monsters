@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcao1vtrs0six"]
+
+[ext_resource type="FontFile" uid="uid://bwpqxr2ridqwh" path="res://pixelplay/pixelplay.ttf" id="1_xfx05"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tj7tc"]
+
+[node name="GameOverScreen" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(2.47873e-06, 0.648441, 0.147317, 1)
+offset_right = 1151.0
+offset_bottom = 645.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tj7tc")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 7.0
+offset_top = 2.0
+offset_right = 1146.0
+offset_bottom = 649.0
+theme_override_colors/font_color = Color(0, 0, 0.129412, 1)
+theme_override_fonts/font = ExtResource("1_xfx05")
+theme_override_font_sizes/font_size = 100
+text = "YOU HAVE FREED YOUR FATHER AND WON"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

@@ -1,4 +1,4 @@
-[gd_scene load_steps=170 format=4 uid="uid://baxn7b4aay4mt"]
+[gd_scene load_steps=172 format=4 uid="uid://baxn7b4aay4mt"]
 
 [ext_resource type="Texture2D" uid="uid://ca8cmnj12mr1q" path="res://Assets/SERENE_VILLAGE_REVAMPED/Serene_Village_16x16.png" id="1_ftrtj"]
 [ext_resource type="Script" path="res://main.gd" id="1_g078x"]
@@ -39,8 +39,10 @@
 [ext_resource type="PackedScene" uid="uid://dchy83qgnldtk" path="res://kingmob.tscn" id="33_hfmdh"]
 [ext_resource type="PackedScene" uid="uid://cfixhnnqtjt1u" path="res://title.tscn" id="37_gldd1"]
 [ext_resource type="PackedScene" uid="uid://c1usjwe82t3m2" path="res://notification.tscn" id="38_w1yxt"]
+[ext_resource type="PackedScene" uid="uid://dcao1vtrs0six" path="res://game_over_screen.tscn" id="39_xf2el"]
 [ext_resource type="AudioStream" uid="uid://bue4pf1infpjf" path="res://Knight’s Quest.mp3" id="40_ae1gn"]
 [ext_resource type="AudioStream" uid="uid://bwrajfktbp41i" path="res://transition-base-121422.mp3" id="41_8l3mc"]
+[ext_resource type="PackedScene" uid="uid://dtxrtcv5gw0tm" path="res://father.tscn" id="43_dk0bi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4jofr"]
 texture = ExtResource("1_ftrtj")
@@ -8252,7 +8254,7 @@ parameters/looping = false
 
 [node name="StartPosition" type="Marker2D" parent="."]
 z_index = 4
-position = Vector2(2768, 1152)
+position = Vector2(544, 328)
 
 [node name="TileGridTop" type="TileMapLayer" parent="."]
 z_index = 1
@@ -9006,6 +9008,9 @@ position = Vector2(2264, 512)
 [node name="taxdocuments6" parent="." instance=ExtResource("8_omdn2")]
 position = Vector2(2352, 176)
 
+[node name="GameOverScreen" parent="." instance=ExtResource("39_xf2el")]
+visible = false
+
 [node name="notification" parent="." instance=ExtResource("38_w1yxt")]
 visible = false
 
@@ -9023,6 +9028,9 @@ stream = ExtResource("41_8l3mc")
 volume_db = 24.0
 autoplay = true
 max_distance = 10000.0
+
+[node name="father" parent="." instance=ExtResource("43_dk0bi")]
+position = Vector2(2528, 168)
 
 [connection signal="body_entered" from="ShopKeeper" to="ShopKeeper" method="_on_body_entered"]
 [connection signal="collected" from="taxdocuments" to="." method="_on_taxdocuments_collected"]

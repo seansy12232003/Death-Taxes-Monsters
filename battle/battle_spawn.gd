@@ -9,10 +9,10 @@ func _on_body_entered(body: Node2D) -> void: # on encountering enemy
 	if "Player" in body.name: # if player runs into enemy
 		print(self.get_path())
 		$"../UI/AnimationPlayer".play("TransIn") # play black circle getting bigger
-		%Level1.stop()
+		get_node("../Level1").stop()
+		get_node("../birds").stop()
 		%BattleMusic.play()
 		%swordSound.play()
-		%birds.stop()
 		get_tree().paused = true # pause player movement and world movement
 		await get_tree().create_timer(1.5).timeout # wait for TransIn to finish
 		var battleTemp = battle.instantiate() # create battle scene

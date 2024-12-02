@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dhwm3e43dfexm" path="res://sword.png" id="2_j12df"]
 [ext_resource type="AudioStream" uid="uid://bls0444v2i77p" path="res://bellding-254774.mp3" id="3_gh3yu"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vwih"]
-bg_color = Color(0, 0, 0, 0.427451)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ito4p"]
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_dqxjs"]
 length = 0.001
@@ -94,7 +94,7 @@ offset_left = 195.0
 offset_top = 5.0
 offset_right = 359.0
 offset_bottom = 234.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_7vwih")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ito4p")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -149,6 +149,7 @@ libraries = {
 
 [node name="Bell" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_gh3yu")
+max_distance = 10000.0
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

@@ -131,6 +131,8 @@ func MonsterTurn():
 		Game.selectedMonsters[0]["Health"] = startHealth
 		var minotaur = $"../".get_child(0) # get minotaur
 		minotaur.queue_free() # delete minotaur
+		get_node("../../../birds").play()
+		get_node("../../../Level1").play()
 	
 	# wait for a second and show what the player did
 	await get_tree().create_timer(1.5).timeout 

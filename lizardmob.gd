@@ -67,10 +67,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		Game.selected = 3
 		$"../../../UI/AnimationPlayer".play("TransIn") # play black circle getting bigger
-		%Level1.stop()
+		get_node("../../../birds").stop()
+		get_node("../../../Level1").stop()
 		%BattleMusic.play()
 		%swordSound.play()
-		%birds.stop()
 		get_tree().paused = true # pause player movement and world movement
 		await get_tree().create_timer(1.5).timeout # wait for TransIn to finish
 		var battleTemp = battle.instantiate() # create battle scene

@@ -13,6 +13,8 @@ var player: Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	get_node("notification").hide()
+	get_node("Title").show()
 	get_node("Dialogue/DialogueBox").hide()
 	get_node("Dialogue/DialogueBox/Panel/Label").text = ""
 	$Player.set_pos($StartPosition.position) # set position of player to start position
@@ -48,6 +50,7 @@ func _on_teleport_area_forest_body_entered(body: Node2D) -> void:
 		player = body
 		$FadeAnimationPlayer.play("fade_in")
 		player.can_move = false
+		get_node("transitionsound").play()
 		await get_tree().create_timer(2).timeout
 		body.position = kingdom_entry_position
 		get_tree().paused = true
@@ -55,6 +58,8 @@ func _on_teleport_area_forest_body_entered(body: Node2D) -> void:
 		await get_tree().create_timer(1).timeout
 		get_tree().paused = false
 		player.can_move = true
+		get_node("level2").play()
+
 
 
 func _on_teleport_area_kingdom_body_entered(body: Node2D) -> void:
@@ -65,10 +70,13 @@ func _on_teleport_area_kingdom_body_entered(body: Node2D) -> void:
 		await get_tree().create_timer(1.5).timeout
 		body.position = forest_exit_position
 		get_tree().paused = true
+		get_node("transitionsound").play()
 		await get_tree().create_timer(2).timeout
 		$FadeAnimationPlayer.play("fade_out")
 		get_tree().paused = false
 		player.can_move = true
+		get_node("level1").play()
+		get_node("level2").stop()
 
 func _on_teleport_area_castle_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
@@ -78,11 +86,13 @@ func _on_teleport_area_castle_body_entered(body: Node2D) -> void:
 		await get_tree().create_timer(1.5).timeout
 		body.position = kingdom_exit_position
 		get_tree().paused = true
+		get_node("transitionsound").play()
 		await get_tree().create_timer(2).timeout
 		$FadeAnimationPlayer.play("fade_out")
 		get_tree().paused = false
 		player.can_move = true
-
+		get_node("level2").play()
+		get_node("level3").stop()
 
 func _on_teleport_area_kingdom_2_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
@@ -92,10 +102,13 @@ func _on_teleport_area_kingdom_2_body_entered(body: Node2D) -> void:
 		await get_tree().create_timer(1.5).timeout
 		body.position = castle_entry_position
 		get_tree().paused = true
+		get_node("transitionsound").play()
 		await get_tree().create_timer(2).timeout
 		$FadeAnimationPlayer.play("fade_out")
 		get_tree().paused = false
 		player.can_move = true
+		get_node("level3").play()
+		get_node("level2").stop()
 
 func _on_inventory_button_pressed() -> void:
 	if get_node("Player/Inventory").offset.y == -500:
@@ -120,6 +133,9 @@ func _on_instructions_pressed() -> void:
 
 
 func _on_documented_collected():
+	if documents == 0:
+		get_node("notification").show()
+		get_node("notification/Timer2").start()
 	documents+=1
 	print("Documents collected: ", documents)
 	if documents == 1:
@@ -133,3 +149,27 @@ func _on_taxdocuments_collected() -> void:
 func _on_taxdocuments_2_collected() -> void:
 	_on_documented_collected()
 	get_node("Player/Tax Documents/Label").text = "Documents collected: " + str(documents)
+
+
+func _on_taxdocuments_3_collected() -> void:
+	_on_documented_collected()
+	get_node("Player/Tax Documents/Label").text = "Documents collected: " + str(documents)
+
+
+func _on_taxdocuments_4_collected() -> void:
+	_on_documented_collected()
+	get_node("Player/Tax Documents/Label").text = "Documents collected: " + str(documents)
+
+
+func _on_taxdocuments_5_collected() -> void:
+	_on_documented_collected()
+	get_node("Player/Tax Documents/Label").text = "Documents collected: " + str(documents)
+
+
+func _on_taxdocuments_6_collected() -> void:
+	_on_documented_collected()
+	get_node("Player/Tax Documents/Label").text = "Documents collected: " + str(documents)
+
+
+func _on_timer_2_timeout() -> void:
+	get_node("notification").hide()

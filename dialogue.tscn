@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://q52ndtv3sgaw"]
+[gd_scene load_steps=3 format=3 uid="uid://q52ndtv3sgaw"]
 
 [ext_resource type="Script" path="res://dialogue.gd" id="1_j1hak"]
+[ext_resource type="FontFile" uid="uid://bwpqxr2ridqwh" path="res://pixelplay/pixelplay.ttf" id="2_ta80c"]
 
 [node name="Dialogue" type="Control"]
 layout_mode = 3
@@ -32,6 +33,7 @@ offset_right = 177.0
 offset_bottom = 109.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_ta80c")
 theme_override_font_sizes/font_size = 50
 text = "No wonder your dad left you"
 horizontal_alignment = 1

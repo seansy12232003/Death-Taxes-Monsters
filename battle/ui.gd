@@ -50,7 +50,9 @@ func _on_run_pressed() -> void: # run from battle
 		$"../../../../Player/".set_pos($"../../../../StartPosition".position) # set player position to start position to ensure no looping of battle scene instantiation
 	Game.selectedMonsters[0]["Health"] = startHealth
 	get_tree().paused = false
-	
+	get_node("../../../../birds").play()
+	get_node("../../../../Level1").play()
+
 
 
 func _on_attack_pressed(extra_arg_0: int) -> void: # attack menu

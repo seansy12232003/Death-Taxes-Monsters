@@ -8015,9 +8015,9 @@ point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_62aot"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 646, 791, 0, 0, 0, 0, 750, 793, 0, 0, 0, 0, 778, 861, 0, 0, 0, 0, 815, 854, 0, 0, 0, 0, 773, 781, 0, 0, 0, 0, 647, 791)
+"points": PackedVector2Array(0, 0, 0, 0, 647, 791, 0, 0, 0, 0, 773, 795, 0, 0, 0, 0, 773, 778, 0, 0, 0, 0, 647, 781, 0, 0, 0, 0, 647, 791)
 }
-point_count = 6
+point_count = 5
 
 [sub_resource type="Curve2D" id="Curve2D_4eeu5"]
 _data = {
@@ -8131,7 +8131,7 @@ size = Vector2(41, 38)
 size = Vector2(13, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jkyhs"]
-size = Vector2(30, 21)
+size = Vector2(62, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ykatf"]
 size = Vector2(23, 22)
@@ -8291,7 +8291,7 @@ parameters/looping = false
 
 [node name="StartPosition" type="Marker2D" parent="."]
 z_index = 4
-position = Vector2(560, 350)
+position = Vector2(2593, 1182)
 
 [node name="TileGridTop" type="TileMapLayer" parent="."]
 z_index = 1
@@ -8722,7 +8722,7 @@ rotates = false
 curve = SubResource("Curve2D_62aot")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="wolf1"]
-position = Vector2(646, 791)
+position = Vector2(647, 791)
 rotation = 0.0192284
 rotates = false
 
@@ -8932,7 +8932,7 @@ position = Vector2(1052.5, 1977.5)
 shape = SubResource("RectangleShape2D_27so2")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="2ndmapbarriers"]
-position = Vector2(1176, 1975.5)
+position = Vector2(1176, 1988)
 shape = SubResource("RectangleShape2D_jkyhs")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="2ndmapbarriers"]

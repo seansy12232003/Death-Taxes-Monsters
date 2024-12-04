@@ -5,7 +5,7 @@ var slow_speed = 30.0
 var battle = preload("res://battle/battle_scene.tscn")
 var kingdom_entry_position = Vector2(985, 1695)
 var forest_exit_position = Vector2(875, 642)
-var castle_entry_position = Vector2(2793, 1110)
+var castle_entry_position = Vector2(2793, 1200)
 var kingdom_exit_position = Vector2(1385,2075)
 var level
 var player: Node

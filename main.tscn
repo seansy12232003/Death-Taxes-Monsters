@@ -1,4 +1,4 @@
-[gd_scene load_steps=172 format=4 uid="uid://baxn7b4aay4mt"]
+[gd_scene load_steps=178 format=4 uid="uid://baxn7b4aay4mt"]
 
 [ext_resource type="Texture2D" uid="uid://ca8cmnj12mr1q" path="res://Assets/SERENE_VILLAGE_REVAMPED/Serene_Village_16x16.png" id="1_ftrtj"]
 [ext_resource type="Script" path="res://main.gd" id="1_g078x"]
@@ -8039,9 +8039,45 @@ point_count = 5
 
 [sub_resource type="Curve2D" id="Curve2D_tbb8c"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 578.75, 1226.01, 0, 0, 0, 0, 436.75, 1225.01, 0, 0, 0, 0, 439.75, 1155.01, 0, 0, 0, 0, 440.75, 1112.01, 0, 0, 0, 0, 456.75, 1111.01, 0, 0, 0, 0, 457.75, 1182.01, 0, 0, 0, 0, 522.75, 1181.01, 0, 0, 0, 0, 526.75, 1139.01, 0, 0, 0, 0, 694.75, 1141.01, 0, 0, 0, 0, 693.75, 1166.01, 0, 0, 0, 0, 578.75, 1172.01, 0, 0, 0, 0, 579.75, 1226.01)
+"points": PackedVector2Array(0, 0, 0, 0, 2056.75, -146.995, 0, 0, 0, 0, 2169.75, -147.995, 0, 0, 0, 0, 2171.75, -269.995, 0, 0, 0, 0, 1913.75, -268.995, 0, 0, 0, 0, 1915.75, -213.995, 0, 0, 0, 0, 2047.75, -205.995, 0, 0, 0, 0, 2056.75, -146.995)
 }
-point_count = 12
+point_count = 7
+
+[sub_resource type="Curve2D" id="Curve2D_06k8v"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1618.75, -132.995, 0, 0, 0, 0, 1478.75, -135.995, 0, 0, 0, 0, 1491.75, -261.995, 0, 0, 0, 0, 1784.75, -261.995, 0, 0, 0, 0, 1782.75, -199.995, 0, 0, 0, 0, 1639.75, -208.995, 0, 0, 0, 0, 1617.75, -209.995, 0, 0, 0, 0, 1617.75, -131.995)
+}
+point_count = 8
+
+[sub_resource type="Curve2D" id="Curve2D_a0pk0"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2120.75, 64.005, 0, 0, 0, 0, 1553.75, 55.005, 0, 0, 0, 0, 1553.75, 68.005, 0, 0, 0, 0, 2121.75, 74.005, 0, 0, 0, 0, 2120.75, 66.005)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_cn7ga"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1653.75, -7.995, 0, 0, 0, 0, 1644.75, 187.005, 0, 0, 0, 0, 1694.75, 192.005, 0, 0, 0, 0, 1694.75, -5.995, 0, 0, 0, 0, 1653.75, -8.995)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_i4itb"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1809.75, 353.005, 0, 0, 0, 0, 1815.75, 68.005, 0, 0, 0, 0, 1843.75, 67.005, 0, 0, 0, 0, 1841.75, 358.005, 0, 0, 0, 0, 1810.75, 354.005)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_4ymat"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1742.75, -342.995, 0, 0, 0, 0, 1740.75, -203.995, 0, 0, 0, 0, 1692.75, -201.995, 0, 0, 0, 0, 1692.75, -223.995, 0, 0, 0, 0, 1579.75, -218.995, 0, 0, 0, 0, 1579.75, -341.995, 0, 0, 0, 0, 1743.75, -343.995)
+}
+point_count = 7
+
+[sub_resource type="Curve2D" id="Curve2D_e688q"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1913.75, -339.995, 0, 0, 0, 0, 1913.75, -196.995, 0, 0, 0, 0, 1959.75, -196.995, 0, 0, 0, 0, 1959.75, -217.995, 0, 0, 0, 0, 2088.75, -208.995, 0, 0, 0, 0, 2085.75, -333.995, 0, 0, 0, 0, 1913.75, -340.995, 0, 0, 0, 0, -44.25, -87.995, 0, 0, 0, 0, -27.25, -51.995, 0, 0, 0, 0, -43.25, -83.995)
+}
+point_count = 10
 
 [sub_resource type="Curve2D" id="Curve2D_rff00"]
 _data = {
@@ -8255,7 +8291,7 @@ parameters/looping = false
 
 [node name="StartPosition" type="Marker2D" parent="."]
 z_index = 4
-position = Vector2(544, 328)
+position = Vector2(1450, 2200)
 
 [node name="TileGridTop" type="TileMapLayer" parent="."]
 z_index = 1
@@ -8727,10 +8763,75 @@ position = Vector2(609.25, 555.995)
 curve = SubResource("Curve2D_tbb8c")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Knight2"]
-position = Vector2(578.75, 1226.01)
+position = Vector2(2056.75, -146.995)
 rotates = false
 
 [node name="Knight" parent="Knight2/PathFollow2D" instance=ExtResource("18_t43ca")]
+
+[node name="Knight5" type="Path2D" parent="."]
+position = Vector2(609.25, 555.995)
+curve = SubResource("Curve2D_06k8v")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Knight5"]
+position = Vector2(1618.75, -132.995)
+rotation = -3.12017
+rotates = false
+
+[node name="CharacterBody2D" parent="Knight5/PathFollow2D" instance=ExtResource("18_t43ca")]
+rotation = 3.14159
+
+[node name="Knight6" type="Path2D" parent="."]
+position = Vector2(609.25, 555.995)
+curve = SubResource("Curve2D_a0pk0")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Knight6"]
+position = Vector2(2120.75, 64.005)
+rotation = -3.12572
+rotates = false
+
+[node name="CharacterBody2D" parent="Knight6/PathFollow2D" instance=ExtResource("18_t43ca")]
+rotation = 3.14159
+
+[node name="Knight7" type="Path2D" parent="."]
+position = Vector2(609.25, 555.995)
+curve = SubResource("Curve2D_cn7ga")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Knight7"]
+position = Vector2(1653.75, -7.995)
+rotates = false
+
+[node name="CharacterBody2D" parent="Knight7/PathFollow2D" instance=ExtResource("18_t43ca")]
+
+[node name="Knight8" type="Path2D" parent="."]
+position = Vector2(609.25, 555.995)
+curve = SubResource("Curve2D_i4itb")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Knight8"]
+position = Vector2(1809.75, 353.005)
+rotates = false
+
+[node name="CharacterBody2D" parent="Knight8/PathFollow2D" instance=ExtResource("18_t43ca")]
+
+[node name="Knight9" type="Path2D" parent="."]
+position = Vector2(609.25, 555.995)
+curve = SubResource("Curve2D_4ymat")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Knight9"]
+position = Vector2(1742.75, -342.995)
+rotation = 1.58518
+rotates = false
+
+[node name="CharacterBody2D" parent="Knight9/PathFollow2D" instance=ExtResource("18_t43ca")]
+
+[node name="Knight10" type="Path2D" parent="."]
+position = Vector2(609.25, 555.995)
+curve = SubResource("Curve2D_e688q")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Knight10"]
+position = Vector2(1913.75, -339.995)
+rotates = false
+
+[node name="CharacterBody2D" parent="Knight10/PathFollow2D" instance=ExtResource("18_t43ca")]
 
 [node name="knight4" type="Path2D" parent="."]
 position = Vector2(609.25, 555.995)
@@ -8876,10 +8977,6 @@ polygon = PackedVector2Array(1073, 1640, 1108, 1620, 1108, 1607, 1072, 1627)
 [node name="CastleBarriers" type="StaticBody2D" parent="."]
 position = Vector2(24, 88)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CastleBarriers"]
-visible = false
-polygon = PackedVector2Array(3175, 865, 2704, 864, 2704, 1007, 2689, 1008, 2689, 1024, 2672, 1026, 2673, 1038, 2439, 1043, 2441, 860, 2543, 861, 2543, 847, 2591, 847, 2591, 688, 2958, 687, 2959, 161, 2785, 160, 2785, 335, 2801, 329, 2828, 338, 2841, 383, 2839, 403, 2842, 437, 2815, 447, 2811, 464, 2791, 464, 2776, 438, 2720, 438, 2720, 471, 2713, 471, 2712, 344, 2776, 344, 2776, 72, 2488, 72, 2489, 199, 2448, 199, 2448, 215, 2440, 215, 2440, 120, 2480, 119, 2480, 40, 2352, 40, 2351, 119, 2391, 121, 2391, 216, 2384, 216, 2383, 198, 2344, 197, 2344, 72, 2056, 72, 2055, 343, 2119, 344, 2119, 472, 2112, 471, 2111, 438, 2056, 437, 2057, 451, 2064, 459, 2064, 470, 2042, 471, 2026, 464, 2010, 463, 2009, 446, 1992, 438, 1991, 361, 1999, 353, 2002, 339, 2013, 330, 2029, 332, 2048, 344, 2048, 160, 1873, 160, 1872, 688, 2257, 688, 2256, 847, 2303, 847, 2304, 859, 2391, 859, 2392, 864, 2393, 1043, 2305, 1041, 2304, 1167, 2832, 1168, 2832, 959, 3173, 960)
-
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="CastleBarriers"]
 polygon = PackedVector2Array(3174, 867, 2704, 864, 2704, 1009, 2689, 1009, 2689, 1024, 2672, 1024, 2672, 1040, 2440, 1044, 2441, 857, 2544, 859, 2544, 848, 2591, 848, 2592, 687, 2958, 688, 2960, 159, 2784, 160, 2784, 135, 3157, 130)
 
@@ -8951,7 +9048,6 @@ position = Vector2(1812, 435)
 shape = SubResource("RectangleShape2D_fl4o2")
 
 [node name="FadeColorRect" type="ColorRect" parent="."]
-visible = false
 self_modulate = Color(0, 0, 0, 1)
 z_index = 9
 offset_left = -16.0

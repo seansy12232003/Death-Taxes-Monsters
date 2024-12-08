@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbsune5bsvi4m"]
+
+[ext_resource type="Script" path="res://introduction.gd" id="1_qeftd"]
+[ext_resource type="FontFile" uid="uid://bwpqxr2ridqwh" path="res://pixelplay/pixelplay.ttf" id="1_qy0gg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2yhvj"]
+
+[node name="Introduction" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_qeftd")
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2yhvj")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 168.0
+offset_right = 1120.0
+offset_bottom = 440.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_qy0gg")
+theme_override_font_sizes/font_size = 30
+text = "fdsfdsfds"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 162

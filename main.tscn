@@ -8893,7 +8893,7 @@ rotates = false
 position = Vector2(-16, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stairs"]
-position = Vector2(575, 499.5)
+position = Vector2(591, 500)
 shape = SubResource("RectangleShape2D_1dfnx")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Stairs"]
@@ -8901,15 +8901,15 @@ position = Vector2(976, 1622)
 shape = SubResource("RectangleShape2D_tho5u")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Stairs"]
-position = Vector2(1384, 1834.5)
+position = Vector2(1399, 1835)
 shape = SubResource("RectangleShape2D_vn6qs")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Stairs"]
-position = Vector2(1366, 2020)
+position = Vector2(1383, 2020)
 shape = SubResource("RectangleShape2D_gjxwj")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Stairs"]
-position = Vector2(1095.5, 1798)
+position = Vector2(1108, 1799)
 shape = SubResource("RectangleShape2D_fxcy7")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Stairs"]

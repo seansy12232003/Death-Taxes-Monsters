@@ -166,7 +166,6 @@ text = "Fight"
 [node name="Items" type="Button" parent="BattleUI/Menu/GridContainer"]
 layout_mode = 2
 focus_neighbor_left = NodePath("../Fight")
-focus_neighbor_right = NodePath("../Run")
 theme_override_fonts/font = ExtResource("5_sakuu")
 theme_override_styles/focus = SubResource("StyleBoxFlat_sa2on")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_mgxnm")
@@ -180,23 +179,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_hck0d")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mgxnm")
 theme_override_styles/normal = SubResource("StyleBoxFlat_mgxnm")
 text = "Items"
-
-[node name="Run" type="Button" parent="BattleUI/Menu/GridContainer"]
-layout_mode = 2
-focus_neighbor_top = NodePath("../Items")
-theme_override_fonts/font = ExtResource("5_sakuu")
-theme_override_styles/focus = SubResource("StyleBoxFlat_sa2on")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_mgxnm")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_mgxnm")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_hck0d")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_hck0d")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_sa2on")
-theme_override_styles/hover = SubResource("StyleBoxFlat_sa2on")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_hck0d")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_hck0d")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mgxnm")
-theme_override_styles/normal = SubResource("StyleBoxFlat_mgxnm")
-text = "Run"
 
 [node name="Fight" type="HBoxContainer" parent="BattleUI"]
 visible = false
@@ -410,7 +392,6 @@ autowrap_mode = 3
 
 [connection signal="pressed" from="BattleUI/Menu/GridContainer/Fight" to="BattleUI" method="_on_fight_pressed"]
 [connection signal="pressed" from="BattleUI/Menu/GridContainer/Items" to="BattleUI" method="_on_items_pressed"]
-[connection signal="pressed" from="BattleUI/Menu/GridContainer/Run" to="BattleUI" method="_on_run_pressed"]
 [connection signal="pressed" from="BattleUI/Fight/GridContainer/Attack 1" to="BattleUI" method="_on_attack_pressed" binds= [0]]
 [connection signal="pressed" from="BattleUI/Fight/GridContainer/Attack 2" to="BattleUI" method="_on_attack_pressed" binds= [1]]
 [connection signal="pressed" from="BattleUI/Fight/GridContainer/Attack 3" to="BattleUI" method="_on_attack_pressed" binds= [2]]

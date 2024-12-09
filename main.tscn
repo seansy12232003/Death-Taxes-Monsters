@@ -8378,7 +8378,7 @@ offset_right = 632.0
 offset_bottom = 432.0
 
 [node name="taxdocuments" parent="." instance=ExtResource("8_omdn2")]
-position = Vector2(736, 248)
+position = Vector2(604, 487)
 
 [node name="cameraSwingTown" type="Area2D" parent="."]
 position = Vector2(565.7, 472.24)

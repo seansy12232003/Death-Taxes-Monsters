@@ -11,13 +11,13 @@
 [ext_resource type="PackedScene" uid="uid://du2bgpkwl3xxl" path="res://Player/ui.tscn" id="4_m14w0"]
 [ext_resource type="Texture2D" uid="uid://dfd00qhaixx6e" path="res://Assets/Garden Castle/Top down garden castle/Top Down Garden Castle/Top down Garden Castle.png" id="4_xsn4r"]
 [ext_resource type="Texture2D" uid="uid://dx87fd6jyf0h8" path="res://icon.svg" id="5_bh1fk"]
-[ext_resource type="PackedScene" uid="uid://bbsune5bsvi4m" path="res://introduction.tscn" id="6_gyc2d"]
+[ext_resource type="PackedScene" path="res://introduction.tscn" id="6_gyc2d"]
 [ext_resource type="AudioStream" uid="uid://b0ocikrhmt7ty" path="res://Music/battle-theme-194713.mp3" id="6_ivnyj"]
-[ext_resource type="PackedScene" uid="uid://q52ndtv3sgaw" path="res://dialogue.tscn" id="7_42x4r"]
+[ext_resource type="PackedScene" path="res://dialogue.tscn" id="7_42x4r"]
 [ext_resource type="AudioStream" uid="uid://dmvvubi462afi" path="res://Music/First level sound.mp3" id="7_avoy2"]
 [ext_resource type="PackedScene" uid="uid://bjt6k568ehcfq" path="res://inventory.tscn" id="7_hhw2g"]
-[ext_resource type="PackedScene" uid="uid://d0eyqnu4e6gxw" path="res://taxdocuments.tscn" id="8_omdn2"]
-[ext_resource type="PackedScene" uid="uid://buq5slepreo2h" path="res://instructions.tscn" id="8_wvw2g"]
+[ext_resource type="PackedScene" path="res://taxdocuments.tscn" id="8_omdn2"]
+[ext_resource type="PackedScene" path="res://instructions.tscn" id="8_wvw2g"]
 [ext_resource type="Script" path="res://shop_keeper.gd" id="10_3fo3l"]
 [ext_resource type="Script" path="res://camera_swing.gd" id="10_b0uuw"]
 [ext_resource type="PackedScene" uid="uid://ceawnrrql0g6" path="res://Monsters/minotaurmob.tscn" id="10_qgnkn"]
@@ -35,16 +35,16 @@
 [ext_resource type="PackedScene" path="res://NPC1.tscn" id="21_pkhxh"]
 [ext_resource type="PackedScene" uid="uid://btb2knpsm34iq" path="res://knightboss.tscn" id="23_k15nc"]
 [ext_resource type="PackedScene" path="res://NPC2.tscn" id="25_xqr53"]
-[ext_resource type="PackedScene" uid="uid://d076qpnjdudvg" path="res://NPC3.tscn" id="26_8aqi0"]
-[ext_resource type="PackedScene" uid="uid://dlabv0bh5rawv" path="res://NPC4.tscn" id="27_4n0pd"]
-[ext_resource type="PackedScene" uid="uid://cwqmxupgqgba1" path="res://NPC5.tscn" id="28_l5k7f"]
+[ext_resource type="PackedScene" path="res://NPC3.tscn" id="26_8aqi0"]
+[ext_resource type="PackedScene" path="res://NPC4.tscn" id="27_4n0pd"]
+[ext_resource type="PackedScene" path="res://NPC5.tscn" id="28_l5k7f"]
 [ext_resource type="PackedScene" uid="uid://bquw28e70pw8k" path="res://kingmob.tscn" id="33_hfmdh"]
-[ext_resource type="PackedScene" uid="uid://cfixhnnqtjt1u" path="res://title.tscn" id="37_gldd1"]
-[ext_resource type="PackedScene" uid="uid://c1usjwe82t3m2" path="res://notification.tscn" id="38_w1yxt"]
-[ext_resource type="PackedScene" uid="uid://dcao1vtrs0six" path="res://game_over_screen.tscn" id="39_xf2el"]
+[ext_resource type="PackedScene" path="res://title.tscn" id="37_gldd1"]
+[ext_resource type="PackedScene" path="res://notification.tscn" id="38_w1yxt"]
+[ext_resource type="PackedScene" path="res://game_over_screen.tscn" id="39_xf2el"]
 [ext_resource type="AudioStream" uid="uid://bue4pf1infpjf" path="res://Knight’s Quest.mp3" id="40_ae1gn"]
 [ext_resource type="AudioStream" uid="uid://bwrajfktbp41i" path="res://transition-base-121422.mp3" id="41_8l3mc"]
-[ext_resource type="PackedScene" uid="uid://dtxrtcv5gw0tm" path="res://father.tscn" id="43_dk0bi"]
+[ext_resource type="PackedScene" path="res://father.tscn" id="43_dk0bi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4jofr"]
 texture = ExtResource("1_ftrtj")
@@ -8300,7 +8300,7 @@ parameters/looping = false
 
 [node name="StartPosition" type="Marker2D" parent="."]
 z_index = 4
-position = Vector2(2450, 700)
+position = Vector2(570, 354)
 
 [node name="TileGridTop" type="TileMapLayer" parent="."]
 z_index = 1
@@ -8834,6 +8834,7 @@ rotation = 1.58518
 rotates = false
 
 [node name="Knight" parent="Knight9/PathFollow2D" instance=ExtResource("18_t43ca")]
+rotation = -158.65
 
 [node name="Knight10" type="Path2D" parent="."]
 position = Vector2(609.25, 555.995)
@@ -9018,6 +9019,51 @@ polygon = PackedVector2Array(2481, 41, 2481, 120, 2440, 120, 2440, 216, 2447, 21
 [node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="CastleBarriers"]
 polygon = PackedVector2Array(2384, 215, 2384, 198, 2344, 196, 2345, 35, 2352, 36, 2351, 120, 2392, 121, 2391, 215)
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CastleBarriers"]
+polygon = PackedVector2Array(2318, 730, 2318, 715, 2356, 699, 2379, 708, 2388, 726, 2377, 739, 2352, 742, 2321, 736)
+
+[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="CastleBarriers"]
+polygon = PackedVector2Array(2347, 777, 2347, 757, 2368, 754, 2377, 764, 2377, 777)
+
+[node name="CollisionPolygon2D11" type="CollisionPolygon2D" parent="CastleBarriers"]
+polygon = PackedVector2Array(2445, 820, 2442, 811, 2453, 803, 2463, 807, 2464, 818)
+
+[node name="CollisionPolygon2D12" type="CollisionPolygon2D" parent="CastleBarriers"]
+polygon = PackedVector2Array(2480, 730, 2455, 724, 2460, 708, 2470, 708)
+
+[node name="CollisionPolygon2D13" type="CollisionPolygon2D" parent="CastleBarriers"]
+polygon = PackedVector2Array(2330, 684, 2330, 665, 2314, 663, 2325, 558, 2365, 561, 2375, 664, 2347, 673, 2343, 687)
+
+[node name="CollisionPolygon2D14" type="CollisionPolygon2D" parent="CastleBarriers"]
+polygon = PackedVector2Array(2490, 690, 2492, 671, 2520, 662, 2508, 564, 2474, 556, 2459, 579, 2456, 658, 2473, 667, 2473, 687)
+
+[node name="CollisionPolygon2D15" type="CollisionPolygon2D" parent="CastleBarriers"]
+polygon = PackedVector2Array(2547, 581, 2526, 583, 2522, 571, 2533, 561, 2543, 563)
+
+[node name="CollisionPolygon2D16" type="CollisionPolygon2D" parent="CastleBarriers"]
+polygon = PackedVector2Array(2214, 582, 2206, 592, 2182, 599, 2140, 588, 2142, 575, 2159, 561, 2186, 553, 2204, 565)
+
+[node name="CollisionPolygon2D17" type="CollisionPolygon2D" parent="CastleBarriers"]
+polygon = PackedVector2Array(2077, 535, 2104, 535, 2104, 522, 2089, 512, 2073, 512)
+
+[node name="CollisionPolygon2D18" type="CollisionPolygon2D" parent="CastleBarriers"]
+polygon = PackedVector2Array(2314, 435, 2533, 433, 2529, 419, 2314, 421)
+
+[node name="CollisionPolygon2D19" type="CollisionPolygon2D" parent="CastleBarriers"]
+polygon = PackedVector2Array(2315, 464, 2315, 469, 2327, 482, 2378, 483, 2380, 504, 2389, 504, 2388, 483, 2442, 482, 2445, 504, 2453, 504, 2453, 482, 2522, 480, 2534, 467, 2535, 462)
+
+[node name="CollisionPolygon2D20" type="CollisionPolygon2D" parent="CastleBarriers"]
+polygon = PackedVector2Array(2381, 582, 2379, 553, 2389, 553, 2388, 584)
+
+[node name="CollisionPolygon2D21" type="CollisionPolygon2D" parent="CastleBarriers"]
+polygon = PackedVector2Array(2446, 583, 2443, 551, 2450, 551, 2453, 584)
+
+[node name="CollisionPolygon2D22" type="CollisionPolygon2D" parent="CastleBarriers"]
+polygon = PackedVector2Array(2729, 519, 2729, 510, 2736, 501, 2748, 502, 2754, 514, 2751, 519)
+
+[node name="CollisionPolygon2D23" type="CollisionPolygon2D" parent="CastleBarriers"]
+polygon = PackedVector2Array(2599, 456, 2599, 443, 2582, 432, 2571, 442, 2572, 456)
+
 [node name="Footsteps" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(1552, 976)
@@ -9132,6 +9178,7 @@ rotates = false
 [node name="NPC5" parent="Path2D5/PathFollow2D" instance=ExtResource("28_l5k7f")]
 
 [node name="King" type="Path2D" parent="."]
+position = Vector2(0, -11.5)
 curve = SubResource("Curve2D_4d43u")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="King"]

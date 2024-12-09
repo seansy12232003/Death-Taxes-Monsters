@@ -227,7 +227,7 @@ var selectedMonsters = {
 		"Name": "Player",
 		"Frame": 0,
 		"Health": 100,
-		"Level": 5,
+		"Level": 1,
 		"Exp": 0,
 		"MaxExp": 10,
 		"Defense": 10,
@@ -282,8 +282,8 @@ func calculate_attack_power(base_attack_power: int, level: int) -> int: # works
 
 func calculate_defense(level: int) -> int: # works
 	# Calculate defense using a quadratic formula, capped at 50 and starting from 0 at level 1
-	var defense = int(pow((level), 2) * 0.05)  # Quadratic growth starting from level 1
-	return min(defense, 50)  # Cap defense at 50
+	var defense = (min(level, 30) / 30) * 40
+	return defense # Cap defense at 40
 
 # Function to calculate EXP gained from a monster at a given level
 func calculate_exp_per_monster(monster_level: int) -> float:

@@ -8300,7 +8300,7 @@ parameters/looping = false
 
 [node name="StartPosition" type="Marker2D" parent="."]
 z_index = 4
-position = Vector2(536, 328)
+position = Vector2(2450, 700)
 
 [node name="TileGridTop" type="TileMapLayer" parent="."]
 z_index = 1
@@ -8789,7 +8789,7 @@ position = Vector2(1618.75, -132.995)
 rotation = -3.12017
 rotates = false
 
-[node name="CharacterBody2D" parent="Knight5/PathFollow2D" instance=ExtResource("18_t43ca")]
+[node name="Knight" parent="Knight5/PathFollow2D" instance=ExtResource("18_t43ca")]
 rotation = 3.14159
 
 [node name="Knight6" type="Path2D" parent="."]
@@ -8801,7 +8801,7 @@ position = Vector2(2120.75, 64.005)
 rotation = -3.12572
 rotates = false
 
-[node name="CharacterBody2D" parent="Knight6/PathFollow2D" instance=ExtResource("18_t43ca")]
+[node name="Knight" parent="Knight6/PathFollow2D" instance=ExtResource("18_t43ca")]
 rotation = 3.14159
 
 [node name="Knight7" type="Path2D" parent="."]
@@ -8812,7 +8812,7 @@ curve = SubResource("Curve2D_cn7ga")
 position = Vector2(1653.75, -7.995)
 rotates = false
 
-[node name="CharacterBody2D" parent="Knight7/PathFollow2D" instance=ExtResource("18_t43ca")]
+[node name="Knight" parent="Knight7/PathFollow2D" instance=ExtResource("18_t43ca")]
 
 [node name="Knight8" type="Path2D" parent="."]
 position = Vector2(609.25, 555.995)
@@ -8822,7 +8822,7 @@ curve = SubResource("Curve2D_i4itb")
 position = Vector2(1809.75, 353.005)
 rotates = false
 
-[node name="CharacterBody2D" parent="Knight8/PathFollow2D" instance=ExtResource("18_t43ca")]
+[node name="Knight" parent="Knight8/PathFollow2D" instance=ExtResource("18_t43ca")]
 
 [node name="Knight9" type="Path2D" parent="."]
 position = Vector2(609.25, 555.995)
@@ -8833,7 +8833,7 @@ position = Vector2(1742.75, -342.995)
 rotation = 1.58518
 rotates = false
 
-[node name="CharacterBody2D" parent="Knight9/PathFollow2D" instance=ExtResource("18_t43ca")]
+[node name="Knight" parent="Knight9/PathFollow2D" instance=ExtResource("18_t43ca")]
 
 [node name="Knight10" type="Path2D" parent="."]
 position = Vector2(609.25, 555.995)
@@ -8843,7 +8843,7 @@ curve = SubResource("Curve2D_e688q")
 position = Vector2(1913.75, -339.995)
 rotates = false
 
-[node name="CharacterBody2D" parent="Knight10/PathFollow2D" instance=ExtResource("18_t43ca")]
+[node name="Knight" parent="Knight10/PathFollow2D" instance=ExtResource("18_t43ca")]
 
 [node name="knight4" type="Path2D" parent="."]
 position = Vector2(609.25, 555.995)

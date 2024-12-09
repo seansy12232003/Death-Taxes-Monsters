@@ -5,6 +5,8 @@ var minotaur = preload("res://Monsters/minotaur.tscn")
 var wolf = preload("res://Monsters/wolf.tscn")
 var lizard = preload("res://Monsters/lizard.tscn")
 var knight = preload("res://Monsters/knight.tscn")
+var knightBoss = preload("res://Monsters/knight_boss.tscn")
+var king = preload("res://Monsters/king.tscn")
 var currPlayerPosition
 var startHealth
 
@@ -32,6 +34,10 @@ func _ready():
 			call_deferred("add_lizard")
 		4: # knight
 			call_deferred("add_knight")
+		5: # knight boss
+			call_deferred("add_knightBoss")
+		6: # king
+			call_deferred("add_king")
 	
 	call_deferred("add_player")
 	currPlayerPosition = $"../../../Player".position
@@ -91,15 +97,32 @@ func add_knight():
 	if sprite:
 		sprite.play("idle")
 	$Enemy.add_child(monstertemp)
-	$Action.text = "You've encountered a Lizard!"
+	$Action.text = "You've encountered a Knight!"
 	monsterLevel = Game.dataBaseMonsters[4]["Level"]
 	monsterDefense = Game.dataBaseMonsters[4]["Defense"]
 
-func add_wizard():
-	pass
+func add_knightBoss():
+	var monstertemp = knightBoss.instantiate()
+	var sprite = monstertemp.get_node("AnimatedSprite2D")
+	sprite.scale *= 0.8
+	if sprite:
+		sprite.play("idle")
+	$Enemy.add_child(monstertemp)
+	$Action.text = "You've encountered the Knight Boss!"
+	monsterLevel = Game.dataBaseMonsters[4]["Level"]
+	monsterDefense = Game.dataBaseMonsters[4]["Defense"]
+	
 
 func add_king():
-	pass
+	var monstertemp = king.instantiate()
+	var sprite = monstertemp.get_node("AnimatedSprite2D")
+	sprite.scale *= 0.8
+	if sprite:
+		sprite.play("idle")
+	$Enemy.add_child(monstertemp)
+	$Action.text = "You've encountered the King!"
+	monsterLevel = Game.dataBaseMonsters[4]["Level"]
+	monsterDefense = Game.dataBaseMonsters[4]["Defense"]
 
 
 # Battle scene functions

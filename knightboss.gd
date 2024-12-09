@@ -6,6 +6,7 @@ var battle = preload("res://battle/battle_scene.tscn")
 
 #@onready var path_follow: PathFollow2D = $Path2D/PathFollow2D2
 @export var speed = 15
+@export var level = 25
 var direction = Vector2.ZERO
 var previous_position: Vector2
 
@@ -66,6 +67,7 @@ func play_walk_animation(dir: Vector2) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
+		Game.selected = 5
 		$"../../../UI/AnimationPlayer".play("TransIn") # play black circle getting bigger
 		get_node("../../../birds").stop()
 		get_node("../../../Level1").stop()

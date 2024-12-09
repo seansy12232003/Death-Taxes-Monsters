@@ -148,7 +148,7 @@ columns = 3
 
 [node name="Fight" type="Button" parent="BattleUI/Menu/GridContainer"]
 layout_mode = 2
-focus_neighbor_right = NodePath("../Items")
+focus_neighbor_right = NodePath("../Buff_Debuff_Health")
 theme_override_fonts/font = ExtResource("5_sakuu")
 theme_override_styles/focus = SubResource("StyleBoxFlat_sa2on")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_mgxnm")
@@ -163,7 +163,7 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mgxnm")
 theme_override_styles/normal = SubResource("StyleBoxFlat_mgxnm")
 text = "Fight"
 
-[node name="Items" type="Button" parent="BattleUI/Menu/GridContainer"]
+[node name="Buff_Debuff_Health" type="Button" parent="BattleUI/Menu/GridContainer"]
 layout_mode = 2
 focus_neighbor_left = NodePath("../Fight")
 theme_override_fonts/font = ExtResource("5_sakuu")
@@ -178,7 +178,7 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_hck0d")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_hck0d")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mgxnm")
 theme_override_styles/normal = SubResource("StyleBoxFlat_mgxnm")
-text = "Items"
+text = "Special"
 
 [node name="Fight" type="HBoxContainer" parent="BattleUI"]
 visible = false
@@ -281,7 +281,7 @@ columns = 2
 
 [node name="Heal" type="Button" parent="BattleUI/Items/GridContainer"]
 layout_mode = 2
-focus_neighbor_right = NodePath("../Buff")
+focus_neighbor_right = NodePath("../Buff Attack")
 theme_override_styles/focus = SubResource("StyleBoxFlat_sa2on")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_mgxnm")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_mgxnm")
@@ -295,10 +295,10 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mgxnm")
 theme_override_styles/normal = SubResource("StyleBoxFlat_mgxnm")
 text = "Heal"
 
-[node name="Buff" type="Button" parent="BattleUI/Items/GridContainer"]
+[node name="Buff Attack" type="Button" parent="BattleUI/Items/GridContainer"]
 layout_mode = 2
 focus_neighbor_left = NodePath("../Heal")
-focus_neighbor_right = NodePath("../Debuff")
+focus_neighbor_right = NodePath("../Debuff Enemy")
 theme_override_styles/focus = SubResource("StyleBoxFlat_sa2on")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_mgxnm")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_mgxnm")
@@ -310,11 +310,11 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_hck0d")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_hck0d")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mgxnm")
 theme_override_styles/normal = SubResource("StyleBoxFlat_mgxnm")
-text = "Buff"
+text = "Focus"
 
-[node name="Debuff" type="Button" parent="BattleUI/Items/GridContainer"]
+[node name="Debuff Enemy" type="Button" parent="BattleUI/Items/GridContainer"]
 layout_mode = 2
-focus_neighbor_top = NodePath("../Buff")
+focus_neighbor_top = NodePath("../Buff Attack")
 theme_override_styles/focus = SubResource("StyleBoxFlat_sa2on")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_mgxnm")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_mgxnm")
@@ -326,7 +326,7 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_hck0d")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_hck0d")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mgxnm")
 theme_override_styles/normal = SubResource("StyleBoxFlat_mgxnm")
-text = "Debuff"
+text = "Taunt"
 
 [node name="Back" type="Button" parent="BattleUI/Items/GridContainer"]
 layout_mode = 2
@@ -391,10 +391,12 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [connection signal="pressed" from="BattleUI/Menu/GridContainer/Fight" to="BattleUI" method="_on_fight_pressed"]
-[connection signal="pressed" from="BattleUI/Menu/GridContainer/Items" to="BattleUI" method="_on_items_pressed"]
+[connection signal="pressed" from="BattleUI/Menu/GridContainer/Buff_Debuff_Health" to="BattleUI" method="_on_items_pressed"]
 [connection signal="pressed" from="BattleUI/Fight/GridContainer/Attack 1" to="BattleUI" method="_on_attack_pressed" binds= [0]]
 [connection signal="pressed" from="BattleUI/Fight/GridContainer/Attack 2" to="BattleUI" method="_on_attack_pressed" binds= [1]]
 [connection signal="pressed" from="BattleUI/Fight/GridContainer/Attack 3" to="BattleUI" method="_on_attack_pressed" binds= [2]]
 [connection signal="pressed" from="BattleUI/Fight/GridContainer/Back" to="BattleUI" method="_on_back_pressed"]
 [connection signal="pressed" from="BattleUI/Items/GridContainer/Heal" to="BattleUI" method="_on_heal_pressed"]
+[connection signal="pressed" from="BattleUI/Items/GridContainer/Buff Attack" to="BattleUI" method="_on_buff_pressed"]
+[connection signal="pressed" from="BattleUI/Items/GridContainer/Debuff Enemy" to="BattleUI" method="_on_debuff_pressed"]
 [connection signal="pressed" from="BattleUI/Items/GridContainer/Back" to="BattleUI" method="_on_back_pressed"]

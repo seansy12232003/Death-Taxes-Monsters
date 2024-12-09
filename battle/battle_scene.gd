@@ -13,6 +13,7 @@ var startHealth
 # monster damage stats
 var monsterLevel
 var monsterDefense
+var tauntSuccess
 
 # player damage stats
 var playerLevel
@@ -165,17 +166,25 @@ func MonsterTurn():
 	var attackDamage = Game.dataBaseMonsters[Game.selected]["Attacks"][attack]["Damage"] # gets damage of the attack
 	var damage = Game.calculate_damage(playerDefense,attackDamage,monsterLevel, false)# gets damage of the attack
 	#monsterLevel, attackDamage, playerDefense
+	if Game.debuffActive:
+		damage *= 0.90
+		tauntSuccess = randi_range(0, 5)
+		if tauntSuccess == 0: # 25% to do no damage if taunted
+			damage = 0
 	
 	# Pause for battle suspense
 	$Action.text = Game.dataBaseMonsters[Game.selected]["Name"] + " is thinking..."
 	await get_tree().create_timer(2).timeout
 	
 	# play/display attack and refocus
-	$Enemy.get_child(0).get_node("AnimatedSprite2D").play("attack")
-	$Action.text = Game.dataBaseMonsters[Game.selected]["Name"] + " has attacked using " + Game.dataBaseMonsters[Game.selected]["Attacks"][attack]["Name"] + " for " + str(damage) + " hp"
-	Game.selectedMonsters[0]["Health"] -= damage
-	await get_tree().create_timer(1).timeout # wait for attack animation to be done
-	$Enemy.get_child(0).get_node("AnimatedSprite2D").play("idle")
+	if tauntSuccess == 0:
+		$Action.text = "Your taunt was successful, " + Game.dataBaseMonsters[Game.selected]["Name"] + "'s attack has failed"
+	else:
+		$Enemy.get_child(0).get_node("AnimatedSprite2D").play("attack")
+		$Action.text = Game.dataBaseMonsters[Game.selected]["Name"] + " has attacked using " + Game.dataBaseMonsters[Game.selected]["Attacks"][attack]["Name"] + " for " + str(damage) + " hp"
+		Game.selectedMonsters[0]["Health"] -= damage
+		await get_tree().create_timer(1).timeout # wait for attack animation to be done
+		$Enemy.get_child(0).get_node("AnimatedSprite2D").play("idle")
 	
 		#check if player is dead
 	if Game.selectedMonsters[0]["Health"] <= 0:
@@ -194,4 +203,6 @@ func MonsterTurn():
 		$BattleUI/Menu/GridContainer/Fight.grab_focus()
 		$BattleUI/Menu.show()
 		await get_tree().create_timer(1.5).timeout # show what the monster did
+	
+	Game.debuffActive = false
 	

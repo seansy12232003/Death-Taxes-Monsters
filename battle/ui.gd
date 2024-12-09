@@ -1,9 +1,11 @@
 extends Control
 
 var startHealth
+var buffActive
 
 func _ready() -> void:
 	startHealth = Game.selectedMonsters[0]["Health"]
+	buffActive = false
 
 func _on_fight_pressed() -> void:
 	$Menu.hide()
@@ -63,6 +65,9 @@ func _on_attack_pressed(extra_arg_0: int) -> void: # attack menu
 		if(Game.dataBaseMonsters[Game.selected]["Weakness"] == tempDic[extra_arg_0]["Type"]):
 			isWeak = true
 		var damage = Game.calculate_damage(Game.dataBaseMonsters[Game.selected]["Defense"], tempDic[extra_arg_0]["Damage"], Game.selectedMonsters[0]["Level"], isWeak)
+		if buffActive:
+			damage = damage * 1.25
+			buffActive = false
 		$"../Enemy".get_child(0).hit(damage) # use hit function in monster scene and send animation name and damage
 		$"../Action".text = Game.selectedMonsters[0]["Name"] + " has attacked for " + str(damage) + " hp. " # change text in action section of battle menu
 		if isWeak:
@@ -71,4 +76,20 @@ func _on_attack_pressed(extra_arg_0: int) -> void: # attack menu
 
 
 func _on_heal_pressed() -> void:
-	pass
+	if Game.selectedMonsters[0]["Health"] < 70:
+		Game.selectedMonsters[0]["Health"] = (Game.selectedMonsters[0]["Health"] + 30)
+	else:
+		Game.selectedMonsters[0]["Health"] = 100
+	$"../Action".text = "You've healed for 30 health!"
+	get_parent().MonsterTurn() # call monster turn
+
+func _on_buff_pressed() -> void:
+	buffActive = true
+	$"../Action".text = "You are charging your next attack!"
+	get_parent().MonsterTurn() # call monster turn
+
+
+func _on_debuff_pressed() -> void:
+	Game.debuffActive = true
+	$"../Action".text = "You insulted the enemy!"
+	get_parent().MonsterTurn() # call monster turn

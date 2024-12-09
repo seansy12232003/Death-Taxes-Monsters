@@ -7,6 +7,7 @@ var level_multiplier = 1.5  # Multiplier for EXP to level up
 
 # selected monster, or encountered monster ID, change when encountering other monsters
 var selected
+var debuffActive
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -226,7 +227,7 @@ var selectedMonsters = {
 		"Name": "Player",
 		"Frame": 0,
 		"Health": 100,
-		"Level": 1,
+		"Level": 5,
 		"Exp": 0,
 		"MaxExp": 10,
 		"Defense": 10,

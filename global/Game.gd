@@ -151,34 +151,34 @@ var dataBaseMonsters = {
 		}
 	},
 	5: {
-		"Name": "Wizard",
+		"Name": "Knight Boss",
 		"Frame": 0,
 		"Health": 10,
 		"Level": 1,
 		"Exp": 0,
 		"MaxExp": 0,
 		"Defense": 0,
-		"Weakness": "Physical",
+		"Weakness": "Ranged",
 		"Scene": preload("res://Monsters/minotaur.tscn"), # placeholder
 		"Attacks": {
 			0: {
-				"Name": "Fireball",
+				"Name": "Slash",
 				"Target":"Player",
 				"Damage": 20, 
 				"Type": "Physical",
 				"cost": 2,
 			},
 			1: {
-				"Name": "Water Slice",
+				"Name": "Punch",
 				"Target":"Player",
-				"Damage": 10, 
+				"Damage": 10,
 				"Type": "Physical",
 				"cost": 2,
 			},
 			2: {
-				"Name": "Thunder Bolt",
+				"Name": "Stab",
 				"Target":"Player",
-				"Damage": 10, 
+				"Damage": 15, 
 				"Type": "Ranged",
 				"cost": 2,
 			}
@@ -192,27 +192,27 @@ var dataBaseMonsters = {
 		"Exp": 0,
 		"MaxExp": 0,
 		"Defense": 0,
-		"Weakness": "Magic",
+		"Weakness": "None",
 		"Scene": preload("res://Monsters/minotaur.tscn"), # placeholder
 		"Attacks": {
 			0: {
-				"Name": "Slash",
+				"Name": "Royal Whip",
+				"Target":"Player",
+				"Damage": 30, 
+				"Type": "Physical",
+				"cost": 2,
+			},
+			1: {
+				"Name": "Royal Punch",
 				"Target":"Player",
 				"Damage": 15, 
 				"Type": "Physical",
 				"cost": 2,
 			},
-			1: {
-				"Name": "Ram",
-				"Target":"Player",
-				"Damage": 20, 
-				"Type": "Physical",
-				"cost": 2,
-			},
 			2: {
-				"Name": "Throw Rock",
+				"Name": "Crown Toss",
 				"Target":"Player",
-				"Damage": 5, 
+				"Damage": 25, 
 				"Type": "Ranged",
 				"cost": 2,
 			}

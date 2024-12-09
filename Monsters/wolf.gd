@@ -13,7 +13,7 @@ func _ready():
 	#Set attack power of every attack depending on stats
 	for i in Game.dataBaseMonsters[2]["Attacks"]:
 		var path = "../BattleUI/Fight/GridContainer/Attack " + str(((i) + 1))
-		Game.dataBaseMonsters[2]["Attacks"][i]["Damage"] = Game.calculate_attack_power(Game.dataBaseMonsters[1]["Attacks"][i]["Damage"], level)
+		Game.dataBaseMonsters[2]["Attacks"][i]["Damage"] = Game.calculate_attack_power(Game.dataBaseMonsters[2]["Attacks"][i]["Damage"], level)
 		print(Game.dataBaseMonsters[2]["Attacks"][i]["Name"])
 		print(Game.dataBaseMonsters[2]["Attacks"][i]["Damage"])
 		

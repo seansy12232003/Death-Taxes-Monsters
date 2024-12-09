@@ -282,7 +282,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D2" type="CharacterBody2D"]
 script = ExtResource("1_w04sp")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -292,8 +292,7 @@ position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_oeegj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1.19209e-07, 1.19209e-07)
-scale = Vector2(0.46875, 0.46875)
+scale = Vector2(0.453125, 0.453125)
 sprite_frames = SubResource("SpriteFrames_0xyn2")
 animation = &"walk_up"
 

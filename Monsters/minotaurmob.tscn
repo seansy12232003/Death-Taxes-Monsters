@@ -338,7 +338,8 @@ height = 26.0
 script = ExtResource("1_fic83")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.554687, 0.554687)
+position = Vector2(5.96046e-08, 2.05636e-06)
+scale = Vector2(0.5625, 0.5625)
 sprite_frames = SubResource("SpriteFrames_pa3nc")
 animation = &"attack"
 autoplay = "idle"

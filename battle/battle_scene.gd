@@ -208,7 +208,7 @@ func MonsterTurn():
 		$"../../../UI/AnimationPlayer".play("TransIn")
 		await get_tree().create_timer(1.5).timeout
 		$"../../../Player/Camera2D2".enabled = true
-		queue_free()
+		self.queue_free()
 		$"../../../UI/AnimationPlayer".play("TransOut")
 		Game.selectedMonsters[0]["Health"] = startHealth
 	else:

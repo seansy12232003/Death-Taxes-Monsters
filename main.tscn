@@ -1,4 +1,4 @@
-[gd_scene load_steps=180 format=4 uid="uid://baxn7b4aay4mt"]
+[gd_scene load_steps=181 format=4 uid="uid://baxn7b4aay4mt"]
 
 [ext_resource type="Texture2D" uid="uid://ca8cmnj12mr1q" path="res://Assets/SERENE_VILLAGE_REVAMPED/Serene_Village_16x16.png" id="1_ftrtj"]
 [ext_resource type="Script" path="res://main.gd" id="1_g078x"]
@@ -11,13 +11,13 @@
 [ext_resource type="PackedScene" uid="uid://du2bgpkwl3xxl" path="res://Player/ui.tscn" id="4_m14w0"]
 [ext_resource type="Texture2D" uid="uid://dfd00qhaixx6e" path="res://Assets/Garden Castle/Top down garden castle/Top Down Garden Castle/Top down Garden Castle.png" id="4_xsn4r"]
 [ext_resource type="Texture2D" uid="uid://dx87fd6jyf0h8" path="res://icon.svg" id="5_bh1fk"]
-[ext_resource type="PackedScene" path="res://introduction.tscn" id="6_gyc2d"]
+[ext_resource type="PackedScene" uid="uid://bbsune5bsvi4m" path="res://introduction.tscn" id="6_gyc2d"]
 [ext_resource type="AudioStream" uid="uid://b0ocikrhmt7ty" path="res://Music/battle-theme-194713.mp3" id="6_ivnyj"]
-[ext_resource type="PackedScene" path="res://dialogue.tscn" id="7_42x4r"]
+[ext_resource type="PackedScene" uid="uid://q52ndtv3sgaw" path="res://dialogue.tscn" id="7_42x4r"]
 [ext_resource type="AudioStream" uid="uid://dmvvubi462afi" path="res://Music/First level sound.mp3" id="7_avoy2"]
 [ext_resource type="PackedScene" uid="uid://bjt6k568ehcfq" path="res://inventory.tscn" id="7_hhw2g"]
-[ext_resource type="PackedScene" path="res://taxdocuments.tscn" id="8_omdn2"]
-[ext_resource type="PackedScene" path="res://instructions.tscn" id="8_wvw2g"]
+[ext_resource type="PackedScene" uid="uid://d0eyqnu4e6gxw" path="res://taxdocuments.tscn" id="8_omdn2"]
+[ext_resource type="PackedScene" uid="uid://buq5slepreo2h" path="res://instructions.tscn" id="8_wvw2g"]
 [ext_resource type="Script" path="res://shop_keeper.gd" id="10_3fo3l"]
 [ext_resource type="Script" path="res://camera_swing.gd" id="10_b0uuw"]
 [ext_resource type="PackedScene" uid="uid://ceawnrrql0g6" path="res://Monsters/minotaurmob.tscn" id="10_qgnkn"]
@@ -32,19 +32,20 @@
 [ext_resource type="PackedScene" uid="uid://240rotwx60x6" path="res://lizardmob.tscn" id="17_usyxb"]
 [ext_resource type="PackedScene" uid="uid://egjmv6uokh1e" path="res://knightmob.tscn" id="18_t43ca"]
 [ext_resource type="PackedScene" uid="uid://ca4u2ljj1xl8f" path="res://wolfmob.tscn" id="20_5ihrp"]
-[ext_resource type="PackedScene" path="res://NPC1.tscn" id="21_pkhxh"]
+[ext_resource type="PackedScene" uid="uid://cohkot2o3bq51" path="res://NPC1.tscn" id="21_pkhxh"]
 [ext_resource type="PackedScene" uid="uid://btb2knpsm34iq" path="res://knightboss.tscn" id="23_k15nc"]
-[ext_resource type="PackedScene" path="res://NPC2.tscn" id="25_xqr53"]
-[ext_resource type="PackedScene" path="res://NPC3.tscn" id="26_8aqi0"]
-[ext_resource type="PackedScene" path="res://NPC4.tscn" id="27_4n0pd"]
-[ext_resource type="PackedScene" path="res://NPC5.tscn" id="28_l5k7f"]
+[ext_resource type="PackedScene" uid="uid://b2qlpeuikuahx" path="res://NPC2.tscn" id="25_xqr53"]
+[ext_resource type="PackedScene" uid="uid://d076qpnjdudvg" path="res://NPC3.tscn" id="26_8aqi0"]
+[ext_resource type="PackedScene" uid="uid://dlabv0bh5rawv" path="res://NPC4.tscn" id="27_4n0pd"]
+[ext_resource type="PackedScene" uid="uid://cwqmxupgqgba1" path="res://NPC5.tscn" id="28_l5k7f"]
 [ext_resource type="PackedScene" uid="uid://bquw28e70pw8k" path="res://kingmob.tscn" id="33_hfmdh"]
-[ext_resource type="PackedScene" path="res://title.tscn" id="37_gldd1"]
-[ext_resource type="PackedScene" path="res://notification.tscn" id="38_w1yxt"]
-[ext_resource type="PackedScene" path="res://game_over_screen.tscn" id="39_xf2el"]
+[ext_resource type="PackedScene" uid="uid://cfixhnnqtjt1u" path="res://title.tscn" id="37_gldd1"]
+[ext_resource type="PackedScene" uid="uid://c1usjwe82t3m2" path="res://notification.tscn" id="38_w1yxt"]
+[ext_resource type="PackedScene" uid="uid://dcao1vtrs0six" path="res://game_over_screen.tscn" id="39_xf2el"]
 [ext_resource type="AudioStream" uid="uid://bue4pf1infpjf" path="res://Knight’s Quest.mp3" id="40_ae1gn"]
 [ext_resource type="AudioStream" uid="uid://bwrajfktbp41i" path="res://transition-base-121422.mp3" id="41_8l3mc"]
-[ext_resource type="PackedScene" path="res://father.tscn" id="43_dk0bi"]
+[ext_resource type="PackedScene" uid="uid://dtxrtcv5gw0tm" path="res://father.tscn" id="43_dk0bi"]
+[ext_resource type="AudioStream" uid="uid://clbwcgroh3xkh" path="res://brass-fanfare-with-timpani-and-winchimes-reverberated-146260.mp3" id="46_qlip4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4jofr"]
 texture = ExtResource("1_ftrtj")
@@ -8296,11 +8297,11 @@ process_mode = 3
 position = Vector2(112, 120)
 stream = ExtResource("3_i8svq")
 volume_db = 21.79
-parameters/looping = false
+parameters/looping = true
 
 [node name="StartPosition" type="Marker2D" parent="."]
 z_index = 4
-position = Vector2(570, 354)
+position = Vector2(576, 352)
 
 [node name="TileGridTop" type="TileMapLayer" parent="."]
 z_index = 1
@@ -9231,6 +9232,11 @@ max_distance = 10000.0
 
 [node name="father" parent="." instance=ExtResource("43_dk0bi")]
 position = Vector2(2528, 168)
+
+[node name="winmusic" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+position = Vector2(2568, 128)
+stream = ExtResource("46_qlip4")
 
 [connection signal="body_entered" from="ShopKeeper" to="ShopKeeper" method="_on_body_entered"]
 [connection signal="collected" from="taxdocuments" to="." method="_on_taxdocuments_collected"]

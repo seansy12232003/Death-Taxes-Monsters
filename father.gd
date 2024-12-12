@@ -40,6 +40,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		get_node("../Dialogue/DialogueBox/Panel/Label").text = ""
 		get_node("../Dialogue/DialogueBox").show()
+		$Talk.play()
 		get_tree().paused = true
 		await get_tree().create_timer(0.8).timeout
 		get_node("../Dialogue/DialogueBox/Panel/Label").text = "OMG SON YOU FOUND ME!"
@@ -48,12 +49,14 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		await get_tree().create_timer(3).timeout
 		if Global.documents == 6:
 			get_node("../Dialogue/DialogueBox/Panel/Label").text = "You found all six tax documents! Let's go home."
+			$Talk.stop()
 			get_tree().create_timer(3).timeout
 			game_over()
 		else: 
 			get_node("../Dialogue/DialogueBox/Panel/Label").text = "No, you didn't. Fight the king to free me please!"
 			await get_tree().create_timer(3).timeout
 			get_node("../Dialogue/DialogueBox/Panel/Label").text = "Or go back and find them."
+			$Talk.stop()
 			$Timer2.start()
 
 
@@ -75,4 +78,6 @@ func game_over() -> void:
 	await get_tree().create_timer(3).timeout
 	get_node("../GameOverScreen").show()
 	get_node("../UI/AnimationPlayer").play("TransOut")
+	get_node("../level3").stop()
 	get_tree().paused = true
+	get_node("../winmusic").play()

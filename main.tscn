@@ -26,7 +26,6 @@
 [ext_resource type="PackedScene" uid="uid://b3wi2gwga31ja" path="res://shop.tscn" id="11_rr0k2"]
 [ext_resource type="Texture2D" uid="uid://dufpcjqbm3uns" path="res://shopkeeperfinal.png" id="12_lyx6n"]
 [ext_resource type="Script" path="res://camera_swing_castle.gd" id="12_smw6v"]
-[ext_resource type="AudioStream" uid="uid://b7x7xjgx7pfku" path="res://Music/footsteps-dirt-gravel-6823 (mp3cut.net).mp3" id="13_dohrn"]
 [ext_resource type="AudioStream" uid="uid://b4gpe4spuqxhl" path="res://sword-battle-jingle-loop-96983.mp3" id="13_uv4sm"]
 [ext_resource type="AudioStream" uid="uid://cd8ukvfocr8l2" path="res://birds-19624.mp3" id="15_rubnu"]
 [ext_resource type="PackedScene" uid="uid://240rotwx60x6" path="res://lizardmob.tscn" id="17_usyxb"]
@@ -38,6 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://d076qpnjdudvg" path="res://NPC3.tscn" id="26_8aqi0"]
 [ext_resource type="PackedScene" uid="uid://dlabv0bh5rawv" path="res://NPC4.tscn" id="27_4n0pd"]
 [ext_resource type="PackedScene" uid="uid://cwqmxupgqgba1" path="res://NPC5.tscn" id="28_l5k7f"]
+[ext_resource type="AudioStream" uid="uid://bxy3wpu0uapjn" path="res://footsteps-dirt-gravel-6823-mp3cutnet_njG35dIY.mp3" id="31_vvsb1"]
 [ext_resource type="PackedScene" uid="uid://bquw28e70pw8k" path="res://kingmob.tscn" id="33_hfmdh"]
 [ext_resource type="PackedScene" uid="uid://cfixhnnqtjt1u" path="res://title.tscn" id="37_gldd1"]
 [ext_resource type="PackedScene" uid="uid://c1usjwe82t3m2" path="res://notification.tscn" id="38_w1yxt"]
@@ -8301,7 +8301,7 @@ parameters/looping = true
 
 [node name="StartPosition" type="Marker2D" parent="."]
 z_index = 4
-position = Vector2(576, 352)
+position = Vector2(1480, 2040)
 
 [node name="TileGridTop" type="TileMapLayer" parent="."]
 z_index = 1
@@ -8346,6 +8346,7 @@ tile_set = SubResource("TileSet_ye10t")
 visible = false
 
 [node name="ShopKeeper" type="Area2D" parent="."]
+position = Vector2(-48, -144)
 script = ExtResource("10_3fo3l")
 
 [node name="Shop" parent="ShopKeeper" instance=ExtResource("11_rr0k2")]
@@ -9068,7 +9069,7 @@ polygon = PackedVector2Array(2599, 456, 2599, 443, 2582, 432, 2571, 442, 2572, 4
 [node name="Footsteps" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(1552, 976)
-stream = ExtResource("13_dohrn")
+stream = ExtResource("31_vvsb1")
 volume_db = 20.0
 max_distance = 100000.0
 
@@ -9218,7 +9219,7 @@ wait_time = 3.0
 
 [node name="level3" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
-position = Vector2(3160, 560)
+position = Vector2(2648, 840)
 stream = ExtResource("40_ae1gn")
 volume_db = 15.0
 

@@ -58,7 +58,8 @@ func _on_teleport_area_forest_body_entered(body: Node2D) -> void:
 		await get_tree().create_timer(1).timeout
 		get_tree().paused = false
 		player.can_move = true
-		get_node("level2").play()
+		if not get_node("level2").is_playing():
+			get_node("level2").play()
 
 
 
@@ -75,8 +76,10 @@ func _on_teleport_area_kingdom_body_entered(body: Node2D) -> void:
 		$FadeAnimationPlayer.play("fade_out")
 		get_tree().paused = false
 		player.can_move = true
-		get_node("level1").play()
-		get_node("level2").stop()
+		if not get_node("Level1").is_playing():
+			get_node("Level1").play()
+		if get_node("level2").is_playing():
+			get_node("level2").stop()
 
 func _on_teleport_area_castle_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
@@ -91,8 +94,10 @@ func _on_teleport_area_castle_body_entered(body: Node2D) -> void:
 		$FadeAnimationPlayer.play("fade_out")
 		get_tree().paused = false
 		player.can_move = true
-		get_node("level2").play()
-		get_node("level3").stop()
+		if not get_node("level2").is_playing():
+			get_node("level2").play()
+		if get_node("level3").is_playing():
+			get_node("level3").stop()
 
 func _on_teleport_area_kingdom_2_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
@@ -107,8 +112,11 @@ func _on_teleport_area_kingdom_2_body_entered(body: Node2D) -> void:
 		$FadeAnimationPlayer.play("fade_out")
 		get_tree().paused = false
 		player.can_move = true
-		get_node("level3").play()
-		get_node("level2").stop()
+		if not get_node("level3").is_playing():
+			get_node("level3").play()
+		if get_node("level2").is_playing():
+			get_node("level2").stop()
+
 
 func _on_inventory_button_pressed() -> void:
 	if get_node("Player/Inventory").offset.y == -500:

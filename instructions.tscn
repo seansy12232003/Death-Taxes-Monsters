@@ -87,6 +87,8 @@ offset_right = 396.0
 offset_bottom = 193.0
 text = "WASD TO MOVE
 KILL MONSTERS FOR XP
-LEVEL UP TO DEFEAT THE KING"
+LEVEL UP TO DEFEAT THE KING
+BUY ITEMS FOR DAMAGE
+"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

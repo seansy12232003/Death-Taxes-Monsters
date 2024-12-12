@@ -12,13 +12,13 @@ var items = {
 	},
 	1:{
 		"Name" : "Sword",
-		"Description" : "Slash",
+		"Description" : "A comically large Sword",
 		"Cost" : 25,
 		"Icon" : preload("res://sword.png")
 	},
 	2:{
 		"Name" : "Bow",
-		"Description" : "pew pew",
+		"Description" : "A picture of a bow?",
 		"Cost" : 25,
 		"Icon" : preload("res://bow.jpg")
 	},

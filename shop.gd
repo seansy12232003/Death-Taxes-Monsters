@@ -34,7 +34,7 @@ func _on_prev_pressed() -> void:
 
 func _on_buy_pressed() -> void:
 	var hasItem = false
-	if Global.gold > Global.items[currItem]["Cost"]:
+	if Global.gold >= Global.items[currItem]["Cost"]:
 		for i in Global.inventory:
 			if Global.inventory[i]["Name"] == Global.items[currItem]["Name"]:
 				Global.inventory[i]["Count"]+=1

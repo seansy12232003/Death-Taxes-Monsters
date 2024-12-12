@@ -142,6 +142,8 @@ func MonsterTurn():
 		await get_tree().create_timer(2).timeout
 		$Action.text = "You gained " + str(expToGain) + " exp!"
 		await get_tree().create_timer(2).timeout
+		$Action.text = "You gained 25 gold!"
+		await get_tree().create_timer(2).timeout
 		Game.addEXP(expToGain) # add exp to player and scale exp with monster level
 		Global.gold += 25
 		$"../../../Player/Level/RichTextLabel".text = "Level " + str(Game.selectedMonsters[0]["Level"]) + "  " + str(Game.selectedMonsters[0]["Exp"]) + "/" + str(Game.selectedMonsters[0]["MaxExp"])
@@ -151,6 +153,14 @@ func MonsterTurn():
 		$"../../../UI/AnimationPlayer".play("TransIn")
 		await get_tree().create_timer(1.5).timeout
 		$"../../../Player/Camera2D2".enabled = true
+		if Game.dataBaseMonsters[Game.selected]["Name"] == "King Taxalot":
+			get_node("../../../GameOverScreen/Label").text = "YOU HAVE DEFEATED THE KING AND FREED YOUR FATHER"
+			get_node("../../../GameOverScreen").show()
+			get_node("../../../UI/AnimationPlayer").play("TransOut")
+			get_node("../../../level3").stop()
+			get_node("../../../BattleMusic").stop()
+			get_tree().paused = true
+			get_node("../../../winmusic").play()
 		queue_free()
 		$"../../../UI/AnimationPlayer".play("TransOut")
 		Game.selectedMonsters[0]["Health"] = startHealth
@@ -158,6 +168,7 @@ func MonsterTurn():
 		minotaur.queue_free() # delete minotaur
 		get_node("../../../birds").play()
 		get_node("../../../Level1").play()
+			
 	
 	# wait for a second and show what the player did
 	await get_tree().create_timer(1.5).timeout 

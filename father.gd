@@ -40,6 +40,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		get_node("../Dialogue/DialogueBox/Panel/Label").text = ""
 		get_node("../Dialogue/DialogueBox").show()
+		if get_node("../BattleMusic").is_playing():
+			get_node("../BattleMusic").stop()
 		$Talk.play()
 		get_tree().paused = true
 		await get_tree().create_timer(0.8).timeout
@@ -50,7 +52,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		if Global.documents == 6:
 			get_node("../Dialogue/DialogueBox/Panel/Label").text = "You found all six tax documents! Let's go home."
 			$Talk.stop()
-			get_tree().create_timer(3).timeout
+			await get_tree().create_timer(3).timeout
 			game_over()
 		else: 
 			get_node("../Dialogue/DialogueBox/Panel/Label").text = "No, you didn't. Fight the king to free me please!"

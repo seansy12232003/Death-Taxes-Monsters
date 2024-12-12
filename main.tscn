@@ -8301,7 +8301,7 @@ parameters/looping = true
 
 [node name="StartPosition" type="Marker2D" parent="."]
 z_index = 4
-position = Vector2(1480, 2040)
+position = Vector2(576, 352)
 
 [node name="TileGridTop" type="TileMapLayer" parent="."]
 z_index = 1
